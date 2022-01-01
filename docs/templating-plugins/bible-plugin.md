@@ -2,8 +2,11 @@
 sidebar_position: 2
 ---
 
-# Sample Plugin
+# Sample Plugin - Bible
 The following is an actual plugin which can be used in your custom NotePlan plugins
+
+## Plugin Source
+**Filename:** BiblePlugin.js
 
 ```js
 /* eslint-disable no-case-declarations */

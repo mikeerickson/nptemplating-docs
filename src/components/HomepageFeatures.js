@@ -8,16 +8,17 @@ const FeatureList = [
     Svg: require('../../static/img/logo2.svg').default,
     description: (
       <>
-        Tired of having to input the same informations manually for each of your files? Automate everything with Templater.
+        Tired of having to input the same informations manually for each of your notes? Automate everything with np.Templating templating plugin.
       </>
     ),
   },
   {
-    title: 'Use Internal Variables/Methods',
+    title: 'Use Internal Variables / Methods',
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Enjoy pre-existing internal variables and functions built within Templater. Define your own user functions using system commands.
+        Whether it be one of the built-in variables or methods, or if you want to create your own custom interfaces, np.Templating has an exhaustive API to suit your needs
+
       </>
     ),
   },

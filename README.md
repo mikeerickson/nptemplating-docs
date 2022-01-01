@@ -1,41 +1,48 @@
-# Website
+# np.Templating Documentation
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+## Description
 
-### Installation
+np.Templating Documentation
 
-```
-$ yarn
-```
+## Usage
 
-### Local Development
+### Run Development Server
 
-```
-$ yarn start
+```bash
+npm run start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+### Build Project
 
-### Build
-
-```
-$ yarn build
+```bash
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### Deploy
 
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+npm run deploy
 ```
 
-Not using SSH:
+## Contributing
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Security
+
+If you discover any security related issues, please email [support@codedungeon.io](mailto:support@codedungeon.io) instead of using the issue tracker.
+
+## Credits
+
+np.Templating written by Mike Erickson
+
+E-Mail: [mike.erickson@codedungeon.io](mailto:mike.erickson@codedungeon.io)
+
+Twitter: [@codedungeon](http://twitter.com/codedungeon)
+
+Website: [codedungeon.io](https://codedungeon.io)
+
+## License
+
+Copyright &copy; 2022 Mike Erickson
+Released under the MIT [License](LICENSE)
