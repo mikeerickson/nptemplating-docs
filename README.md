@@ -2,7 +2,7 @@
 
 ## Description
 
-np.Templating Documentation
+`np.Templating` Documentation
 
 ## Usage
 
@@ -34,7 +34,7 @@ If you discover any security related issues, please email [support@codedungeon.i
 
 ## Credits
 
-np.Templating written by Mike Erickson
+`np.Templating` written by Mike Erickson
 
 E-Mail: [mike.erickson@codedungeon.io](mailto:mike.erickson@codedungeon.io)
 

@@ -1,16 +1,16 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Template Anatomy
-np.Templating supports a variety of template formats:
+`np.Templating` supports a variety of template formats:
 
 - Template Configuration - Default
 - Template Configuration - Extended
 - Template Configuration - Frontmatter
 
 ## Template Configuration - Default
-The first step to using np.Templating is to create a template in your NotePlan templates folder.
+The first step to using `np.Templating` is to create a template in your NotePlan templates folder.
 
 All NotePlan templates will exist in the `📋 Templates` folder in your project notes.
 
@@ -49,4 +49,4 @@ Hello World!
 ```
 
 ## Template Configuration - Frontmatter
-In addition to the standard template configuration, np.Templating also supports templates using frontmatter format
+In addition to the standard template configuration, `np.Templating` also supports templates using frontmatter format

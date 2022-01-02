@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # Introduction
 
-np.Templating is a template language plugin for NotePlan that lets you insert variables and method results into your notes.  It will also let you execute custom JavaScript constructed in teh tempaltes providing a rich note taking system.
+`np.Templating` is a template language plugin for NotePlan that lets you insert variables and method results into your notes.  It will also let you execute custom JavaScript constructed in teh tempaltes providing a rich note taking system.
 
 ## Getting Started
 
-Install np.Templating using the npTemplating Plugin Installer
+Install `np.Templating` using the npTemplating Plugin Installer
 
 _Note: The installer is only used during the beta period, once released it will be available as part of general NotePlan release_
 
