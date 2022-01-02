@@ -153,7 +153,7 @@ The breakdown of this template is as follows (for brevity, I have extracted only
 | 7     | Displays current weather using `WebModule.weater` method       |
 | 8     | Displays daily advice using `WebModule.advice` method      |
 | 14    | Displays personal `Bible.votd` method (Bible Plugin , verse of the day)    |
-|       | See _TODO:Templating Plugin_ section for information on creating custom np.Templating Plugins    |
+|       | See [Templating Plugins](/docs/templating-plugins/overview) section for information on creating custom `np.Templating` Plugins    |
 | 18    | Task to prepare for current day "Stand Up" (internal work function)    |
 | 21    | Time Block: Link to current day "Stand Up" note    |
 | 22    | Displays daily affirmation using `WebModule.affirmation` method    |

@@ -22,7 +22,7 @@ The syntax between a variable and method invocation is different, so it's import
 
 For example, `np.firstName` is an internal variable, whereas  `np.date.now()` is a method (method is followed by opening and closing parenthesis)
 
-More information about the different internal variables/methods is supplied in _TODO:Templating Modules_ section.
+More information about the different internal variables/methods is supplied in [Templating - Modules](/docs/templating-modules/overview) section.
 
 #### Variable Invocation
 To invoke a variable, you reference the desired module followed by variable name `np.firstName`

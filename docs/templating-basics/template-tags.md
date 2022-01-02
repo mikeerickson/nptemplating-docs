@@ -50,7 +50,7 @@ Displays current date from DateModule
 Displays result from `templates.services.developerQuote` defined in `_configuration` note
 
 :::info
-np.Templating doesn't escape characters by default. When doing web requests, it may be useful to escape dangerous characters. You can escape a command's response characters using the `<%-` tag.
+`np.Templating` doesn't escape characters by default. When doing web requests, it may be useful to escape dangerous characters. You can escape a command's response characters using the `<%-` tag.
 :::
 
 ```markdown

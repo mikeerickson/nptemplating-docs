@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('../../static/img/logo2.svg').default,
     description: (
       <>
-        Tired of having to input the same informations manually for each of your notes? Automate everything with np.Templating templating plugin.
+        Tired of having to input the same informations manually for each of your notes? Automate everything with `np.Templating` templating plugin.
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Whether it be one of the built-in variables or methods, or if you want to create your own custom interfaces, np.Templating has an exhaustive API to suit your needs
+        Whether it be one of the built-in variables or methods, or if you want to create your own custom interfaces, `np.Templating` has an exhaustive API to suit your needs
 
       </>
     ),

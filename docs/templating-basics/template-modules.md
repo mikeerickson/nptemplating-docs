@@ -8,7 +8,7 @@ While you can surely use templates which contain simple content, the real power 
 ## Built-in Modules (variables and methods)
 `np.Templating` includes a suite of built-in modules which are organized to provide groups of variables and methods.
 
-The following is a quick overview of all the included modules, for more details visit the _TODO:linkToModules_ section.
+The following is a quick overview of all the included modules, for more details visit the [Templating Modules](/docs/templating-modules/overview) section.
 
 ### Date Module
 [Date Module](/docs/templating-modules/date-module) contains every internal variable / method related to dates.

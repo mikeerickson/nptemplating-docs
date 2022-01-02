@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Overview
-np.Templating provides support for custom plugins which can be used in any template
+`np.Templating` provides support for custom plugins which can be used in any template
 
 ## Plugin Format
 
