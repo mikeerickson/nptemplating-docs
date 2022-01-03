@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 8
 ---
 
 # Syntax
@@ -7,15 +7,19 @@ sidebar_position: 6
 
 All `np.Templating` variables and methods are JavaScript objects which are invoked using a command.
 
+:::info
+For more information on `np.Templating` tags. Visit [`Templating - Definitions -> Template Tags`](/docs/templating-basics/template-tags)
+:::
+
 ## Command Syntax
 A command **must** have both an opening tag `<%` and closing `%>`, and if you want to show the results when template rendered, the opening tag will be `<%=` or `<%-` (unescaped output)
 
 ## Variable/Method Syntax
 
 ### Objects hierarchy
-All of `np.Templating`s variable and methods, whether it's an internal or custom one, are available under the `np` object (aka namespace). To access the variable or method of an object, you ues a dot `.` (e.g. `<%= date.now() %>`)
+All of `np.Templating`s variable and methods, whether it's an internal or custom method, will use a namespace. To access the variable or method of an object, you ues a dot `.` (e.g. `<%= date.now() %>`)
 
-_Note: For simplicity, all internal variable/methods `np` is optional_
+If you are using [prompt interface](/docs/templating-examples/prompt), if you are not immediately displaying prompt result, you should use the `user` namespace, which tells `np.Templating` this is a user variable.
 
 ### Object Invocation
 The syntax between a variable and method invocation is different, so it's important to understand the differences.
@@ -25,12 +29,18 @@ For example, `np.firstName` is an internal variable, whereas  `np.date.now()` is
 More information about the different internal variables/methods is supplied in [Templating - Modules](/docs/templating-modules/overview) section.
 
 #### Variable Invocation
-To invoke a variable, you reference the desired module followed by variable name `np.firstName`
+To invoke a variable, you reference the desired module followed by variable name
+
+:::info
+ `<%= date.DAY_NUMBER_SUNDAY %>`
+:::
 
 #### Method invocation
-To invoke a method, you reference the desired module, followed by the method name with opening and closing parenthesis after the method name.
+To invoke a method, you reference the desired module, followed by the method name with opening and closing parenthesis.
 
+:::info
 For example, if you want to get the current date of from the `date` module you would use `date.now()`
+:::
 
 A method may contain one or more arguments, which are placed between the opening and closing parenthesis
 
@@ -72,12 +82,12 @@ date.businessAdd(numDays?: integer = 1, pivotDate?:string = '', format?: string 
 
 You could then use this method in your template like
 
-```markdown
-<%= date.businessAdd() %>  // would return next business day using default `numDays` current date
+```javascript
+<%= date.businessAdd() %>  // would return next business day using default `numDays` and `pivotDate`
 
-<%= date.businessAdd(1) %>  // would return next business day using current date
+<%= date.businessAdd(1) %>  // would return next business day using `pivotDate`
 
 <%= date.businessAdd(1,'2021-12-22') %> // would return next business day using supplied `pivotDate`
 
-<%= date.businessAdd(1,'','MM/DD/YYYY')> // would reeturn next business day, using a custom format
+<%= date.businessAdd(1,'','MM/DD/YYYY')> // would return next business day, using a custom format
 ```

@@ -7,11 +7,12 @@ sidebar_position: 3
 
 ## Tags
 - `<%` 'Template' tag, for control-flow, no output
-- `<%_` ‘Whitespace Slurping’ Template tag, strips all whitespace before it
+- `<%_` ‘Whitespace Slurping’ Template tag, strips all whitespace before it ([example](#strip-whitespace))
 - `<%=` Outputs the value into the template (HTML escaped)
 - `<%-` Outputs the unescaped value into the template
 - `<%#` Comment tag, no execution, no output
 - `<%%` Outputs a literal '<%'
+- `-%>` ‘Whitespace Slurping’ Template tag, strips all whitespace after it ([example](#strip-whitespace))
 - `%>` Plain ending tag
 
 ## Output Tags
@@ -40,7 +41,7 @@ Display `fname` variable contained in templates section from _configuration note
 ```
 
 ### Standard output tag (module method)
-Displays current date from DateModule
+Displays current date from [Date Module](/docs/templating-modules/date-module)
 
 ```markdown
 <%= date.now() %>
@@ -55,4 +56,18 @@ Displays result from `templates.services.developerQuote` defined in `_configurat
 
 ```markdown
 <%- web.service('developerQuote') %>
+```
+
+### Strip Whitespace
+When you have have process tags (this which do no produce output), it is recommended that you use the `Whitespace Slurping` tags.
+
+```markdown
+<%_ const testName = 'Mike' -%>
+name: <%= user.testName %>
+```
+
+will produce the following output (notice it only contains the line which produces output `<%=`)
+
+```markdown
+name: Mike
 ```

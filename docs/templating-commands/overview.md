@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Overview
+# Commands Overview
 `np.Templating` provides a suite of default commands which can be executed within any note.
 
 ### Templating Initialization

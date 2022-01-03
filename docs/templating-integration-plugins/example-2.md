@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Example 2: Custom Variable
@@ -48,4 +48,4 @@ The breakdown of this template is as follows
 1: <%= name %>
 ```
 
-- The first line would display the value in `name` variable
+- `line 1`: display the value in `name` variable

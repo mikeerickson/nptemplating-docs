@@ -20,7 +20,7 @@ In addition to the `np:advice` command, you can also get a random quote within a
 ### Get Random Quote
 
 ```markdown
-<% weg.quote() %>
+<%= web.quote() %>
 ```
 
 ### Accessing Web Service

@@ -9,4 +9,12 @@ _TODO: Figure out how to expose plugin settings which can be attached to `_confi
 
 ## Plugin Source
 
-**Filename:** WeatherPlugin.js
+```javascript title="WeatherPlugin.js"
+// @flow
+
+const WeatherPlugin : mixed = {
+  // TODO:_AddPluginCode
+}
+
+module.exports = WeatherPlugin
+```

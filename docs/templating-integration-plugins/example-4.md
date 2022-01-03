@@ -1,16 +1,17 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Example 4: Full Example
 In this example, we will show a more complex method (taken from personal daily note command)
 
 *****
-In this example, I have a custom plugin `codedungeon.NotePlan` which contains a number of commands, one of which is called `cdWeekday` which I invoke each day in my NotePlan Daily Note.  There is quite a bit to this command, I will try to unpack every that is happening.
+In this example, I have a custom plugin `codedungeon.NotePlan` which contains a number of commands, one of which is called `cdWeekday` which I invoke each day in my NotePlan Daily Calendar Note.  There is quite a bit to this command, I will try to unpack every that is happening.
 
 ```js
 // @flow
 
+// import NPTemplating plugin
 import NPTemplating from 'NPTemplating'
 
 export async function cdWeekday(userDate: any = ''): Promise<void> {
@@ -20,6 +21,8 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 
     let pivotDate = userDate.length === 0 ? await cdGetSelectedCalendarDate() : userDate
     pivotDate = moment(pivotDate).format('MM/DD/YYYY')
+
+    // create some templateData (data and methods) that will be used within template
     const templateData = {
       data: {
         pivotDate,
@@ -41,12 +44,17 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
       },
     }
 
+   // invoke NPTemplating.renderTemplate method which loads template and processes
+   // using `templateData`
     const result = await NPTemplating.renderTemplate('Weekday Overview', templateData)
 
-    // create Standup Note
+    // create Standup Note (see Focused - 9:30 AM - 10:00 AM)
     await cdStandup(pivotDate)
 
+    // This replaces the `Please wait...' status message
     Editor.replaceTextInCharacterRange(content + result, 0, 16384)
+
+    // scrolls cursor to top of note
     Editor.highlightByIndex(0, 0)
   } catch (error) {
     cdLogError('cdWeekday', error)
@@ -57,7 +65,7 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 
 #### Weekday Overview Template
 
-```markdown
+```markdown title="📋 Templates / 🧰 Dungeon / Weekday Overview"
 # Weekday Overview
 *****
 # <%= date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>

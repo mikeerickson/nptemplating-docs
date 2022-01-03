@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Example 1: Hello World
@@ -72,8 +72,8 @@ The breakdown of this template is as follows
 3: Current Date: *<%= date.now() %>*
 ```
 
-- The first line is just some static text
+- `line 1`: display some static text
 
-- The second line will a blank line
+- `line 2`: display a blank line
 
-- The third line display current date, using the `DateModule.now` method
+- `line 3`: display current date, using the `DateModule.now()` method

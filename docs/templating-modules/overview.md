@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Overview
+# Modules Overview
 `np.Templating` includes a suite of modules which are available for inclusion in any template. Each module has a specific category (aka "namespace") which is used within your templates.
 
 ## Examples

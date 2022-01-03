@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Example 3: Custom Method
@@ -50,6 +50,6 @@ The breakdown of this template is as follows
 1: <%= sayHello('Mike') %>
 ```
 
-- The first line is just some static text
+- `line 1`: display some static text
 
-- The second line will invoke the `sayHello` method which returns `Hello Mike`
+- `line 2`: invoke the `sayHello` method which returns `Hello Mike`
