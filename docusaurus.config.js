@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'np.Templating',
   tagline: 'Templating Plugin for NotePlan',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://nptemplating-docs.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -87,7 +87,7 @@ const config = {
               },
               {
                 label: 'Changelog',
-                href: 'changelog',
+                href: '/docs/changelog',
               },
             ],
           },
