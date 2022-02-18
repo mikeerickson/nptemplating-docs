@@ -30,7 +30,7 @@ export async function templatingTasks(): Promise<void> {
 
     Editor.insertTextAtCursor(result)
   } catch (error) {
-    showError('testTemplateTask', error)
+    console.log('templatingTasks', error)
   }
 }
 ```

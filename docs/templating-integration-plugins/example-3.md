@@ -24,7 +24,7 @@ export async function templatingHelloWorld(): Promise<void> {
 
     Editor.insertTextAtCursor(result)
   } catch (error) {
-    showError('templateInstantiation', error)
+    console.log('templatingHelloWorld', error)
   }
 }
 ```

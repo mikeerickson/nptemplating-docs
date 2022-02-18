@@ -40,7 +40,7 @@ export async function showHelloWorld(): Promise<void> {
 
     Editor.insertTextAtCursor(result)
   } catch (error) {
-    showError('templateInstantiation', error)
+    console.log('showHelloWorld', error)
   }
 }
 ```

@@ -47,7 +47,7 @@ const config = {
             label: 'Tutorial',
           },
           {
-            href: 'https://github.com/codedungeon',
+            href: 'https://github.com/mikeerickson',
             label: 'GitHub',
             position: 'right',
           },
@@ -83,12 +83,17 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/codedungeon',
+                href: 'https://github.com/mikeerickson',
+              },
+              {
+                label: 'Changelog',
+                href: 'changelog',
               },
             ],
           },
+
         ],
-        copyright: `Copyright © 2021-2022 Codedungeon. All Rights Reserved.`,
+        copyright: `Copyright © 2022 Codedungeon. All Rights Reserved.`,
       },
       prism: {
         theme: lightCodeTheme,
