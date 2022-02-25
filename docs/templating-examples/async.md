@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 # Asynchronous Functions
-`np.Templating` supports async methods within templates, you will just preface the call to an async method using the `await` keyword just as you would writing the code in JavaScript.  One of those examples which uses async calls is the `WebModule` `services` method as demonstrated below, which uses the `template.services` key in `_configuration`
+`np.Templating` supports async methods within templates, you will just preface the call to an async method using the `await` keyword just as you would writing the code in JavaScript.  One of those examples which uses async calls is the `WebModule` `services` method as demonstrated below, which uses the `Web Services` key in np.Templating Settings (NotePlan -> Preferences -> Plugins -> Settings)
 
 ## Configuration
 

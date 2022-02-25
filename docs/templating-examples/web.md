@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 14
 ---
 
 # Web Services
@@ -24,7 +24,7 @@ In addition to the `np:advice` command, you can also get a random quote within a
 ```
 
 ### Accessing Web Service
-Using the `web.service()` method, you an access can item in the `templates.services` configuration object (located in `_configuration` note). For complete details, please refer to [Templating Modules | Web Module](/docs/templating-modules/web-module)
+Using the `web.service()` method, you an access can item in the _TODO_ `Web Services` in np.Templating Settings (NotePlan -> Preferences -> Plugins -> Settings). For complete details, please refer to [Templating Modules | Web Module](/docs/templating-modules/web-module)
 
 ```markdown
 <%= web.service('developerQuote') %>

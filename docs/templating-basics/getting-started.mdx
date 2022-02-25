@@ -1,0 +1,66 @@
+---
+sidebar_position: 1
+---
+
+# Getting Started
+
+With `np.Templating`, you will be able to create powerful templates to automate common manual tasks.
+
+## Quick Example
+
+The following example demonstrates how you create a **template** and use `np.Templating` tags to place dynamic **output**.
+
+The template meta data is everything before the first separator (`---`) and everything after separator will be template content.
+
+**line 1:** Template Name (required)
+
+**line 2:** Template Description
+
+**line 3:** _blank line_
+
+**line 4-6:** Bullet items, providing additional information
+
+**line 7:** Separator, ending template meta data
+
+:::note
+This example was executed on 2021-12-24 and previous `date.yesterday()` and next `date.tomorrow()` days are determined by `np.Templating` internal date value which is current date, unless otherwise specified.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="template" label="Template" default>
+
+```markdown
+# Templating Example
+This template can be used as a quick daily note
+
+* The first section surrounded by `--` will provide information when the note was created.
+* The second line creates backlinks to previous and next day notes
+---
+--
+created: <%= date.now('dddd MMMM Do, YYYY HH:mm A') %>
+--
+
+< -- [[<%= date.yesterday('YYYY-MM-DD') %>]] | [[<%= date.tomorrorw('YYYY-MM-DD') %>]] -- >
+
+And the remainder of the template will be display here ...
+```
+
+  </TabItem>
+  <TabItem value="output" label="Output">
+
+```text
+--
+created: Friday December 24th, 2021 04:23 AM
+--
+
+< -- [[2021-12-23]] | [[2021-12-25]] -- >
+
+And the remainder of the template will be display here ...
+```
+
+  </TabItem>
+
+</Tabs>

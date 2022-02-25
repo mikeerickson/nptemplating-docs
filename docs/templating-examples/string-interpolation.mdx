@@ -1,0 +1,58 @@
+---
+sidebar_position: 13
+---
+
+# String Interpolation
+
+## Overview
+You can use standard JavaScript string interpolation within `np.Templating` tags.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="code" label="Plugin Code" default>
+
+For example, using the following in your plugin code, you can provide the referenced `fname`, `mname`, and `lname` variables
+
+
+```javascript
+export async function templatingInterpolation(): Promise<void> {
+  try {
+    const data = { fname: 'Mike', mname: 'Joseph', lname: 'Erickson' }
+
+    const result = await NPTemplating.renderTemplate('Test (Interpolation)', data)
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+    showError(error)
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="template" label="Template">
+
+In your template, you can reference these variables
+
+:::warning
+Make sure you use the standard interpolation ticks (`) around the text block which contains desired variables
+:::
+
+  ```markdown
+  Full Name:  <%- `${fname} ${mname} ${lname}` %>
+  ```
+
+  </TabItem>
+
+  <TabItem value="output" label="Output">
+
+  When your template is rendered, it will appear as
+
+  ```markdown
+  Full Name: Mike Joseph Erickson
+  ```
+
+  </TabItem>
+
+</Tabs>

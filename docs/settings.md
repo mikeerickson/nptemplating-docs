@@ -3,7 +3,15 @@ sidebar_position: 3
 ---
 
 # Settings
-Using the NotePlan Plugin Settings interface (`NotePlan -> Preferences`), you can customize the following items:
+Using the NotePlan Plugin Settings interface you can customize various settings to control how how templates display information.
+
+**Step 1:** Open NotePlan Preferences (NotePlan -> Preferences) and click the Plugins tab
+
+**Step 2:** Find `np.Templating` in the NotePlan Plugin list
+
+**Step 3:** Click the gear icon to access `np.Templating` settings
+
+![np.Templating Settings](/img/noteplan-plugin-settings.png)
 
 #### Locale
 Default: `en-US`
