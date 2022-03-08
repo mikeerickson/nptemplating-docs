@@ -22,7 +22,7 @@ For example, if you are using something like the following:
 Replace with
 
 ```js
-<%= formattedDateTime({format: '%A, %B %d, %Y'}) $>
+<%= formattedDateTime({format: '%A, %B %d, %Y'}) %>
 ```
 
 ## Disable Templates
