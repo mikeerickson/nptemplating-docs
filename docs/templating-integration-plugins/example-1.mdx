@@ -29,21 +29,32 @@ const templateData = {
 ```
 
 *****
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="code" label="Plugin Code" default>
+
 For example, if you have an arbitrary plugin method called `showHelloWorld` it could look something like the follwoing
 
-```js
+  ```javascript
 import NPTemplating from 'NPTemplating'
 
 export async function showHelloWorld(): Promise<void> {
-  try {
-    const result = await NPTemplating.renderTemplate('Template (Hello World)')
+    try {
+      const result = await NPTemplating.renderTemplate('Template (Hello World)')
 
-    Editor.insertTextAtCursor(result)
-  } catch (error) {
-    console.log('showHelloWorld', error)
-  }
+      Editor.insertTextAtCursor(result)
+    } catch (error) {
+      console.log('showHelloWorld', error)
+    }
 }
 ```
+
+  </TabItem>
+
+  <TabItem value="template" label="Template">
 
 Then, you will have a templated name `Template (Hello World)` located in your NotPlan template folder with the following
 
@@ -53,14 +64,6 @@ Then, you will have a templated name `Template (Hello World)` located in your No
 This portion will be used as the template!
 
 Current Date: *<%= date.now() %>*
-```
-
-Would produce the following output when the custom command is invoked
-
-```markdown
-This portion will be used as the template!
-
-Current Date: *2021-12-24*
 ```
 
 #### Template Breakdown
@@ -77,3 +80,19 @@ The breakdown of this template is as follows
 - `line 2`: display a blank line
 
 - `line 3`: display current date, using the `DateModule.now()` method
+
+
+  </TabItem>
+
+  <TabItem value="output" label="Output">
+
+Would produce the following output when the custom command is invoked
+
+```markdown
+This portion will be used as the template!
+
+Current Date: *2021-12-24*
+```
+
+  </TabItem>
+</Tabs>
