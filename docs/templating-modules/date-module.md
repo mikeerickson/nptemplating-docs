@@ -11,7 +11,12 @@ The Date Module provides methods and variables which work with dates.
 Refer to [Time Module](/docs/templating-modules/time-module) for similar methods which work with with time values)
 :::
 
-:::tip
+:::info
+#### DateModule Helpers
+The DateModule exposes commonly used [helper](/docs/templating-modules/date-module#helpers) methods
+:::
+
+:::info
 #### Formatting Dates
 The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options
 :::
@@ -40,6 +45,8 @@ This is necessary due to the way NotePlan handles dates. If you are passing a da
 > #### now(format? : string = '', offset? : string = '') : string
 Returns a string representation current date.
 
+_Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
+
 - `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
 - `offset?` - Offset can be used to add/subtract `d`, `w`, `m` (use negative number to subtract values)
 
@@ -62,6 +69,8 @@ The following example returns current date using custom format
 *****
 > #### format(format : string = '', pivotDate? : string = '') : string
 Formats `pivotDate` using supplied `format`
+
+_Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
 
 - `format?` - A valid date format string
 - `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
@@ -317,6 +326,9 @@ The following returns previous business day based on `pivotDate`
 ## Using DateModule in NotePlan Plugins
 In addition to using the Date Module methods in templates, you can also use within your custom NotePlan plugins.
 
+### Date Module Methods
+The following examples demonstrates how you can use some of the Date Module methods
+
 #### Using `DateModule.previousBusinessDay` method
 
 ```javascript
@@ -346,5 +358,28 @@ export async testNextBusinessDay() : Promise<string> {
 	}
 
 	return ''
+}
+```
+
+### Helpers
+DateModule exposes commonly used methods as importable helpers
+
+- format
+- now
+
+```javascript
+// import np.Templating Library
+import NPTemplating from 'NPTemplating'
+import DateModule from '@templatingModules/DateModule'
+import { now, format } from '@templatingModules/DateModule'
+
+const templateData = {
+	data: {
+		testDate: new DateModule().now(), // returns current date using .now module method
+		myDate: now(), // returns current date, using default format YYYY-MM-DD
+		myDateFormatted: format('YYYY MM DD','2022-03-18') // returns 2022 03 18
+	}
+
+	const renderedData = NPTemplating.renderTemplate('My Template', data)
 }
 ```
