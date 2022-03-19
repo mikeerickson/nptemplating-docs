@@ -142,8 +142,8 @@ The breakdown of this template is as follows (for brevity, I have extracted only
 ...
 3: # <%= date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
 ...
-7: > ☀️ <%- web.weather() %>
-8: > 🙆 “<%- web.advice() %>”
+7: > ☀️ <%- weather() %>
+8: > 🙆 “<%- advice() %>”
 ...
 14: <%- await Bible.votd() %>
 ...
@@ -158,7 +158,7 @@ The breakdown of this template is as follows (for brevity, I have extracted only
 | Line        | Description |
 | ----- | -------------------------------------------------------------------------------------------------------- |
 | 3     | Displays date using `DateModule.format` method, and supply the date using `data.pivotDate` variable       |
-| 7     | Displays current weather using `WebModule.weater` method       |
+| 7     | Displays current weather using `WebModule.weather` method       |
 | 8     | Displays daily advice using `WebModule.advice` method      |
 | 14    | Displays personal `Bible.votd` method (Bible Plugin , verse of the day)    |
 |       | See [Templating Plugins](/docs/templating-plugins/overview) section for information on creating custom `np.Templating` Plugins    |
