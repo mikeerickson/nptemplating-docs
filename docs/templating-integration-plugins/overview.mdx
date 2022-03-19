@@ -79,10 +79,9 @@ The following information will help you migrate from `nmn.Templates` to `np.Temp
 ### Update `dailyStart` method
 In this example, we will refactor the `jgClark.DailyJournal.dailyStart` command.
 
-```javascript title="jgClark.DailyJournal.dailyStart"
+```javascript title="jgclark.DailyJournal.dailyStart"
 // Start the currently open daily note with the user's Daily Note Template
 export async function dayStart(today: boolean = false) {
-  console.log(`\ndayStart:`)
   if (today) {
     // open today's date in the main window, and read content
     await Editor.openNoteByDate(new Date(), false)
@@ -99,7 +98,7 @@ export async function dayStart(today: boolean = false) {
 }
 ```
 
-#### Modified `jgClark.DailyJournal.dailyStart` method
+#### Modified `jgclark.DailyJournal.dailyStart` method
 The following is the modified method (only modified 3 lines of code)
 
 - import `NPTemplating` plugin
@@ -107,7 +106,7 @@ The following is the modified method (only modified 3 lines of code)
 - Call `NPTemplating.renderTemplate` method
 - Insert result to current cursor in NotePlan note
 
-```javascript title="jgClark.DailyJournal.dailyStart"
+```javascript title="jgclark.DailyJournal.dailyStart"
 ...
 import NPTemplating from "NPTemplating"
 

@@ -18,13 +18,13 @@ This command will also be automatically whenever an `np.Templating` command is e
 The following default commands are included in `np.Templating` plugin and do not require any configuration
 
 #### np:append
-`np:append` will show a list of all templates located in `📋 Templates` folder, and will render at the cursor location of the current note.
+`np:append` will show a list of all templates located in the `Templates` folder, and will render at the cursor location of the current note.
 
 #### np:insert
-`np:insert` will show a list of all templates located in `📋 Templates` folder, and will render at the beginning of the current note.
+`np:insert` will show a list of all templates located in the `Templates` folder, and will render at the beginning of the current note.
 
 #### np:new
-`np:new` will show a list of all templates in `📋 Templates` folder, then create a new project note using supplied note name.
+`np:new` will show a list of all templates in the `Templates` folder, then create a new project note using supplied note name.
 
 ### Templating Service Commands
 The following commands can be used to insert various web service commands
@@ -42,4 +42,15 @@ The following commands can be used to insert various web service commands
 `np:verse` will insert random bible verse at the cursor location of the current note.
 
 #### np:weather
-`np:weather` will insert weather of current location at the cursor location of the current note.
+`np:weather` will insert weather of current location at the cursor location of the current note.  It can take a single string parameter that gives a format for the resulting weather data from wttr.in. For example:
+```
+Weather: <%- np.weather( ':icon: :description: :mintempC:-:maxtempC:°C (:location:)' ) %>
+```
+will produce something like
+```
+Weather: ☀️ Sunny 6-16°C (Basingstoke)
+```
+See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity: `). Plus the following are available from elsewhere in the harder-to-access parts of the JSON:
+- `areaName`
+- `mintempC` and `maxtempC` for the current day in Celsius
+- `mintempF` and `maxtempF` for the current day in Fahrenheit
