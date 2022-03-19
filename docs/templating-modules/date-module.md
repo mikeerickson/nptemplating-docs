@@ -66,6 +66,41 @@ The following example returns current date using custom format
 <%= date.now("dddd Do MMMM YYY") %>
 ```
 
+The following example uses the `now` helper
+
+```markdown
+<%= now() %>
+```
+
+> #### timestamp(format? : string = '') : string
+Returns date/time timestamp with optional format
+
+_Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
+
+- `format?` - Desired date format. If not supplied, will use `YYYY-MM-DD h:mm A` format
+
+- `-> result` - Returns formatted timestamp string
+
+**Examples**
+
+The following example returns the current date, using default values
+
+```markdown
+<%= date.timestamp() %>
+```
+
+The following example returns current date using custom format
+
+```markdown
+<%= date.timestamp("dddd Do MMMM YYY") %>
+```
+
+The following example uses the `timestamp` helper
+
+```markdown
+<%= timestamp() %>
+```
+
 *****
 > #### format(format : string = '', pivotDate? : string = '') : string
 Formats `pivotDate` using supplied `format`
@@ -364,20 +399,24 @@ export async testNextBusinessDay() : Promise<string> {
 ### Helpers
 DateModule exposes commonly used methods as importable helpers
 
-- format
 - now
+- format
+- date8601
+- timestamp
 
 ```javascript
 // import np.Templating Library
 import NPTemplating from 'NPTemplating'
 import DateModule from '@templatingModules/DateModule'
-import { now, format } from '@templatingModules/DateModule'
+import { now, format, timestamp, date8601 } from '@templatingModules/DateModule'
 
 const templateData = {
 	data: {
 		testDate: new DateModule().now(), // returns current date using .now module method
 		myDate: now(), // returns current date, using default format YYYY-MM-DD
-		myDateFormatted: format('YYYY MM DD','2022-03-18') // returns 2022 03 18
+		myDate2: date8601(), // returns current date in 8601 format YYYY-MM-DD (alias of now)
+		myDateFormatted: format('YYYY MM DD','2022-03-18'), // returns 2022 03 18
+		myTimeStamp: timestamp()
 	}
 
 	const renderedData = NPTemplating.renderTemplate('My Template', data)
