@@ -24,7 +24,7 @@ The Date Module uses JavaScript `moment` library internally, thus you can use an
 ## Methods
 > namespace: `date`
 
-The following are the methods available in the Date Module, and they can be used in any `np.Templating` template, no additional configuration is required.
+The following are the methods available in the Date Module, and they can be used in any `np.Templating` template, no additional configuration required.
 
 :::note
 `pivotDate` - Many of the Date Module methods accept a `pivotDate` argument, which means the date which will be used to perform the appropriate calculation.  When no `pivotDate` is supplied, the current date will be used.

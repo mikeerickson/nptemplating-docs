@@ -40,6 +40,20 @@ Default: `<system>`
 
 Desired date format, used when referencing time object (e.g. `<% time.now() %`)
 
+#### Timestamp Format
+Default: `<system>`
+
+Desired timestamp format, used when referencing timestamp object (e.g. `<% date.timestamp() %`)
+
+#### Weather Format
+
+Desired weather format string when referencing web weather (e.g. `<% web.weather() %`)
+
+#### Quick Notes Folder Name
+Default: 🗒 Quick Notes
+
+Desired location of Quick Notes templates for `np:qtn` command
+
 #### Web Service
 A JSON object which is accessible using `web.services()` method
 

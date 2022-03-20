@@ -26,6 +26,9 @@ The following default commands are included in `np.Templating` plugin and do not
 #### np:new
 `np:new` will show a list of all templates in the `Templates` folder, then create a new project note using supplied note name.
 
+#### np:qtn
+`np:qtn` will show a list of Quick Note templates located in the `Quick Notes` folder, and will create new note using selected Quick Note.
+
 ### Templating Service Commands
 The following commands can be used to insert various web service commands
 
@@ -42,28 +45,8 @@ The following commands can be used to insert various web service commands
 `np:verse` will insert random bible verse at the cursor location of the current note.
 
 #### np:weather
-`np:weather` will insert weather of current location at the cursor location of the current note.  It can take a single string parameter that gives a format for the resulting weather data from wttr.in. For example:
+`np:weather` will insert weather of current location at the cursor location of the current note using format defined in `np.Templating` [settings](/docs/settings).
 
-`Weather: <%- np.weather( ':icon: :description: :mintempC:-:maxtempC:°C (:areaName:)' ) %>`
-
-will produce something like
-
-Weather: ☀️ Sunny 6-16°C (Basingstoke)
-
-`Weather: <%- np.weather( ':icon: :description: :FeelsLikeF:°F [low/high: :mintempF:-:maxtempF:°F, wind: :winddir16Point: :windspeedMiles:mph] (:areaName:, :region:) ' ) %>`
-
-will produce
-
-☁️ Partly cloudy 64°F [low/high: 58-68°F, wind: WSW 15mph] (Talbert, California)
-
-:::tip
-See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity: `).
+:::info
+Refer to [Web Module](/docs/templating-modules/web-module) for adding more detailed weather information in your templates
 :::
-
-In addition to current condition keys, the following are available from elsewhere in the harder-to-access parts of the JSON response:
-
-- `mintempC` and `maxtempC` for the current day in Celsius
-- `mintempF` and `maxtempF` for the current day in Fahrenheit
-- `areaName`
-- `region` for state att time of render
-- `country` for state att time of render

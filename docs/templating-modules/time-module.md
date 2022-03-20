@@ -14,7 +14,7 @@ Refer to [Date Module](/docs/templating-modules/date-module) for similar methods
 ## Methods
 > namespace: `time`
 
-The following are the methods available in the Time Module, and they can be used in any `np.Templating` template, no additional configuration is required.
+The following are the methods available in the Time Module, and they can be used in any `np.Templating` template, no additional configuration required.
 
 *****
 
