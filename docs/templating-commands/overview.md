@@ -49,6 +49,12 @@ The following commands can be used to insert various web service commands
 will produce something like
 
 Weather: ☀️ Sunny 6-16°C (Basingstoke)
+```
+See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity:` or `:uvIndex:`). Plus the following are available from elsewhere in the harder-to-access parts of the JSON:
+- `areaName` (local location)
+- `region` (which appears to map to States in USA and Counties in the UK)
+- `description` (textual description of the weather conditions)
+- `icon` (a suitable icon where it can match with the description)
 
 `Weather: <%- np.weather( ':icon: :description: :FeelsLikeF:°F [low/high: :mintempF:-:maxtempF:°F, wind: :winddir16Point: :windspeedMiles:mph] (:location:, :state:) ' ) %>`
 
