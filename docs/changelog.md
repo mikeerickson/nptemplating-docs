@@ -7,7 +7,7 @@ sidebar_position: 12
 ### np.Templating Versioning Uses Semver
 `np.Templating` follows `semver 2.0` versioning. For details, please refer to [semver website](https://semver.org/)
 
-### [0.1.0] - 2022-02-21
+### [1.0.0] - 2022-03-19
 
 ### Added
 Initial Release
