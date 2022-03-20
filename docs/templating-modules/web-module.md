@@ -14,6 +14,146 @@ The following are the methods available in the Web Module, and they can be used 
 
 *****
 
+> #### advice() : string
+Returns random advice
+
+*****
+
+> #### affirmation() : string
+Returns random affirmation
+
+*****
+
+> #### quote() : string
+Returns random quote
+
+*****
+
+> #### service(serviceOrUrl: string = '', key? : string = '') : string
+Returns service information from custom URL or entry from `np.Templating` [Web Service Setting](/docs/settings)
+
+- `serviceOrUrl?` - Value from Settings Web Services or Full API URL
+- `key?` - Array of API result index, keys or formatting values (see example below)
+
+**Example: Setting Service**
+The following example will return API information for `developerQuote` setting from settings
+
+```markdown
+<%- await web.services('developerQuote') %>
+```
+
+🙆 “I say looking on the bright side of life never killed anybody.”
+
+**Example: Setting Service**
+The following example will return API information for `developerQuote` setting from settings
+
+```markdown
+<%- await web.services('developerQuote') %>
+```
+
+🙆 “I say looking on the bright side of life never killed anybody.”
+
+**Example: Custom API Endpoint**
+The following example will retrieve value from defined API endpoint
+
+```markdown
+<%- await web.services('https://random-data-api.com/api/address/random_address',['street_address', '\n','secondary_address', '\n', 'city', ', ', 'state_abbr',' ','zip_code']) %>
+```
+
+API request returns following JSON data
+
+```json
+{
+"id": 9861,
+"uid": "fe3fe033-db73-474b-bb29-ae6ae7bf67ae",
+"city": "East Glenna",
+"street_name": "Houston Roads",
+"street_address": "34157 Purdy Island",
+"secondary_address": "Apt. 660",
+"building_number": "35118",
+"mail_box": "PO Box 2474",
+"community": "Summer Place",
+"zip_code": "07215-2642",
+"zip": "59694",
+"postcode": "14367",
+"time_zone": "America/Caracas",
+"street_suffix": "Viaduct",
+"city_suffix": "mouth",
+"city_prefix": "West",
+"state": "Alaska",
+"state_abbr": "PA",
+"country": "Poland",
+"country_code": "TK",
+"latitude": 38.36868710203052,
+"longitude": 137.08981449317662,
+"full_address": "96697 McGlynn Tunnel, Powlowskihaven, AL 38836-5753"
+}
+```
+
+Second parameter will build result, using array of indexes, keys and formatting strings
+
+- Use `street_address` key
+- Add newline character
+- Use `secondary_address` key
+- Add newline character
+- Use `city` key
+- Add comma character
+- Use `state_abbr` key
+- Add space character
+- Use `zip_code` key
+
+```javascript
+['street_address', '\n','secondary_address', '\n', 'city', ', ', 'state_abbr',' ','zip_code']
+```
+
+And will produce something like
+
+34157 Purdy Island
+Apt. 660
+East Glenna, PA 07215-2642
+
+Web request that returns array of results
+
+```javascript
+<%- await web.services('https://zenquotes.io/api/random',['[0].q', ', ', '[0].a']) %>
+```
+
+Returns an array of quotes
+
+```json
+[
+	{
+		"q": "A clever person turns great troubles into little ones, and little ones into none at all. ",
+		"a": "Chinese Proverb",
+		"h": "<blockquote>&ldquo;A clever person turns great troubles into little ones, and little ones into none at all. &rdquo; &mdash; <footer>Chinese Proverb</footer></blockquote>"
+	}
+]
+```
+
+And piece together using `key`
+
+```javascript
+['[0].q', ', ', '--', '[0].a']
+```
+
+- Access first array element, grabbing `q` key
+- Add comma character
+- Add two dash characters
+- Access first array element, grabbing `a` key
+
+Will produce the following
+
+A clever person turns great troubles into little ones, and little ones into none at all.
+
+-- Chinese Proverb
+
+*****
+
+> #### verse() : string
+Returns random Bible verse
+
+*****
+
 > #### weather(format? : string = '') : string
 Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string.
 
@@ -34,7 +174,7 @@ In addition to `current_condition` keys, the following placeholders available fr
 - `region` for state att time of render
 - `country` for state att time of render
 
-**Examples: Default**
+**Example: Default**
 
 The following will use default weather format from `np.Templating` [settings](/docs/settings)
 
