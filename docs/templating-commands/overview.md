@@ -64,5 +64,6 @@ In addition to current condition keys, the following are available from elsewher
 
 - `mintempC` and `maxtempC` for the current day in Celsius
 - `mintempF` and `maxtempF` for the current day in Fahrenheit
+- `location`
 - `state` for state att time of render
 - `country` for state att time of render
