@@ -157,8 +157,8 @@ Returns random Bible verse
 > #### weather(format? : string = '') : string
 Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string.
 
-:::tip
-See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity: `).
+:::note
+You can set the default weather format in `np.Templating` [settings](/docs/settings) which will be used when `<%- web.weather() %>` command is executed
 :::
 
 - `format?` - If you wish to override the settings value, you can supply an optional format string with placeholders for the pieces of weather data you wish to output from `current_condition` key from `wttr.in` response.
@@ -174,7 +174,13 @@ In addition to `current_condition` keys, the following placeholders available fr
 - `region` for state att time of render
 - `country` for state att time of render
 
-**Example: Default**
+:::tip
+See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity: `).
+:::
+
+### Examples
+
+#### Default
 
 The following will use default weather format from `np.Templating` [settings](/docs/settings)
 
@@ -187,7 +193,7 @@ and produce something like
 Fountain Valley, California, United States: ⛅️  +55°F
 
 *****
-**Examples: Custom Format String**
+#### Custom Format String
 
 The following will override the default weather format from `np.Templating` settings
 

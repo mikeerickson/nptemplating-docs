@@ -47,7 +47,7 @@ Returns a string representation current date.
 
 _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
 
-- `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
+- `format?` - Desired date format. If not supplied, it will use the **Date Format** value in `np.Templating` [Plugin Settings](/docs/settings)
 - `offset?` - Offset can be used to add/subtract `d`, `w`, `m` (use negative number to subtract values)
 
 - `-> result` - Returns formatted date string
@@ -117,7 +117,7 @@ _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) 
 > #### today(format? : string = '') : string
 Returns a string representation current date.
 
-- `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
+- `format?` - Desired date format. If not supplied, it will use **Date Format** value in `np.Templating` [Plugin Settings](/docs/settings)
 
 - `-> result` - Returns formatted date string
 
@@ -134,7 +134,7 @@ The following example returns the current date, using default values
 > #### tomorrow(format? : string = '') : string
 Returns a string representation of tomorrow
 
-- `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
+- `format?` - Desired date format. If not supplied, it will use the **Date Format** value in `np.Templating` [Plugin Settings](/docs/settings)
 
 - `-> result` - Returns formatted date
 
@@ -151,7 +151,7 @@ The following example returns tomorrow based on current date
 > #### yesterday(format? : string = '') : string
 Returns a string representation of yesterday
 
-- `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
+- `format?` - Desired date format. If not supplied, it will use the **Date Format** in `np.Templating` [Plugin Settings](/docs/settings)
 
 - `-> result` - Returns formatted date
 
@@ -168,7 +168,7 @@ The following example returns yesterday based on current date
 > #### weekday(format? : string = '', offset? : number = 1, pivotDate? : string = '') : string
 Returns the closest weekday, using the `offset` to add or subtract days
 
-- `format?` - Desired date format. If not supplied, it will use the format in `_configuration` note, using `templates.date.dateStyle`
+- `format?` - Desired date format. If not supplied, it will use the Date Format value in `np.Templating` [Plugin Settings](/docs/settings)
 - `offset?` - Date offset, using `d`, `w`, `m`, or `y`
 - `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
 

@@ -1,11 +1,19 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Example 4: Full Example
 In this example, we will show a more complex method (taken from personal daily note command)
 
 *****
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="code" label="Plugin Code" default>
+
+
 In this example, I have a custom plugin `codedungeon.NotePlan` which contains a number of commands, one of which is called `cdWeekday` which I invoke each day in my NotePlan Daily Calendar Note.  There is quite a bit to this command, I will try to unpack every that is happening.
 
 ```js
@@ -63,9 +71,14 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 
 ```
 
+  </TabItem>
+
+  <TabItem value="template" label="Template">
+
+
 #### Weekday Overview Template
 
-```markdown title="📋 Templates / 🧰 Dungeon / Weekday Overview"
+```markdown title="@Templates / 🧰 Dungeon / Weekday Overview"
 # Weekday Overview
 *****
 # <%= date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
@@ -102,6 +115,11 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 **📕 Tomorrow:** [[<%= np.tomorrow %>]]
 
 ```
+
+  </TabItem>
+
+  <TabItem value="output" label="Output">
+
 
 Would produce the following output when the custom command is invoked on 2021-12-31
 
@@ -167,3 +185,8 @@ The breakdown of this template is as follows (for brevity, I have extracted only
 | 22    | Displays daily affirmation using `WebModule.affirmation` method    |
 | 26    | Creates an additional time block entry for Friday retrospect, using `handleRetrospect` method (defined in templateData.methods)    |
 | 34    | Daily review section, link to tomorrow date    |
+
+
+  </TabItem>
+
+</Tabs>

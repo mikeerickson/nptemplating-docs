@@ -21,7 +21,7 @@ The following are the methods available in the Time Module, and they can be used
 > #### now(format? : string = '') : string
 Returns a string representation current time.
 
-- `format?` - Desired time format. If not supplied, it will use the format in `_configuration` note, using `templates.date.timeStyle`
+- `format?` - Desired time format. If not supplied, it will use the **Time Format** value in `np.Templating` [Plugin Settings](/docs/settings)
 
 - `-> result` - Returns formatted time string
 
@@ -44,7 +44,7 @@ The following example returns current time using custom format
 > #### currentTime(format? : string = '') : string
 Returns a string representation current time.
 
-- `format?` - Desired time format. If not supplied, it will use the format in `_configuration` note, using `templates.date.timeStyle`
+- `format?` - Desired time format. If not supplied, it will use the **Time Format** in `np.Templating` [Plugin Settings](/docs/settings)
 
 - `-> result` - Returns formatted time string
 

@@ -1,14 +1,20 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Example 3: Custom Method
 In this example, we will expand second example, adding a custom method which is exposed through the `templateData` argument on the `renderTemplate` method
 
 *****
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="code" label="Plugin Code" default>
 For example, if you have an arbitrary plugin method called `sayHello` it could look something like the following
 
-```js
+```javascript
 import NPTemplating from 'NPTemplating'
 
 export async function templatingHelloWorld(): Promise<void> {
@@ -29,6 +35,10 @@ export async function templatingHelloWorld(): Promise<void> {
 }
 ```
 
+  </TabItem>
+
+  <TabItem value="template" label="Template">
+
 Then, you will have a templated name `Template (Hello World)` located in your NotPlan template folder with the following
 
 ```markdown
@@ -36,6 +46,10 @@ Then, you will have a templated name `Template (Hello World)` located in your No
 *****
 <%= sayHello('Mike') %>
 ```
+
+  </TabItem>
+
+  <TabItem value="output" label="Output">
 
 Would produce the following output when the custom command is invoked
 
@@ -53,3 +67,8 @@ The breakdown of this template is as follows
 - `line 1`: display some static text
 
 - `line 2`: invoke the `sayHello` method which returns `Hello Mike`
+
+
+  </TabItem>
+
+</Tabs>

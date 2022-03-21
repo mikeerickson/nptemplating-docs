@@ -34,10 +34,10 @@ The standard flow tag `<%` is used when you want to perform a standard JavaScrip
 ```
 
 ### Standard output tag (variable)
-Display `fname` variable contained in templates section from _configuration note
+Display `first` name variable contained in `np.Templating` [Plugin Settings](/docs/settings)
 
 ```markdown
-<%= fname %>
+<%= user.first %>
 ```
 
 ### Standard output tag (module method)
@@ -48,7 +48,7 @@ Displays current date from [Date Module](/docs/templating-modules/date-module)
 ```
 
 ### Unescaped Output Tag
-Displays result from `templates.services.developerQuote` defined in `_configuration` note
+Displays result from `templates.services.developerQuote` defined in `np.Templating` [Plugin Settings](/docs/settings)
 
 :::info
 `np.Templating` doesn't escape characters by default. When doing web requests, it may be useful to escape dangerous characters. You can escape a command's response characters using the `<%-` tag.

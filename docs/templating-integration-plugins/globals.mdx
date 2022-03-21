@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+
+# Globals
+`np.Templating` has implemented global methods which were created using `addTag` method in `nmn.Templates/src/templateController.js` method to aid in migrating legacy templates to `np.Templating`
+
+The following methods are available for backwards compatibility with legacy templating, you should use the alternate method where defined.
+
+| legacy method | new method where applicable
+|-------------- | ----------
+| affirmation | `<%- web.affirmation() %>`
+| advice | `<%- web.advice() %>`
+| quote | `<%- web.quote() %>`
+| progressUpdate | _currently no replacement_
+| weather | `<%- web.weather() %>`
+| data8601 | `<%- date8601() %>`
+| currentDate | `<%- date.now() %>`
+| pickDate | _currently no replacement_
+| pickDateInterval | _currently no replacement_
+| events | _currently no replacement_
+| listTodaysEvents | _currently no replacement_
+| matchingEvents | _currently no replacement_
+| listMatchingEvents | _currently no replacement_
+| sweepTasks | _currently no replacement_
+| formattedDateTime | _currently no replacement_
+| weekDates | _currently no replacement_
+
+
+## Using Custom Methods in Templates
+If you are creating a new NotePlan plugin which needs access to custom methods, you should use the approach described in [Example 3 - Custom Methods](/docs/templating-integration-plugins/example-3)

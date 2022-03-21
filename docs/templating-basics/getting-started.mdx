@@ -10,6 +10,13 @@ With `np.Templating`, you will be able to create powerful templates to automate 
 
 The following example demonstrates how you create a **template** and use `np.Templating` tags to place dynamic **output**.
 
+`np.Templating` supports a variety of template formats
+
+- [Legacy Templates](template-anatomy#template-configuration---legacy)
+- [Frontmatter Templates](template-anatomy#template-configuration---frontmatter)
+
+### Legacy Templates
+
 The template meta data is everything before the first separator (`---`) and everything after separator will be template content.
 
 **line 1:** Template Name (required)
@@ -39,11 +46,13 @@ This template can be used as a quick daily note
 * The first section surrounded by `--` will provide information when the note was created.
 * The second line creates backlinks to previous and next day notes
 ---
+Everything below the first `---` will be template content
+
 --
 created: <%= date.now('dddd MMMM Do, YYYY HH:mm A') %>
 --
 
-< -- [[<%= date.yesterday('YYYY-MM-DD') %>]] | [[<%= date.tomorrorw('YYYY-MM-DD') %>]] -- >
+< -- [[<%= date.yesterday('YYYY-MM-DD') %>]] | [[<%= date.tomorrow('YYYY-MM-DD') %>]] -- >
 
 And the remainder of the template will be display here ...
 ```

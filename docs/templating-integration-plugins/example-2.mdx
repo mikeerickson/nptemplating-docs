@@ -1,14 +1,20 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Example 2: Custom Variables
 In this example, we will expand on first example, adding a custom variable which is exposed through the `templateData` argument on the `renderTemplate` method
 
 *****
-For example, if you have an arbitrary plugin method which would output a variable, it would be constructed as follows:
 
-```js
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="code" label="Plugin Code" default>
+For example, if you have an arbitrary plugin method which would output a variable, it would be constructed as follows
+
+```javascript
 import NPTemplating from 'NPTemplating'
 
 export async function templatingHelloWorld(): Promise<void> {
@@ -27,6 +33,10 @@ export async function templatingHelloWorld(): Promise<void> {
 }
 ```
 
+</TabItem>
+
+<TabItem value="template" label="Template">
+
 Then, you will have a templated name `Template (Hello World)` located in your NotPlan template folder with the following
 
 ```markdown
@@ -34,6 +44,10 @@ Then, you will have a templated name `Template (Hello World)` located in your No
 *****
 <%= name %>
 ```
+
+</TabItem>
+
+<TabItem value="output" label="Output">
 
 Would produce the following output when the custom command is invoked
 
@@ -49,3 +63,7 @@ The breakdown of this template is as follows
 ```
 
 - `line 1`: display the value in `name` variable
+
+
+</TabItem>
+</Tabs>

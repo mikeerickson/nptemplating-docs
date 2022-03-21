@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Settings
+# Plugin Settings
 Using the NotePlan Plugin Settings interface you can customize various settings to control how how templates display information.
 
 **Step 1:** Open NotePlan Preferences (NotePlan -> Preferences) and click the Plugins tab
@@ -13,53 +13,75 @@ Using the NotePlan Plugin Settings interface you can customize various settings 
 
 ![np.Templating Settings](/img/noteplan-plugin-settings.png)
 
-#### Locale
+## Plugin Setting Keys
+
+### Locale
 Default: `en-US`
 
-The locale which is used when creating date or time formats.
+The locale which is used when creating date or time formats
+- If locale is empty, the default langue `en-US` will be used
+- If locale `<system>`, the operating system locale will be used
 
-#### First Name
+### First Name
 Your first name, used when referencing user object (e.g. `<%= user.first %>`)
 
-#### Last Name
+### Last Name
 Your last name, used when referencing user object (e.g. `<%= user.last %>`)
 
-#### Email
+### Email
 Your email, used when referencing user object (e.g. `<%= user.email %>`)
 
-#### Phone
+### Phone
 Your phone number, used when referencing user object (e.g. `<%= user.phone %>`)
 
-#### Date Format
+### Date Format
 Default: `<system>`
 
 Desired date format, used when referencing date object (e.g. `<% date.now() %`)
 
-#### Time Format
+### Time Format
 Default: `<system>`
 
 Desired date format, used when referencing time object (e.g. `<% time.now() %`)
 
-#### Timestamp Format
+### Timestamp Format
 Default: `<system>`
 
 Desired timestamp format, used when referencing timestamp object (e.g. `<% date.timestamp() %`)
 
-#### Weather Format
+### Weather Format
 
 Desired weather format string when referencing web weather (e.g. `<% web.weather() %`)
 
-#### Quick Notes Folder Name
-Default: 🗒 Quick Notes
+### Quick Notes Folder Name
+Default: 🗒  Quick Notes
 
-Desired location of Quick Notes templates for `np:qtn` command
+Desired folder Quick Note templates (within `@Templates` folder) when using `np:qtn` command
 
-#### Web Service
-A JSON object which is accessible using `web.services()` method
+### Web Services
+A JSON object which contains entries available when using `web.services()` method
 
 - For services which return a simple response, you can just supply URL
 - For services which return a JSON object, you can define the `url` and `keys`
 
+#### Web Services Example
+The following is an example of how `web services` should be defined
+
+Each `service` is defined by a unique key (e.g. 'advice') and may contain a single value which is the desire `url` or an object which has `url` and `keys` properties
+
+```markdown
+<%- web.services('serviceName') %>
+```
+
+```json
+{
+  "advice" : "https://api.adviceslip.com\/advice",
+  "verse" : {
+    "url" : "https://labs.bible.org/api/?passage=random&type=json",
+    "keys" : [ "> 🙏🏻 ", "[0].bookname", " ", "[0].chapter", ":", "[0].verse", "\n> 🗣 \"", "[0].text", "\"" ]
+  },
+}
+```
 :::info
 For more information about using web services, refer to [Web Module](/docs/templating-modules/web-module)
 :::
