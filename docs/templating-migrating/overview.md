@@ -7,8 +7,16 @@ sidebar_position: 1
 
 The following guide provides steps necessary for migrating from `Templates` (aka `nmn.Templates`) to `np.Templating`
 
-## Updating Templates
-The first step will be to modify those templates which you wish to use with `np.Templating` plugin.
+## Validating Templates
+The first step will be to validate your templates have migrated successfully when `np.Templating` was installed.
+
+:::info
+During the `np.Templating` process, all your templates which were located in you 📋 Templates folder were migrated and converted to the `np.Templating` syntax
+:::
+
+If you have templates which were not migrated correctly (we have attempted to cover all the possible templates, but there may be ones that `np.Templating` was not able to convert).
+
+The following steps should be followed to convert your templates to `np.Templating` format.
 
 #### Step 1: Change Template Tags
 `np.Templating` uses `<%=` and `%>` as opening and closing template tags
@@ -27,3 +35,15 @@ Replace with
 
 ## Disable Templates
 The final step will be disabling Templates
+
+**Step 1:** Open NotePlan Preferences (`NotePlan -> Preferences...`)
+
+**Step 2:** Select Plugins
+
+**Step 3:** Uncheck `Templates` checkbox to uninstall legacy Templates
+
+![Templating Prompt](/img/templates-uninstall.png)
+
+**Step 4:** Quit & Relaunch NotePlan
+
+**Step 5:** Enjoy `np.Templating`
