@@ -16,17 +16,8 @@ The following is a quick overview of all the included modules, for more details 
 ### Frontmatter Module
 [Frontmatter Module](/docs/templating-modules/frontmatter-module) exposes all the frontmatter variables of a file as internal variables.
 
-### Note Module
-[Note Module](/docs/templating-modules/note-module) exposes methods for obtaining information about your notes
-
-### System Module
-[System Module](/docs/templating-modules/system-module) exposes methods for perform system level functions
-
 ### Time Module
 [Time Module](/docs/templating-modules/time-module) contains every internal variable / method related to time values.
-
-### Utility Module
-[Utility Module](/docs/templating-modules/utility-module) contains a number of utility functions which can be used in your templates
 
 ### Web Module
 [Web Module](/docs/templating-modules/web-module) contains every internal variable / method related to the web (using web requests).
