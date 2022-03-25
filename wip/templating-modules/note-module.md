@@ -44,15 +44,6 @@ The following example will return API information for `developerQuote` setting f
 
 🙆 “I say looking on the bright side of life never killed anybody.”
 
-**Example: Setting Service**
-The following example will return API information for `developerQuote` setting from settings
-
-```markdown
-<%- await web.services('developerQuote') %>
-```
-
-🙆 “I say looking on the bright side of life never killed anybody.”
-
 **Example: Custom API Endpoint**
 The following example will retrieve value from defined API endpoint
 
@@ -163,7 +154,7 @@ You can set the default weather format in `np.Templating` [settings](/docs/setti
 
 - `format?` - If you wish to override the settings value, you can supply an optional format string with placeholders for the pieces of weather data you wish to output from `current_condition` key from `wttr.in` response.
 
-Each placeholder must be surrounded colons before and after key (e.g. `:FeelsLikeF`)
+Each placeholder must be surrounded colons before and after key (e.g. `:FeelsLikeF:`)
 
 #### Additional Keys
 In addition to `current_condition` keys, the following placeholders available from elsewhere in the harder-to-access parts of the JSON response:
@@ -214,7 +205,7 @@ Weather: <%- np.weather( ':icon: :description: :FeelsLikeF:°F [low/high: :minte
 
 and will produce something like
 
-☁️ Partly cloudy 64°F [low/high: 58-68°F, wind: WSW 15mph] (Talbert, California)
+☁️ Partly cloudy 64°F [low/high: 58-68°F, wind: WSW 15mph] (Fountain Valley, California)
 
 
 *****
