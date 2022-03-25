@@ -11,13 +11,119 @@ While `np.Templating` includes a number of commands for NotePlan users, the real
 ### Templating Methods
 The following methods are available in the `NPTemplating` plugin
 
-xxxx
+
+*****
+
+> #### renderTemplate(templateName : string = '', templateData? : any = {}, options? : any = {}) : string
+Renders template located in `@Templates` folder
+
+- `templateName` - Desired template name (don't include `@Templates`)
+
+- `templateData` - Object containing user data and methods
+
+- `options` - Object containing options
+
+- `-> result` - Returns rendered template
+
+**Example**
+
+The following example will render template, which contains tag for name `<%- name %>`
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import { logError } from '@helpers/dev'
+
+export async function templatingRenderTemplate(): Promise<void> {
+  try {
+    const templateData = {
+      data: {
+        name: 'Mike'
+      }
+    }
+    const result = await NPTemplating.renderTemplate('Hello World Template', templateData)
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+   logError('templatingRenderTemplate', error)
+  }
+}
+```
+
+*****
+
+> #### render(templateContent : string = '', templateData? : any = {}, options? : any = {}) : string
+Renders template using `templateContent`. Similar to `renderTemplate` except you pass template content directly.
+
+- `templateContent` - Template Content
+
+- `templateData` - Object containing user data and methods
+
+- `options` - Object containing options
+
+- `-> result` - Returns rendered template
+
+**Example**
+
+The following example will render template using supplied content.
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import { logError } from '@helpers/dev'
+
+export async function templatingRender(): Promise<void> {
+  try {
+    const templateData = {
+      data: {
+        name: 'Mike'
+      }
+    }
+    const result = await NPTemplating.render('<%- name %>', templateData)  // returns Mike
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+   logError('templatingRender', error)
+  }
+}
+```
+
+*****
+
+> #### getTemplate(templateName : string = '') : string
+Returns template content in `@Templates` folder, using for desired template
+
+- `templateName` - Desired template name (don't include `@Templates`)
+
+- `-> result` - Returns template content
+
+**Example**
+
+The following example will get template defined by `templateName`, which will be used by `render` method
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import { logError } from '@helpers/dev'
+
+export async function templatingRender(): Promise<void> {
+  try {
+    const templateData = {/* templateData */}
+    const templateContent = NPTemplating.getTemplate('Template Name')
+    const result = await NPTemplating.render(templateContent, templateData)
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+   logError('templatingRender', error)
+  }
+}
+```
+
+
+*****
 
 ### Integrating into NotePlan plugin
 
 - Import NPTemplating Plugin
 - Setup NPTemplating data object
--
+
 #### Import NPTemplating Plugin
 The first step, you will need to `import` the `NPTemplating` plugin into your source file
 

@@ -4,4 +4,4 @@ sidebar_position: 7
 
 # Utility Module
 
-_TODO:ShowHowToUseIndenpendantlyOfTemplating_
+_TODO:UtilityModule_
