@@ -14,6 +14,20 @@ This command will also be automatically whenever an `np.Templating` command is e
 #### np:init
 `np:init` will create or update the `np.Templating` [Plugin Settings](/docs/settings)
 
+#### np:migrate-templates
+`np:migrate-templates` will migrate existing legacy templates in "📋 Templates" to NotePlan built-in "@Templates" folder. In addition, if you have any `quickNotes` in your `_configuration` notes, they will also be migrated to "@Templates" folder within "🗒 Quick Notes" folder
+
+:::note
+If you are install `np.Templating` for the first time, this migration will happen automatically when `np.Templating` plugin is installed.
+:::
+
+#### np:migrate-quick-notes
+`np:migrate-quick-notes` will migrate any templates defined in `quickNotes` in your `_configuration` notes.
+
+:::note
+If you are install `np.Templating` for the first time, this migration will happen automatically when `np.Templating` plugin is installed.
+:::
+
 ### Templating Creation Commands
 The following default commands are included in `np.Templating` plugin and do not require any configuration
 
