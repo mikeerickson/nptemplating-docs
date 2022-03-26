@@ -19,8 +19,9 @@ Using the NotePlan Plugin Settings interface you can customize various settings 
 Default: `en-US`
 
 The locale which is used when creating date or time formats
-- If locale is empty, the default langue `en-US` will be used
-- If locale `<system>`, the operating system locale will be used
+- If locale is empty, the default language `en-US` will be used
+- If locale is set to `<system>`, the operating system locale will be used
+  - `System Preferences > Date & Time > Language & Region`
 
 ### First Name
 Your first name, used when referencing user object (e.g. `<%= user.first %>`)

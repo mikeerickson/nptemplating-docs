@@ -6,17 +6,12 @@ sidebar_position: 2
 `np.Templating` supports a variety of template formats:
 
 - Template Configuration - Default
-- Template Configuration - Extended
 - Template Configuration - Frontmatter
 
 ## Template Configuration - Legacy
 The first step to using `np.Templating` is to create a template in your NotePlan **Templates** folder
 
 ![Templating Prompt](/img/template-folder-border.png)
-
-:::info
-If your template does not have a horizontal rule (`---`) the first line will be template title, the remainder of template will be content
-:::
 
 ### Section 1: Template Title
 All templates must have a unique name, with the first line being template name
@@ -41,6 +36,10 @@ The next section will be a `Line Separator` (`NotePlan Menu -> Format -> Line Se
 Template meta data goes here
 ---
 ```
+
+:::info
+If your template does not have a horizontal rule (`---`) the first line will be template title, the remainder of template will be content
+:::
 
 ### Section 4: Template Content
 The remainder of the template note is your desired template content.  When the template is rendered, it will use everything below the separator line

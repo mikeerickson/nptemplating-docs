@@ -25,43 +25,6 @@ For more information on `np.Templating` settings, visit [settings](/docs/setting
 
 ![Template Chooser](/img/template-chooser.png)
 
-### Using Quick Notes
-`np.Templating` also provides support for "Quick Notes" using the `np:qtn` command, which are more specific templates for creating new documents.
-
-By default, Quick Notes templates located in "@Templates/🗒 Quick Notes".  You can change the name of Quick Notes folder by defining the [Quick Notes setting](/docs/settings) value.
-
-**Step 1:** Invoke NotePlan Command Bar (`Command-J`)
-
-**Step 2:** Select `np:qtn`
-
-**Step 3:** Select desired template
-
-After Quick Note template is selected, a new note will be created in the defined location for selected template
-
-![Template Chooser](/img/quicknotes-chooser.png)
-
-### Quick Note Template Required Fields
-Each Quick Note must contain the following fields in template header
-
-- `title` - contains the template title (this is what will appear in `np:qtn` template chooser)
-
-- `newNoteTitle` - will be name of new note.  You can use any `np.Templating` module method
-
-- `folder` - path to folder where new note will be created
-
-**Example:**
-
-The following example outlines the 3 mandatory field in a Quick Note template
-
-```markdown
----
-title:  Codedungeon Call
-newNoteTitle: <%- meetingName %> <%- date8601() %>
-folder:  "- 🛠 Projects/00 - 👨🏽‍💻codedungeon/📆 Meetings"
----
-You can put anything you wish to appear on your new note
-```
-
 ### Integrating into your plugins
 
 ```javascript
