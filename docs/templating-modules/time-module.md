@@ -17,7 +17,7 @@ Refer to [Date Module](/docs/templating-modules/date-module) for similar methods
 The following are the methods available in the Time Module, and they can be used in any `np.Templating` template, no additional configuration required.
 
 *****
-
+### now
 > #### now(format? : string = '') : string
 Returns a string representation current time.
 
@@ -40,7 +40,7 @@ The following example returns current time using custom format
 ```
 
 *****
-
+### currentTime
 > #### currentTime(format? : string = '') : string
 Returns a string representation current time.
 
@@ -68,17 +68,32 @@ The following example uses the `currentTime` helper
 <%= currentTime() %>
 ```
 
+*****
+### format
+> #### format(format : string = '', pivotDate? : string = '') : string
+Formats `pivotDate` using supplied `format`.
 
+_Note: Also available as [helper](/docs/templating-modules/time-module#helpers) method_
+
+- `format?` - A valid time format string
+- `pivotDate?` - Desired date to format. If not supplied, it will use current date.
+
+- `-> result` - Returns formatted time string
+
+:::tip
+Refer to [moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for available formatting options
+:::
 
 *****
-
-### convertTime12to24(time12hr: string = '')
+### convertTime12to24
+> #### convertTime12to24(time12hr: string = '')
 Convert 12-hour time to 24-hour time
 
-### Helpers
+## Helpers
 TimeModule exposes commonly used methods as importable helpers
 
-- time
+> #### time
+Returns current time
 
 ```javascript
 // import np.Templating Library

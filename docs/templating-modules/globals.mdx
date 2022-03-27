@@ -28,4 +28,32 @@ The following methods are available for backwards compatibility with legacy temp
 
 
 ## Using Custom Methods in Templates
-If you are creating a new NotePlan plugin which needs access to custom methods, you should use the approach described in [Example 3 - Custom Methods](/docs/templating-integration-plugins/example-3)
+If you have created your own NotePlan plugin and wish to use it's methods in a template, use the example below
+
+### Example
+In this example, we have a method `sayHello` which would be referenced in a template as `<%- sayHello('Mike') %>`
+
+```javascript
+import NPTemplating from 'NPTemplating'
+
+export async function templatingHelloWorld(): Promise<void> {
+  try {
+    const templateData = {
+      methods: {
+        sayHello: (name: string = '') => {
+          return `Hello ${name}`
+        }
+      }
+    }
+    const result = await NPTemplating.renderTemplate('Template (Say Hello)', templateData)
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+    console.log('templatingHelloWorld', error)
+  }
+}
+```
+
+:::tip
+When using `np.Templating` in NotePlan Plugins, you should use the approach described in [Example 3 - Custom Methods](/docs/templating-integration-plugins/example-3)
+:::

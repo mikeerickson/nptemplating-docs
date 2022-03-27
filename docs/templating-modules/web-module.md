@@ -14,21 +14,25 @@ The following are the methods available in the Web Module, and they can be used 
 
 *****
 
+### advice
 > #### advice() : string
 Returns random advice
 
 *****
 
+### affirmation
 > #### affirmation() : string
 Returns random affirmation
 
 *****
 
+### quote
 > #### quote() : string
 Returns random quote
 
 *****
 
+### service
 > #### service(serviceOrUrl: string = '', key? : string = '') : string
 Returns service information from custom URL or entry from `np.Templating` [Web Service Setting](/docs/settings)
 
@@ -145,6 +149,7 @@ Returns random Bible verse
 
 *****
 
+### weather
 > #### weather(format? : string = '') : string
 Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string.
 
@@ -169,9 +174,9 @@ In addition to `current_condition` keys, the following placeholders available fr
 See the [wttr.in documentation for the detailed JSON output format](https://github.com/chubin/wttr.in#different-output-formats) to see fields are available. All those in the `current_condition` are available by adding colons either side (e.g. `:humidity: `).
 :::
 
-### Examples
+## Weather Examples
 
-#### Default
+### Default
 
 The following will use default weather format from `np.Templating` [settings](/docs/settings)
 
@@ -184,7 +189,8 @@ and produce something like
 Fountain Valley, California, United States: ⛅️  +55°F
 
 *****
-#### Custom Format String
+
+### Custom Format String
 
 The following will override the default weather format from `np.Templating` settings
 

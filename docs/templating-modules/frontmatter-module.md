@@ -21,6 +21,7 @@ When implementing `NPTemplating.renderTemplate` if template is a valid frontmatt
 :::
 
 *****
+### isFrontmatterTemplate
 > #### isFrontmatterTemplate(templateData : string = '')  : boolean
 Returns `true | false` if supplied template data is valid frontmatter content
 
@@ -30,7 +31,7 @@ Returns `true | false` if supplied template data is valid frontmatter content
 
 **Examples**
 
-The following example returns the current date, using default values
+The following example returns `true` or `false` if supplied template data is a fronmatter template.
 
 ```javascript
 import NPTemplating from 'NPTemplating'
@@ -48,17 +49,50 @@ export async function testFrontmatter(): Promise<void> {
 ```
 
 *****
+### getFrontmatterBlock
+> #### getFrontmatterBlock(templateData : string = '')  : string
+Returns frontmatter block from `templateData`
 
+The frontmatter block of a template is content between start `---` and end `---` tags.
+
+- `templateData` - Template data
+
+- `-> result` - Returns frontmatter block
+
+**Examples**
+
+The following example returns the frontmatter block for supplied template data
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import FrontMatterTemplate from '@TemplatingModules/FrontMatterModule'
+
+export async function testFrontmatter(): Promise<void> {
+  try {
+    const result = await NPTemplating.getTemplate('FrontMatter Template Example')
+
+    const frontmatterBlock = new FrontMatterModule().getFrontmatterBlock(templateData)
+  } catch (error) {
+    console.log('testFrontmatter', error)
+  }
+}
+```
+
+*****
+### render
 > #### render(templateData : string = '')  : any
 Render frontmatter template object (attributes and body)
 
 - `templateData` - Template data
 
-- `-> result` - Frontmatter template object
+- `-> result` - Frontmatter template object, returns {attributes and body}
 
 **Examples**
 
-The following example returns the current date, using default values
+The following renders frontmatter template, return an object which contains two keys
+
+- attributes -> contains object of frontmatter header
+- body -> contains information after closing frontmatter tag `---`
 
 ```javascript
 import NPTemplating from 'NPTemplating'
@@ -80,7 +114,7 @@ export async function testFrontmatter(): Promise<void> {
 ```
 
 *****
-
+### attributes
 > #### attributes(templateData : string = '')  : any
 Render frontmatter attributes (tags between template tags `---`)
 
@@ -112,6 +146,7 @@ export async function testFrontmatter(): Promise<void> {
 
 *****
 
+### body
 > #### body(templateData : string = '')  : any
 Render frontmatter body (below closing frontmatter template block `---`)
 
@@ -143,11 +178,20 @@ export async function testFrontmatter(): Promise<void> {
 
 *****
 
-### Helpers
+## Helpers
 FrontMatterModule exposes commonly used methods as importable helpers
 
-- getAttributes
-- getBody
+### getAttributes
+> #### getAttributes()
+
+### getBody
+> #### getBody()
+
+*****
+
+**Example:**
+
+The following example will get `attributes` and `body` from frontmatter template
 
 ```javascript
 // import np.Templating Library

@@ -16,7 +16,7 @@ Refer to [Time Module](/docs/templating-modules/time-module) for similar methods
 The DateModule exposes commonly used [helper](/docs/templating-modules/date-module#helpers) methods
 :::
 
-:::info
+:::tip
 #### Formatting Dates
 The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options
 :::
@@ -31,6 +31,7 @@ The following are the methods available in the Date Module, and they can be used
 :::
 
 *****
+### createDateTime
 > #### createDateTime(pivotDate? : string = '')  : date
 Creates JavaScript `Date` object based on user supplied `pivotDate`.
 
@@ -42,6 +43,7 @@ This is necessary due to the way NotePlan handles dates. If you are passing a da
 
 *****
 
+### now
 > #### now(format? : string = '', offset? : string = '') : string
 Returns a string representation current date.
 
@@ -72,6 +74,8 @@ The following example uses the `now` helper
 <%= now() %>
 ```
 
+*****
+### timestamp
 > #### timestamp(format? : string = '') : string
 Returns date/time timestamp with optional format
 
@@ -102,18 +106,16 @@ The following example uses the `timestamp` helper
 ```
 
 *****
-> #### format(format : string = '', pivotDate? : string = '') : string
-Formats `pivotDate` using supplied `format`
+### date8601
+> #### date8601() : string
+Returns current date 8601 format
 
 _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
 
-- `format?` - A valid date format string
-- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
-
-- `-> result` - Returns formatted date string
+- `-> result` - Returns current date in 8601 format
 
 *****
-
+### today
 > #### today(format? : string = '') : string
 Returns a string representation current date.
 
@@ -130,7 +132,7 @@ The following example returns the current date, using default values
 ```
 
 *****
-
+### tomorrow
 > #### tomorrow(format? : string = '') : string
 Returns a string representation of tomorrow
 
@@ -147,7 +149,7 @@ The following example returns tomorrow based on current date
 ```
 
 *****
-
+### yesterday
 > #### yesterday(format? : string = '') : string
 Returns a string representation of yesterday
 
@@ -164,7 +166,23 @@ The following example returns yesterday based on current date
 ```
 
 *****
+### format
+> #### format(format : string = '', pivotDate? : string = '') : string
+Formats `pivotDate` using supplied `format`
 
+_Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
+
+- `format?` - A valid date format string
+- `pivotDate?` - Desired date to format. If not supplied, it will use current date
+
+- `-> result` - Returns formatted date string
+
+:::tip
+Refer to [moment.js format](https://momentjs.com/docs/#/parsing/string-format/) for available formatting options
+:::
+
+*****
+### weekday
 > #### weekday(format? : string = '', offset? : number = 1, pivotDate? : string = '') : string
 Returns the closest weekday, using the `offset` to add or subtract days
 
@@ -189,7 +207,7 @@ The following returns the closest weekday 2 days in advance using fixed date
 ```
 
 *****
-
+### weekNumber
 > #### weekNumber(pivotDate? : string = '') : number
 Returns the week number based on `pivotDate`
 
@@ -206,7 +224,7 @@ The following returns the closest weekday 2 days in advance using current date
 ```
 
 *****
-
+### dayNumber
 > #### dayNumber(pivotDate? : string = '') : number
 Returns the day number based on `pivotDate`
 
@@ -233,7 +251,7 @@ The following returns the closest weekday 2 days in advance using current date
 ```
 
 *****
-
+### isWeekday
 > #### isWeekday(pivotDate? : string = '') : boolean
 Returns true if `pivotDate` is on weekday
 
@@ -250,7 +268,7 @@ The following returns true or false if `pivotDate` is weekday
 ```
 
 *****
-
+### isWeekend
 > #### isWeekend(pivotDate? : string = '') : boolean
 Returns true if `pivotDate` is on weekend
 
@@ -266,7 +284,7 @@ The following returns true or false if `pivotDate` is weekend
 ```
 
 *****
-
+### weekOf
 > #### weekOf(pivotDate? : string = '') : string
 Returns formatted weekOf based on `pivotDate`
 
@@ -284,6 +302,31 @@ The following returns weekOf value based on `pivotDate`
 
 *****
 
+### startOfWeek
+> #### startOfWeek(format? string = '', pivotDate? : string = '', firstOfWeek? : number = 0) : string
+Returns start of week date
+
+- `format` - Optional date format, uses `np.Templating` Date Format if not supplied
+- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `firstOfWeek` - Day number for first of week if not 0 (Sunday)
+
+- `-> result` Returns start of week
+
+*****
+
+### endOfWeek
+> #### endOfWeek(format? string = '', pivotDate? : string = '', firstOfWeek? : number = 0) : string
+Returns end of week date
+
+- `format` - Optional date format, uses `np.Templating` Date Format if not supplied
+- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `firstOfWeek` - Day number for first of week if not 0 (Sunday)
+
+- `-> result` Returns end of week
+
+*****
+
+### businessAdd
 > #### businessAdd(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
 Adds `numDays` business days.  You can also supply `pivotDate` and date `format`
 
@@ -302,7 +345,7 @@ The following adds 3 business days, using current date
 ```
 
 *****
-
+### businessSubtract
 > #### businessSubtract(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
 Subtracts `numDays` business days.  You can also supply `pivotDate` and date `format`
 
@@ -321,7 +364,7 @@ The following subtracts 3 business days, using current date
 ```
 
 *****
-
+### nextBusinessDay
 > #### nextBusinessDay(pivotDate? : string = '', format? : string = '') : string
 Returns next business day, based on `pivotDate`.  You can also supply date `format`
 
@@ -339,7 +382,7 @@ The following returns next business day based on `pivotDate`
 ```
 
 *****
-
+### previousBusinessDay
 > #### previousBusinessDay(pivotDate? : string = '', format? : string = '') : string
 Returns previous business day, based on `pivotDate`.  You can also supply date `format`
 
@@ -364,7 +407,7 @@ In addition to using the Date Module methods in templates, you can also use with
 ### Date Module Methods
 The following examples demonstrates how you can use some of the Date Module methods
 
-#### Using `DateModule.previousBusinessDay` method
+#### previousBusinessDay
 
 ```javascript
 // import DateModule from @templatingModules
@@ -376,7 +419,7 @@ export async testPreviousBusinessDay() : Promise<string> {
 }
 ```
 
-#### Using `DateModule.isWeekend` method
+#### isWeekend
 
 ```javascript
 export async testNextBusinessDay() : Promise<string> {
@@ -396,13 +439,22 @@ export async testNextBusinessDay() : Promise<string> {
 }
 ```
 
-### Helpers
+## Helpers
 DateModule exposes commonly used methods as importable helpers
 
-- now
-- format
-- date8601
-- timestamp
+### now
+> #### now() -> current date
+
+### format
+> #### format(format : string = '') -> formatted date
+
+### date8601
+> #### date8601() -> returns current date in 8601 format
+
+### timestamp
+> #### timestamp() -> returns current date time
+
+**Examples:**
 
 ```javascript
 // import np.Templating Library

@@ -8,12 +8,13 @@ While `np.Templating` includes a number of commands for NotePlan users, the real
 ## Templating Configuration
 `np.Templating` has a suite of methods which can be used in your custom NotePlan plugins.
 
-### Templating Methods
+## Templating Methods
 The following methods are available in the `NPTemplating` plugin
 
 
 *****
 
+### renderTemplate
 > #### renderTemplate(templateName : string = '', templateData? : any = {}, options? : any = {}) : string
 Renders template located in `@Templates` folder
 
@@ -51,6 +52,7 @@ export async function templatingRenderTemplate(): Promise<void> {
 
 *****
 
+### render
 > #### render(templateContent : string = '', templateData? : any = {}, options? : any = {}) : string
 Renders template using `templateContent`. Similar to `renderTemplate` except you pass template content directly.
 
@@ -88,6 +90,7 @@ export async function templatingRender(): Promise<void> {
 
 *****
 
+### getTemplate
 > #### getTemplate(templateName : string = '') : string
 Returns template content in `@Templates` folder, using for desired template
 
@@ -116,10 +119,43 @@ export async function templatingRender(): Promise<void> {
 }
 ```
 
+*****
+
+### createTemplate
+> #### createTemplate(templateName: string = '', metaData: obj, templateContent : string = '')
+Creates new template
+
+`templateName` - Path to new template
+`metaData` - Object containing additional template tags (`title` will be created automatically using `templateName)
+`templateContent` - Template content (after template tags)
+
+- `-> result` - Returns formatted date string
+
+**Example**
+
+The following example will create a new template in "🧰 Dungeon" folder, with title "New Template"
+
+```markdown
+const templateName = '🧰 Dungeon/New Template`
+const metaData = {
+  section: 'Header'
+}
+const result = NPTemplating.createTemplate(templateName, metaData, 'Hello World')
+```
+
+The new template would appear as
+
+```markdown
+---
+title: New Template
+section: Header
+---
+Hello World
+```
 
 *****
 
-### Integrating into NotePlan plugin
+## Integrating into NotePlan plugin
 
 - Import NPTemplating Plugin
 - Setup NPTemplating data object
@@ -177,12 +213,15 @@ The final step, insert the result into NotePlan note (project or calendar note)
 Editor.insertTextAtCursor(result)
 ```
 
-## Upgrading from `nmn.Templates`
-The legacy NotePlan templating plugin, `nmn.Templates` does this a bit differently from `np.Templating`.
+## Upgrading from Legacy Templating
+The legacy NotePlan templating plugin, `nmn.Templates` does things a bit differently from `np.Templating`.
 
 The following information will help you migrate from `nmn.Templates` to `np.Templating`
 
-### Update `dailyStart` method
+## Plugin Refactor
+The following example will convert a portion of `jgClark.DailyJournal` into `np.Templating` syntax
+
+### Refactor `dailyStart` method
 In this example, we will refactor the `jgClark.DailyJournal.dailyStart` command.
 
 ```javascript title="jgclark.DailyJournal.dailyStart"
@@ -265,7 +304,14 @@ The final step will be to modify the existing `Daily Note Template` to reference
 ## Examples
 In the following examples, you can get a feel for how to integrate `np.Templating` into your NotePlan Plugins
 
+### Example 1: Simple
 - [Example 1](/docs/templating-integration-plugins/example-1): A simple "Hello World" type example
+
+### Example 2: Using Variables
 - [Example 2](/docs/templating-integration-plugins/example-2): Demonstrates how to use your plugin variables in a `np.Templating` template
+
+### Example 3: Using Methods
 - [Example 3](/docs/templating-integration-plugins/example-3): Demonstrates how to use your plugin methods in a `np.Templating` template
+
+### Example 4: Full Example
 - [Example 4](/docs/templating-integration-plugins/example-4): Demonstrates a more complex example, showing how to use your own variables and methods
