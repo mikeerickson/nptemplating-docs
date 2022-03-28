@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Overview
+# FAQ Overview
 The following are some of the most commonly asked questions when using `np.Templating`
 
 #### "Unexpected token '{'. Expected ')' to end an argument list."
