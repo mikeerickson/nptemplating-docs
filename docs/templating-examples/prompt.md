@@ -22,6 +22,12 @@ For example, if you have a display tag `<%=` in your template which is not in yo
 ### Example 2
 Alternatively, you can use the `prompt` command, which can accept optional prompt message and well as choices (for use with choice list prompt)
 
+:::danger
+When using `prompt` command, you must supply a valid variable name (e.g. `name`) and the variable must contain valid characters
+- must start with an alpha character (a..z, A..Z)
+- may only contain alphanumeric characters (a..z, A..Z, 0..9)
+:::
+
 :::caution
 When using `prompt` method, you must supply a unique `variable` (e.g. `priority`).
 
