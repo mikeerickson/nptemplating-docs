@@ -37,10 +37,6 @@ Template meta data goes here
 ---
 ```
 
-:::info
-If your template does not have a horizontal rule (`---`) the first line will be template title, the remainder of template will be content
-:::
-
 ### Section 4: Template Content
 The remainder of the template note is your desired template content.  When the template is rendered, it will use everything below the separator line
 
@@ -51,7 +47,12 @@ Template meta data goes here
 Hello World!
 ```
 
-## Template Configuration - Frontmatter
+:::info
+Typically, a template will have a title, then some metadata, then a horizontal rule and the template content. However, if your template does not have a horizontal rule (`---`) the first line will be template title, the entire remainder of the note (other than the title line) will be assumed to be template content.
+:::
+
+### Template Configuration - Frontmatter
+
 In addition to the standard template configuration, `np.Templating` also supports templates using frontmatter format
 
 ### Basic Format
