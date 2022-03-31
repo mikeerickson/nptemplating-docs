@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-`np.Templating` is a template language plugin for NotePlan that lets you insert variables and method results into your notes.  It will also let you execute custom JavaScript constructed in the templates providing a rich note taking system.
+`np.Templating` is a template language plugin for NotePlan that lets you insert variables and method results into your notes. It will also let you execute custom JavaScript constructed in the templates providing a rich note taking system.
 
 ## Configuration
 
@@ -15,6 +15,7 @@ For more information on `np.Templating` settings, visit [settings](/docs/setting
 :::
 
 ## Using Templating Commands
+
 `np.Templating` provides a variety of built-in commands which can be invoked using NotePlan Plugin Command Bar (`Command-J`)
 
 ### Appending or Inserting Template
@@ -23,20 +24,27 @@ For more information on `np.Templating` settings, visit [settings](/docs/setting
 
 **Step 2:** Select `np:append` or `np:insert`
 
+**Step 3:** Choose a template to use
+
 ![Template Chooser](/img/template-chooser.png)
 
-### Integrating into your plugins
+### Advanced: Integrating into your plugins (for developers)
+
+You can also use the np.Templating functions from within a custom plugin you are developing. For example:
 
 ```javascript
-import NPTemplating from 'NPTemplating'
+import NPTemplating from "NPTemplating";
 
 export async function templatingHelloWorld(): Promise<void> {
   try {
-    const result = await NPTemplating.renderTemplate('Template - Hello World', {})
+    const result = await NPTemplating.renderTemplate(
+      "Template - Hello World",
+      {}
+    );
 
-    Editor.insertTextAtCursor(result)
+    Editor.insertTextAtCursor(result);
   } catch (error) {
-    console.log('templatingHelloWorld', error)
+    console.log("templatingHelloWorld", error);
   }
 }
 ```
