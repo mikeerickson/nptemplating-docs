@@ -20,16 +20,28 @@ The following default commands are included in `np.Templating` plugin and do not
 ### np:append
 `np:append` will show a list of all templates located in the `Templates` folder, and will render at the cursor location of the current note.
 
+_aliases: npa, append, at_
+
 ### np:insert
 `np:insert` will show a list of all templates located in the `Templates` folder, and will render at the beginning of the current note.
+
+_aliases: npi, insert, it_
 
 ### np:new
 `np:new` will show a list of all templates in the `Templates` folder, then create a new project note using supplied note name.
 
+_aliases: npn, new, nn_
+
 ### np:qtn
 `np:qtn` will show a list of Quick Note templates located in the `Quick Notes` folder, and will create new note using selected Quick Note.
 
-## Templating Service Commands
+_aliases: npq, qnt, qtn, quick, qqq_
+
+:::warning
+You must assign a `type` of `quick-note` for it to be available when using `np:qtn` command. Refer to [Quick Notes](/docs/templating-commands/quick-notes) for more detailed information.
+:::
+
+## Templating Web Service Commands
 The following commands can be used to insert various web service commands
 
 ### np:advice

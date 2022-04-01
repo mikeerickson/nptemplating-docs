@@ -6,7 +6,7 @@ sidebar_position: 2
 Sometimes, you have templates that you apply often, and you would like to specify in advance, for example, the folder you want a new note to be placed in, the title of the note, and the template to use for the content.`np.Templating` **Quick Notes** are more specific templates for creating new notes.
 
 ## Quick Notes Templates
-By default, Quick Notes templates are located in "@Templates/🗒 Quick Notes". If you would like to store your Quick Notes in a different location inside the "@Templates" folder, you can change the name of Quick Notes folder by defining the [Quick Notes setting](/docs/settings) value.
+By default, Quick Notes templates are located in "@Templates/🗒 Quick Notes" however you can place them where you wish within the "@Templates" folder.
 
 ![Template Chooser](/img/templates-quick-notes.png)
 
@@ -19,7 +19,7 @@ When you create a Quick Note template, it becomes available via the `np:qtn` com
 
 **Step 1:** Invoke NotePlan Command Bar (`Command-J`)
 
-**Step 2:** Type `np:qtn` (or any of the `qtn` shortcuts)
+**Step 2:** Type `np:qtn` (or any of the `qtn` [aliases](/docs/templating-commands/overview/#npqtn))
 
 **Step 3:** Select desired template
 
