@@ -54,10 +54,9 @@ Desired timestamp format, used when referencing timestamp object (e.g. `<% date.
 
 Desired weather format string when referencing web weather (e.g. `<% web.weather() %`)
 
-### Quick Notes Folder Name
-Default: 🗒  Quick Notes
-
-Desired folder Quick Note templates (within `@Templates` folder) when using `np:qtn` command
+:::info
+For more detailed information on supported weather tags, refer to [weather examples](/docs/templating-modules/web-module/#weather).
+:::
 
 ### Web Services
 A JSON object which contains entries available when using `web.services()` method
