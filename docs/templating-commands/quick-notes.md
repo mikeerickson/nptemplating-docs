@@ -25,13 +25,34 @@ When you create a Quick Note template, it becomes available via the `np:qtn` com
 
 After selecting the desired Quick Note, a new note will be created in the defined folder location as defined in the Quick Note template header.
 
-### Quick Note Template Required Fields
+### Quick Note Template Required Attributes
 Each Quick Note must contain each of the following items:
 
 - `title` - contains the template title (this is what will appear in `np:qtn` template chooser)
 - `type` - specifies that this is a Quick Note template (should be set to )`quick-note`)
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 - `folder` - path to folder where new note will be created
+
+
+:::danger
+All template attributes values must start with an alpha character (a..z, A..Z) otherwise must be surrounded with double quotes
+
+**Bad:**
+
+The following attribute value will cause any FrontMatter module method to return an empty attribute block
+```
+title: - invalid character
+```
+
+**Good:**
+
+The following attribute value be properly parsed as it is surrounded in quotes
+
+```
+title: "- invalid character"
+```
+
+:::
 
 **Example:**
 

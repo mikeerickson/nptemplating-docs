@@ -121,6 +121,16 @@ export async function templatingRender(): Promise<void> {
 
 *****
 
+### chooseTemplate
+> #### chooseTemplate(isQuickNote?: boolean = false)
+Displays template chooser interface (using `@helpers/userInput.js :: chooseOption method`)
+
+- `-> result` - Returns template content
+
+![Template Chooser](/img/template-chooser.png)
+
+*****
+
 ### createTemplate
 > #### createTemplate(templateName: string = '', metaData: obj, templateContent : string = '')
 Creates new template

@@ -20,6 +20,26 @@ The following are the methods available in the FrontMatter Module, and they can 
 When implementing `NPTemplating.renderTemplate` if template is a valid frontmatter template, they will be rendered automatically without performing any additional frontmatter processing
 :::
 
+:::danger
+All frontmatter attributes values must start with an alpha character (a..z, A..Z) otherwise must be surrounded with double quotes
+
+**Bad:**
+
+The following attribute value will cause any FrontMatter module method to return an empty attribute block
+```
+attribute: - invalid character
+```
+
+**Good:**
+
+The following attribute value be properly parsed as it is surrounded in quotes
+
+```
+attribute: "- invalid character"
+```
+
+:::
+
 *****
 ### isFrontmatterTemplate
 > #### isFrontmatterTemplate(templateData : string = '')  : boolean
@@ -123,6 +143,10 @@ _Note: Also available as [helper](/docs/templating-modules/frontmatter-module#he
 - `templateData` - Template data
 
 - `-> result` - Frontmatter template attributes
+
+:::danger
+Make sure all attribute values starts with alpha characters (a..z, A..Z) or surrounded with double quotes
+:::
 
 **Examples**
 
