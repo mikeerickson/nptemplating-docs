@@ -57,7 +57,16 @@ And the remainder of the template will be display here ...
 </Tabs>
 
 ### Example 2: Modern Templates
-When creating a new template in "@Templates" folder, the template header will be in `frontmatter` format, containing a single field for template `title`, followed by template body.
+When creating a new template in "@Templates" folder, the template header will be in `frontmatter` format, containing two fields for template `title` and `type`, followed by template body.
+
+title - The title should be a unique name with the folder it is located. You can use the same title in multiple templates, provided they are in different folders.
+type - The type field is used to identify what type of template this is.  There are currently 3 different types of templates
+- `quick-note` will be used whenever you invoke the `np:qtn` command.
+- `meeting-note` will be used whenever you wish to create a global meeting note (this is **not** attached to a NotePlan event)
+
+:::info
+For more information on using Quick Notes and the `np:qtn` command, click [here](/docs/templating-commands/quick-notes/).
+:::
 
 <Tabs>
   <TabItem value="template" label="Template" default>
@@ -65,6 +74,7 @@ When creating a new template in "@Templates" folder, the template header will be
 ```markdown
 ---
 title: myTemplate
+type: empty-note
 ---
 Hello <$ - user.first %>
 ```

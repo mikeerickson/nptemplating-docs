@@ -142,7 +142,7 @@ const selectedTemplate = await NPTemplating.getTemplateList(['*','!quick-note'])
 *****
 
 ### chooseTemplate
-> #### chooseTemplate(templateTypes?: string | array = '*')
+> #### chooseTemplate(templateTypes?: string | array = '*', promptMessage? : string = 'Choose Template')
 Displays template chooser interface (using `@helpers/userInput.js :: chooseOption method`)
 
 `templateTypes` - Array or comma separated string list of template types to include or exclude
@@ -150,6 +150,8 @@ Displays template chooser interface (using `@helpers/userInput.js :: chooseOptio
 - If you wish to include all template types, pass `*` as one of the options (see example)
 - If you wish to suppress certain template types, precede type with `!` character (e.g. `!quick-note`).
 - If no template type provided, it will default to all (`*`) templates
+
+`promptMessage` - Desired prompt message when chooser interface is displayed
 
 - `-> result` - Returns template content
 

@@ -6,7 +6,7 @@ sidebar_position: 2
 Sometimes, you have templates that you apply often, and you would like to specify in advance, for example, the folder you want a new note to be placed in, the title of the note, and the template to use for the content.`np.Templating` **Quick Notes** are more specific templates for creating new notes.
 
 ## Quick Notes Templates
-By default, Quick Notes templates are located in "@Templates/🗒 Quick Notes" however you can place them where you wish within the "@Templates" folder.
+By default, Quick Notes templates are located in "🗒 Quick Notes" however you can place them where you wish within the "@Templates" folder.
 
 ![Template Chooser](/img/templates-quick-notes.png)
 
@@ -25,11 +25,15 @@ When you create a Quick Note template, it becomes available via the `np:qtn` com
 
 After selecting the desired Quick Note, a new note will be created in the defined folder location as defined in the Quick Note template header.
 
+:::note
+If you only have a single Quick Note in the "🗒 Quick Notes" folder, it will be selected automatically and the Template Chooser dialog will not be displayed.
+:::
+
 ### Quick Note Template Required Attributes
 Each Quick Note must contain each of the following items:
 
 - `title` - contains the template title (this is what will appear in `np:qtn` template chooser)
-- `type` - specifies that this is a Quick Note template (should be set to )`quick-note`)
+- `type` - specifies that this is a Quick Note template (should be set to `quick-note`)
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 - `folder` - path to folder where new note will be created
 
