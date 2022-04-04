@@ -121,13 +121,48 @@ export async function templatingRender(): Promise<void> {
 
 *****
 
+### getTemplateList
+> #### getTemplateList(templateTypes?: string | array = '*')
+Returns array of templates that match the template type
+
+`templateTypes` - Array or comma separated string list of template types to include or exclude
+
+- If you wish to include all template types, pass `*` as one of the options (see example)
+- If you wish to suppress certain template types, precede type with `!` character (e.g. `!quick-note`)
+- If no template type provided, it will default to all (`*`) templates
+
+- `-> result` - Returns template content
+
+**Example**
+```
+const selectedTemplate = await NPTemplating.getTemplateList(['*','!quick-note']) // returns all templates, except `quick=note`
+...
+```
+
+*****
+
 ### chooseTemplate
-> #### chooseTemplate(isQuickNote?: boolean = false)
+> #### chooseTemplate(templateTypes?: string | array = '*')
 Displays template chooser interface (using `@helpers/userInput.js :: chooseOption method`)
+
+`templateTypes` - Array or comma separated string list of template types to include or exclude
+
+- If you wish to include all template types, pass `*` as one of the options (see example)
+- If you wish to suppress certain template types, precede type with `!` character (e.g. `!quick-note`).
+- If no template type provided, it will default to all (`*`) templates
 
 - `-> result` - Returns template content
 
 ![Template Chooser](/img/template-chooser.png)
+
+**Example**
+
+```
+const selectedTemplate = await NPTemplating.chooseTemplate(['*','!quick-note']) // include all templates, except `quick=note`
+if(selectedTemplate) {
+  const result = await NPTemplating.renderTemplate(selectedTemplate)
+}
+```
 
 *****
 
