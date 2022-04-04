@@ -10,6 +10,10 @@ By default, Meeting Notes templates are located in "🗓 Meeting Notes" folder, 
 
 ![Template Chooser](/img/templates-meeting-notes.png)
 
+:::caution
+Due to utilization of advanced templating features, Meeting Note templates must be frontmatter style, legacy templates are **not** supported.
+:::
+
 *****
 
 ### Using Meeting Notes
@@ -36,9 +40,14 @@ Each Meeting Note must contain each of the following items:
 - `type` - specifies that this is a Meeting Note template (should be set to `meeting-note`)
 - `folder` - path to folder where new note will be created
 
+In addition, you can use an optional field for `newNoteTitle` which will be used when creating new note. If not supplied, you will be prompted to enter `newNoteTitle`
+
+- `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
+
 
 :::danger
-All template attributes values must start with an alpha character (a..z, A..Z) otherwise must be surrounded with double quotes
+All template attributes values must start with an alpha character (a..z, A..Z) and may not include illegal characters such as `#` otherwise must be surrounded with double quotes. To be safe with any frontmatter attribute, it is always a good idea to wrap in quotes as to not lead to issues down the road.
+:::
 
 **Bad:**
 

@@ -10,6 +10,10 @@ By default, Quick Notes templates are located in "🗒 Quick Notes" however you 
 
 ![Template Chooser](/img/templates-quick-notes.png)
 
+:::caution
+Due to utilization of advanced templating features, Quick Note templates must be frontmatter style, legacy templates are **not** supported.
+:::
+
 *****
 
 ### Using Quick Notes
@@ -37,15 +41,15 @@ Each Quick Note must contain each of the following items:
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 - `folder` - path to folder where new note will be created
 
-
 :::danger
-All template attributes values must start with an alpha character (a..z, A..Z) otherwise must be surrounded with double quotes
+All template attributes values must start with an alpha character (a..z, A..Z) and may not include illegal characters such as `#` otherwise must be surrounded with double quotes. To be safe with any frontmatter attribute, it is always a good idea to wrap in quotes as to not lead to issues down the road.
+:::
 
 **Bad:**
 
 The following attribute value will cause any FrontMatter module method to return an empty attribute block
 ```
-title: - invalid character
+title: - invalid character #includingHasTag
 ```
 
 **Good:**
@@ -53,7 +57,7 @@ title: - invalid character
 The following attribute value be properly parsed as it is surrounded in quotes
 
 ```
-title: "- invalid character"
+title: "- invalid character #includingHasTag"
 ```
 
 :::
