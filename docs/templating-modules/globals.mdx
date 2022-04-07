@@ -1,37 +1,45 @@
 ---
 sidebar_position: 8
 ---
+<!-- My changes mean that I'm not sure this page should still be called 'Globals' ... but not quite sure what to call it. 'Globals' seems to be about the solution, not the problem it solves, so may not be as useful to non-pro-devs. -->
 
-# Globals
-`np.Templating` has implemented global methods which were created using `addTag` method in `nmn.Templates/src/templateController.js` method to aid in migrating legacy templates to `np.Templating`
+# Module Methods
+The following original methods have replacements in np.Templating:
 
-The following methods are available for backwards compatibility with legacy templating, you should use the alternate method where defined.
-
-| legacy method | `np.Templating` method (where applicable)
+| original method | replacement `np.Templating` method
 |-------------- | ----------
-| affirmation | `<%- web.affirmation() %>`
 | advice | `<%- web.advice() %>`
-| quote | `<%- web.quote() %>`
-| progressUpdate |
-| weather | `<%- web.weather() %>`
-| data8601 | `<%- date8601() %>`
+| affirmation | `<%- web.affirmation() %>`
 | currentDate | `<%- date.now() %>`
-| pickDate |
-| pickDateInterval |
-| events |
-| listTodaysEvents |
-| matchingEvents |
-| listMatchingEvents |
-| sweepTasks |
-| formattedDateTime |
-| weekDates |
+| date8601 | `<%- date8601() %>`
+| quote | `<%- web.quote() %>`
+| weather | `<%- web.weather() %>`
 
+Each is now part of a module, rather than being ...
+
+# Global Module Methods
+`np.Templating` has implemented globally-namespaced methods which were created using `addTag` method in `nmn.Templates/src/templateController.js` method to aid in migrating legacy templates to `np.Templating`. Those methods, provided by other plugins, are therefore still available for use in templates, through being compiled into np.Templating:
+
+| original method | provided by plugin
+|-------------- | ----------
+| events() | Event Helpers
+| matchingEvents() | Event Helpers
+| progressUpdate() | Summaries
+| sweepTasks | Task Sweeper
+| weekDates | Date Automations
+
+_I'm not sure how to characterise these:_
+
+| original method | provided by
+|-------------- | ----------
+| formattedDateTime | ??? <!-- I'm not sure which one this comes from -->
+| pickDate | <!-- from helers; should this be removed entirely as it is similar to prompt() ? -->
+| pickDateInterval |  <!-- ditto -->
 
 ## Using Custom Methods in Templates
-If you have created your own NotePlan plugin and wish to use it's methods in a template, use the example below
+If you have created your own NotePlan plugin and wish to use it's methods in a template, follow this example.
 
-### Example
-In this example, we have a method `sayHello` which would be referenced in a template as `<%- sayHello('Mike') %>`
+We have a method `sayHello` which would be referenced in a template as `<%- sayHello('Mike') %>`
 
 ```javascript
 import NPTemplating from 'NPTemplating'

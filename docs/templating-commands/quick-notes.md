@@ -37,7 +37,7 @@ If you only have a single Quick Note in the "🗒 Quick Notes" folder, it will b
 Each Quick Note must contain each of the following items:
 
 - `title` - contains the template title (this is what will appear in `np:qtn` template chooser)
-- `type` - specifies that this is a Quick Note template (should be set to `quick-note`)
+- `type` - specifies that this is a Quick Note template (should include `quick-note` in this CSV list)
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 - `folder` - path to folder where new note will be created
 
@@ -67,7 +67,6 @@ title: "- invalid character #includingHasTag"
 The following example outlines the 4 mandatory field in a Quick Note template
 
 ```markdown
----
 ---
 title:  Codedungeon Call
 type: quick-note
