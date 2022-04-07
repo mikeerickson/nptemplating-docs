@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # Date and Time
-The `np.Templating` DateModule and TimeModule provide a number of methods which can be used within your templates. The following example demonstrates how to use a variety of these methods.
+The `np.Templating` DateModule and TimeModule provide a number of methods which can be used within your templates. The following example demonstrates how to use a variety of these methods. Specifics of date formatting strings can be [found here](https://momentjs.com/docs/#/parsing/string-format/)
 
 ## Template
 
