@@ -99,9 +99,9 @@ export async function testFrontmatter(): Promise<void> {
 ```
 
 *****
-### render
-> #### render(templateData : string = '')  : any
-Render frontmatter template object (attributes and body)
+### parse
+> #### parse(templateData : string = '')  : any
+Parses frontmatter template, returning frontmatter attributes and body
 
 - `templateData` - Template data
 
@@ -109,7 +109,7 @@ Render frontmatter template object (attributes and body)
 
 **Examples**
 
-The following renders frontmatter template, return an object which contains two keys
+The following parses frontmatter template, return an object which contains two keys
 
 - attributes -> contains object of frontmatter header
 - body -> contains information after closing frontmatter tag `---`
@@ -122,10 +122,10 @@ export async function testFrontmatter(): Promise<void> {
   try {
     const result = await NPTemplating.getTemplate('FrontMatter Template Example')
 
-    const renderedData = new FrontMatterModule().render(templateData) // returns frontmatter properties (attributes and body)
+    const frontmatterObj = new FrontMatterModule().parse(templateData) // returns frontmatter properties (attributes and body)
 
-		const attrs = renderedData?.attributes || {}
-		const body = renderedData?.body || ''
+		const attrs = frontmatterObj?.attributes || {}
+		const body = frontmatterObj?.body || ''
 
   } catch (error) {
     console.log('testFrontmatter', error)
@@ -136,7 +136,7 @@ export async function testFrontmatter(): Promise<void> {
 *****
 ### attributes
 > #### attributes(templateData : string = '')  : any
-Render frontmatter attributes (tags between template tags `---`)
+Retrieves frontmatter attributes (tags between template tags `---`)
 
 _Note: Also available as [helper](/docs/templating-modules/frontmatter-module#helpers) method_
 
@@ -160,7 +160,7 @@ export async function testFrontmatter(): Promise<void> {
   try {
     const result = await NPTemplating.getTemplate('FrontMatter Template Example')
 
-    const renderedData = new FrontMatterModule().attributes(templateData) // returns frontmatter attributes
+    const templateAttributes = new FrontMatterModule().attributes(templateData) // returns frontmatter attributes
 
   } catch (error) {
     console.log('testFrontmatter', error)
@@ -172,7 +172,7 @@ export async function testFrontmatter(): Promise<void> {
 
 ### body
 > #### body(templateData : string = '')  : any
-Render frontmatter body (below closing frontmatter template block `---`)
+Retrieves frontmatter body (below closing frontmatter template block `---`)
 
 _Note: Also available as [helper](/docs/templating-modules/frontmatter-module#helpers) method_
 
@@ -192,7 +192,7 @@ export async function testFrontmatter(): Promise<void> {
   try {
     const result = await NPTemplating.getTemplate('FrontMatter Template Example')
 
-    const renderedData = new FrontMatterModule().body(templateData) // returns frontmatter body
+    const frontmatterBody = new FrontMatterModule().body(templateData) // returns frontmatter body
 
   } catch (error) {
     console.log('testFrontmatter', error)

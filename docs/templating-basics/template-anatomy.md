@@ -5,8 +5,8 @@ sidebar_position: 2
 # Template Anatomy
 `np.Templating` supports a variety of template formats:
 
-- Template Configuration - Default
-- Template Configuration - Frontmatter
+- [Template Configuration - Legacy](/docs/templating-basics/template-anatomy#template-configuration---legacy)
+- [Template Configuration - Frontmatter](/docs/templating-basics/template-anatomy#template-configuration---frontmatter)
 
 ## Template Configuration - Legacy
 The first step to using `np.Templating` is to create a template in your NotePlan **Templates** folder

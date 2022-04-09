@@ -87,6 +87,63 @@ export async function templatingRender(): Promise<void> {
   }
 }
 ```
+*****
+
+### preRender
+> #### preRender(template : string = '', userData? : any = {}, options? : any = {}) : string
+Renders template using `templateContent` and process any template tags in template attributes
+
+:::caution IMPORTANT
+Assumes template content is frontmatter format, otherwise `frontmatterBody` property will contain `'INVALID TEMPLATE'` and `frontmatterAttributes` property will be an empty object
+:::
+
+:::tip
+Templating header attributes may contain any supported `np.Templating` tags such as `<%- date.now() %>` or prompts such as `<%- prompt('name','What is your name') %>`
+
+For example, this could be your `Meeting Template`
+
+```
+---
+title: Standard Meeting Note
+newNoteTitle: <%- prompt('newNoteTitle','Enter Note Title') %>
+folder: "🗓 Meeting Notes/<%- date.now('YYYY-MM') %>"
+type: meeting-note
+---
+```
+
+And when rendered, it will ask for `newNoteTitle` name using the `np.Templating` [prompt](/docs/templating-examples/prompt) system, and note will be created in "🗓 Meeting Notes/2022-04" as example if current date is "2022-04-07"
+:::
+
+- `template` - Template content (use `getTemplate` to load template content from template name)
+
+- `userData` - Object containing user data and methods which may be used when rendering template attributes
+
+- `-> result` - Returns frontmatter object containing `frontmatterBody: string` and `frontmatterAttributes: object`
+
+```javascript
+return {
+  frontmatterBody: string,
+  frontmatterAttributes: object
+}
+```
+
+**Example**
+
+The following example snippet from `templateQuickNote` method will pre render template, return final frontmatter body and attributes
+
+```javascript
+import NPTemplating from 'NPTemplating'
+
+// load template
+const templateData = await NPTemplating.getTemplate('Meeting Note')
+
+// pre render template, processing any template tags in frontmatter attributes
+const { frontmatterBody, frontmatterAttributes } = await NPTemplating.preRender(templateData)
+
+// using the template body from frontmatter style template and rendered attributes, perform final render
+const finalRenderedData = await NPTemplating.render(frontmatterBody, frontmatterAttributes)
+...
+```
 
 *****
 
