@@ -3,11 +3,11 @@ sidebar_position: 8
 ---
 
 # Syntax
-`np.Templating` templating engine uses standard JavaScript syntax to delcare a command. It may take some time to get used to the syntax, but after you have worked with for awhile, you will get the hang of it.
+`np.Templating` templating engine uses standard JavaScript syntax to declare a command. It may take some time to get used to the syntax, but after you have worked with for awhile, you will get the hang of it.
 
 All `np.Templating` variables and methods are JavaScript objects which are invoked using a command.
 
-:::info
+:::info TEMPLATING TAGS
 For more information on `np.Templating` tags. Visit [`Templating - Definitions -> Template Tags`](/docs/templating-basics/template-tags)
 :::
 
@@ -26,19 +26,21 @@ The syntax between a variable and method invocation is different, so it's import
 
 For example, `np.firstName` is an internal variable, whereas  `np.date.now()` is a method (method is followed by opening and closing parenthesis)
 
+:::info TEMPLATING MODULES
 More information about the different internal variables/methods is supplied in [Templating - Modules](/docs/templating-modules/overview) section.
+:::
 
-#### Variable Invocation
-To invoke a variable, you reference the desired module followed by variable name
+#### Variable Reference
+To reference a variable, use the desired module followed by variable name
 
-:::info
+:::note TEMPLATING VARIABLE
  `<%= date.DAY_NUMBER_SUNDAY %>`
 :::
 
 #### Method invocation
 To invoke a method, you reference the desired module, followed by the method name with opening and closing parenthesis.
 
-:::info
+:::note TEMPLATING METHOD
 For example, if you want to get the current date of from the `date` module you would use `date.now()`
 :::
 

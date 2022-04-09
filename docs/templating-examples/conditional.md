@@ -25,19 +25,19 @@ sidebar_position: 5
 #### if logic (single line)
 *note: the next line will only appear if the current day is Saturday*
 
-```markdown
+```javascript
 <%if (date.dayNumber(`${np.pivotDate}`) === 6) { %>do stuff on Saturday<% } %>
 ```
 
 #### if/else logic (single line)
 
-```markdown
+```javascript
 <%if (1 > 0) { %>true<% } else { %>else<% } %>
 ```
 
 #### ternary logic
 
-```markdown
+```javascript
 true: <%= true ? 'pass' : 'fail' %>
 false: <%= false ? 'pass' : 'fail' %>
 

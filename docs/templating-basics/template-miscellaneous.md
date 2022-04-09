@@ -7,7 +7,7 @@ sidebar_position: 7
 ## Escaping
 By default, `np.Templating` will escape all data, which under certain circumstances, may produce unexpected results. In these cases, you can use the `<%-` tag, which instructs `np.Templating` to render data as it has been received.
 
-:::info
+:::info TEMPLATING TAGS
 For more information on `np.Templating` tags. Visit [`Templating - Definitions -> Template Tags`](/docs/templating-basics/template-tags)
 :::
 

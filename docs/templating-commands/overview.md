@@ -10,12 +10,25 @@ There is a single command for initializing template configuration (will create n
 
 It will also migrate existing templates in "📋 Templates" to NotePlan "@Templates" folder (located in `Smart Folder` section at bottom of list) and migrate `quickNotes` defined in `_configuration` note
 
-:::note
+## Templating Creation Commands
+The following default commands are included in `np.Templating` plugin and do not require any configuration
+
+:::info
 See [migration commands](/docs/templating-commands/overview#npmigrate-templates) below for more information about template migration
 :::
 
-## Templating Creation Commands
-The following default commands are included in `np.Templating` plugin and do not require any configuration
+#### Ignoring Templates
+Any template which has a `type` of `ignore` will not be displayed in any of the `np.Templating` template chooser dialog
+
+```markdown
+---
+title: Ignored Template
+type: ignore
+---
+This template will not be displayed in any of the np.Templating template chooser dialog
+```
+
+*****
 
 ### np:append
 `np:append` will show a list of all templates located in the `Templates` folder, and will render at the cursor location of the current note.
@@ -32,12 +45,24 @@ _aliases: npi, insert, it_
 
 _aliases: npn, new, nn_
 
+<!--
+### np:mtn
+`np:mtn` will show a list of Quick Note templates located in the `Quick Notes` folder, and will create new note using selected Quick Note.
+
+_aliases: npm, mnt, mtn, mmm_
+
+
+:::important
+You must assign a `type` of `meeting-note` for it to be available when using `np:mtn` command. Refer to [Meeting Notes](/docs/templating-commands/meeting-notes) for more detailed information.
+:::
+-->
+
 ### np:qtn
-`np:qtn` will show a list of Quick Note templates located in the `Quick Notes` folder, and will create new note using selected Quick Note.
+`np:qtn` will show a list of available Quick Note templates, and will create new note using selected Quick Note template.
 
 _aliases: npq, qnt, qtn, quick, qqq_
 
-:::warning
+:::important
 You must assign a `type` of `quick-note` for it to be available when using `np:qtn` command. Refer to [Quick Notes](/docs/templating-commands/quick-notes) for more detailed information.
 :::
 

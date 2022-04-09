@@ -54,7 +54,7 @@ Desired timestamp format, used when referencing timestamp object (e.g. `<% date.
 
 Desired weather format string when referencing web weather (e.g. `<% web.weather() %`)
 
-:::info
+:::info WEATHER TAGS
 For more detailed information on supported weather tags, refer to [weather examples](/docs/templating-modules/web-module/#weather).
 :::
 
@@ -82,6 +82,6 @@ Each `service` is defined by a unique key (e.g. 'advice') and may contain a sing
   },
 }
 ```
-:::info
+:::info WEB MODULE
 For more information about using web services, refer to [Web Module](/docs/templating-modules/web-module)
 :::

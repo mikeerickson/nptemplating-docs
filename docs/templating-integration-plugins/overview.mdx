@@ -216,6 +216,7 @@ import NPTemplating from "NPTemplating"
 
 #### Setup NPTemplating data object
 The next setup will be to define a templateData object
+
 :::note
 If you do not intend to include custom variables or methods, this step can be ignored
 :::
@@ -315,6 +316,7 @@ export async function dayStart(today: boolean = false) {
 
 ### Add Template Methods
 When using `nmn.Templates` there is an `addTag` method which is included in the `nmn.Templates.templateController/src/processTemplate` method. You can use the `np.Templating.globals` method, which provides a mapping to current `nmn.Templates.addTag` method.
+
 :::info
 At time of release, all existing global methods which have been added to `nmn.Templates.templateController` using `addTag` method have been added to `np.Templating/lib/globals.js`
 :::

@@ -29,7 +29,7 @@ When you create a Meeting Note template, it becomes available via the `np:mtn` c
 
 After selecting the desired Meeting Note, a new note will be created in the defined folder location as defined in the Meeting Note template header.
 
-:::note
+:::important
 If you only have a single Meeting Note in the "🗓 Meeting Notes" folder, it will be selected automatically and the Template Chooser dialog will not be displayed.
 :::
 
@@ -45,7 +45,7 @@ In addition, you can use an optional field for `newNoteTitle` which will be used
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 
 
-:::danger
+:::danger ATTRIBUTE NAMING REQUIREMENTS
 All template attributes values must start with an alpha character (a..z, A..Z) and may not include illegal characters such as `#` otherwise must be surrounded with double quotes. To be safe with any frontmatter attribute, it is always a good idea to wrap in quotes as to not lead to issues down the road.
 :::
 

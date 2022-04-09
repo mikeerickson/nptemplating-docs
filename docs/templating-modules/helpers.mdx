@@ -1,0 +1,66 @@
+---
+sidebar_position: 8
+---
+
+# Helpers
+`np.Templating` includes a variety of helper methods which can be used in your templates. In addition, some of there helpers have been added to `np.Templating` modules.
+
+## NotePlan Plugin Helper Methods
+`np.Templating` has implemented globally-namespaced methods which were created using `addTag` method in `nmn.Templates/src/templateController.js` method to aid in migrating legacy templates to `np.Templating`. Those methods, provided by other plugins, are therefore still available for use in templates, through being compiled into np.Templating:
+
+| Helper Method | `np.Templating` Module Method (where applicable) | Comments
+|-------------- | ---------- | -----------------------------------------
+| `advice` | `<%- web.advice() %>` |
+| `affirmation` | `<%- web.affirmation() %>` |
+| `currentDate` | `<%- date.now() %>` |
+| `currentTime` | `<%- time.now() %>` |
+| `date8601` | `<%- date8601() %>` |
+| `date` | `<%- date.now() %>`| Renamed to `legacyDate` during migration
+| `now` | `<%- date.now() %>` |
+| `timestamp` | `<%- date.timestamp() %>` |
+| `quote` | `<%- web.quote() %>` |
+| `weather` | `<%- web.weather() %>` |
+| `prompt` | `<%- system.prompt() %>` |
+| `pickDate` | |
+| `pickDateInterval` | |
+
+## NotePlan Plugin Helpers
+In addition to the built-in helper methods, if you are using one of the many NotePlan Plugins, additional helpers may be available
+
+| Helper Method | NotePlan Plugin
+|-------------- | ----------
+| events() | Event Helpers
+| matchingEvents() | Event Helpers
+| progressUpdate() | Summaries
+| sweepTasks | Task Sweeper
+| weekDates | Date Automations
+
+## Using Custom Methods in Templates
+If you have created your own NotePlan plugin and wish to use it's methods in a template, follow this example.
+
+We have a method `sayHello` which would be referenced in a template as `<%- sayHello('Mike') %>`
+
+```javascript
+import NPTemplating from 'NPTemplating'
+
+export async function templatingHelloWorld(): Promise<void> {
+  try {
+    const templateData = {
+      methods: {
+        sayHello: (name: string = '') => {
+          return `Hello ${name}`
+        }
+      }
+    }
+    const result = await NPTemplating.renderTemplate('Template (Say Hello)', templateData)
+
+    Editor.insertTextAtCursor(result)
+  } catch (error) {
+    console.log('templatingHelloWorld', error)
+  }
+}
+```
+
+:::tip
+When using `np.Templating` in NotePlan Plugins, you should use the approach described in [Example 3 - Custom Methods](/docs/templating-integration-plugins/example-3)
+:::

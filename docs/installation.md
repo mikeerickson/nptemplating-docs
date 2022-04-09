@@ -5,9 +5,9 @@ sidebar_position: 2
 # Installation
 Installing any NotePlan plugin is a simple process.
 
-:::warning
+:::warning REQUIREMENTS
 np.Templating requires NotePlan v3.5 or greater. To get the latest version of NotePlan, visit [NotePlan Website](https://noteplan.co/) or [Setapp Website](https://setapp.com)
-#### Earn a free month from Setapp!
+#### 💰 Earn a free month from Setapp!
 If you are new to Setapp, feel free to use my [referral link](https://go.setapp.com/invite/vgrsl20l) to earn a free month!
 :::
 

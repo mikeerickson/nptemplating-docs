@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('../../static/img/logo2.svg').default,
     description: (
       <>
-        Tired of having to input the same informations manually for each of your notes? Automate everything with `np.Templating` templating plugin.
+        Tired of having to input the same information manually for each of your notes? Automate everything with `np.Templating` templating plugin.
       </>
     ),
   },

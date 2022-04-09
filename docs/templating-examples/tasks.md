@@ -7,7 +7,7 @@ sidebar_position: 11
 ## Overview
 The following example demonstrates how tasks can be displayed in a custom template
 
-:::caution
+:::caution ARRAY ACCESS
 This example assumes the `tasks` array has been supplied to the before rendering template.  This example will not work without being used in a custom NotePlan plugin
 :::
 
@@ -38,7 +38,7 @@ export async function templatingTasks(): Promise<void> {
 ### Tasks Template
 **Template Name:** Test (Tasks)
 
-```markdown
+```javascript
 All Tasks [<%= tasks.length %>]:
 <% tasks.forEach((task) => {
 %><%= task.completed ? `- [x] ${task.name}\n`  : `- [ ] ${task.name}\n` %><%});%>

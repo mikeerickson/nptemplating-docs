@@ -13,19 +13,19 @@ The following are some examples using the `np.Templating` WebModule
 ### Get Random Advice
 In addition to the `np:advice` command, you can also get a random quote within any template
 
-```markdown
+```javascript
 <%= web.advice() %>
 ```
 
 ### Get Random Quote
 
-```markdown
+```javascript
 <%= web.quote() %>
 ```
 
 ### Accessing Web Service
 Using the `web.service()` method, you an access can item in the _TODO_ `Web Services` in np.Templating Settings (NotePlan -> Preferences -> Plugins -> Settings). For complete details, please refer to [Templating Modules | Web Module](/docs/templating-modules/web-module)
 
-```markdown
+```javascript
 <%= web.service('developerQuote') %>
 ```

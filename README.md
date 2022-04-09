@@ -2,7 +2,7 @@
 
 ## Description
 
-`np.Templating` Documentation
+Templating Documentation
 
 ## Usage
 

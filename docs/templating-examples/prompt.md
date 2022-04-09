@@ -17,19 +17,15 @@ For example, if you have a display tag `<%=` in your template which is not in yo
 <%= firstName &>
 ```
 
-![Templating Prompt](/img/prompt1.png)
+![Templating Prompt](/img/prompt-default.png)
 
 ### Example 2: `prompt` command
 Alternatively, you can use the **`prompt` command**, which can accept optional prompt message and well as choices (for use with choice list prompt)
 
-:::danger
-When using `prompt` command, you must supply a valid variable name (e.g. `name`) and the variable must contain valid characters
+:::danger PROMPT PLACEHOLDER
+When using `prompt` command, you must supply a valid placeholder name (e.g. `name`) and the variable must contain valid characters
 - must start with an alpha character (a..z, A..Z)
 - may only contain alphanumeric characters (a..z, A..Z, 0..9)
-:::
-
-:::caution
-When using `prompt` method, you must supply a unique `variable` (e.g. `priority`). If you wish to use the same `variable` anywhere below the `prompt` command, you simply supply variable in output tags `<%= priority %>`
 :::
 
 Using the following template
@@ -66,7 +62,7 @@ Erickson
 ## Asking for dates or date intervals
 There are two further commands available:
 - **`pickDate('question','message')`**, which accepts dates of form `YYYY-MM-DD`
-- **`pickDateInterval('question','message')`**, which accepts date intervals of form `nnn[bdwmqy]`, as used and documented further in the [**Repeat Extensions** plugin](https://github.com/NotePlan/plugins/tree/main/jgclark.RepeatExtensions). 
+- **`pickDateInterval('question','message')`**, which accepts date intervals of form `nnn[bdwmqy]`, as used and documented further in the [**Repeat Extensions** plugin](https://github.com/NotePlan/plugins/tree/main/jgclark.RepeatExtensions).
 
 Both require the first parameter to be 'question', but accept an optional prompt message. They must be placed where the text is to be used.  For example:
 

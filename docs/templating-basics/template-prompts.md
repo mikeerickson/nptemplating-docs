@@ -5,7 +5,7 @@ sidebar_position: 6
 # Prompts
 `np.Templating` provides the ability to present user prompts when rendering templates.
 
-:::note
+:::info TEMPLATING PROMPTS
 For [more information](/docs/templating-examples/prompt) on `npTemplating` prompting interface
 :::
 

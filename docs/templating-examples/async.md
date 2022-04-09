@@ -32,7 +32,7 @@ The first part of the `web.services` method is to preface call using `await` key
 
 In this `web.services` API call, it returns a simple object with an `affirmation` key, along with the associated quote. This key is passed as the second parameter the `web.services` method.  Secondly, you use the `await` keyword which is required by the `web.services`.
 
-```markdown
+```javascript
 # Test (Async)
 *****
 

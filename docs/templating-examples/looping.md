@@ -6,13 +6,13 @@ sidebar_position: 6
 
 #### for loops
 
-```markdown
+```javascript
 <% for(let i = 0; i <= 10; i++) { %> <%= i %> <% } %>
 ```
 
 #### array.forEach
 
-```markdown
+```javascript
 <% names = ['mike','kira','joelle','brady','bailey','trevor'] %>
 <% names.forEach((name, i) => {
 %><%= i === names.length - 1 ? utils.titleCase(name) : utils.titleCase(name) + '\n' %><%});%>
