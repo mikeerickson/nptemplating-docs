@@ -6,6 +6,42 @@ sidebar_position: 1
 
 `np.Templating` is a template language plugin for NotePlan that lets you insert variables and method results into your notes. It will also let you execute custom JavaScript constructed in the templates providing a rich note taking system.
 
+## Why Use Templates
+
+Templates enables you to create structured and consistent notes for repetitive tasks. When invoked by one of the many `np.Templating` commands (e.g. `np:new`, `np:append`) the templating plugin replaces placeholders in a template file with actual values, and transforms the template into a NotePlan note. This approach makes it easier to create notes in your day-to-day work.
+
+- Encourages consistent notes (data generation is separate from presentation code).
+- Output generation is more expressive (template syntax doesn't require a sea of string concatenation)
+- Better productivity (common problems such as output encoding, iterating, conditionals, etc. have been handled).
+
+### Example
+For example, one of the unique features of NotePlan is the ability to combine normal note taking features (the _Note_) with an integrated calendar environment (the _Plan_) which provides a terrific place to manage a big part of your day-to-day work.
+
+When viewing the meeting in the NotePlan Calendar View, you may wish to link the event to a NotePlan Meeting NotePlan
+
+![NotePlan Event](/img/noteplan-event.png)
+
+Clicking on the "Link Note" button at the top of the event
+
+![NotePlan Event](/img/noteplan-link-note.png)
+
+You may select from one of the `meeting-note` templates in the "@Templates" folder
+
+:::tip
+Any template which contains a type of `meeting-note` will be available in the NotePlan Meeting Note template chooser
+:::
+
+![NotePlan Event](/img/noteplan-choose-template.png)
+
+When you select the desired template and click "Create Meeting Note", NotePlan will generate a new note, replacing template placeholders with information from the selected event, using a template such as the following
+
+![NotePlan Event](/img/noteplan-meeting-note-template.png)
+
+The end result will be a new note, which has a consistent format, making it easy to identify the important parts when you review notes in the future. Each of the placeholders (e.g. `<%= calendarItemLink %>` or `<%- eventNotes %>`) will be replaced with event attributes where applicable
+
+![NotePlan Event](/img/noteplan-meeting-note.png)
+
+
 ## Configuration
 
 `np.Templating` has a number of [settings](/docs/settings) which you can use to control how data is supplied and formatted when rendering templates.
