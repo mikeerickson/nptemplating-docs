@@ -8,7 +8,7 @@ sidebar_position: 1
 ### Templating Initialization
 There is a single command for initializing template configuration (will create new `np.Templating` [Plugin Settings](/docs/settings) if it does not exist) with new `np.Templating` configuration information).
 
-It will also migrate existing templates in "📋 Templates" to NotePlan "@Templates" folder (located in `Smart Folder` section at bottom of list) and migrate `quickNotes` defined in `_configuration` note
+It will also migrate existing templates in "📋 Templates" to NotePlan "Templates" folder (located in `Smart Folder` section at bottom of list) and migrate `quickNotes` defined in `_configuration` note
 
 ## Templating Creation Commands
 The following default commands are included in `np.Templating` plugin and do not require any configuration
@@ -99,7 +99,7 @@ Refer to [Web Module](/docs/templating-modules/web-module) for adding more detai
 ![Template Chooser](/img/templating-about.png)
 
 ### np:migrate-templates
-`np:migrate-templates` will migrate existing legacy templates in "📋 Templates" to NotePlan built-in "@Templates" folder. In addition, if you have any `quickNotes` in your `_configuration` notes, they will also be migrated to "@Templates" folder within "🗒 Quick Notes" folder
+`np:migrate-templates` will migrate existing legacy templates in "📋 Templates" to NotePlan "Templates" folder. In addition, if you have any `quickNotes` in your `_configuration` notes, they will also be migrated to "Templates" folder within "🗒 Quick Notes" folder
 
 :::note
 If you are install `np.Templating` for the first time, this migration will happen automatically when `np.Templating` plugin is installed.

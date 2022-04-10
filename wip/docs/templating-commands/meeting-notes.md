@@ -11,7 +11,7 @@ By default, Meeting Notes templates are located in "🗓 Meeting Notes" folder, 
 ![Template Chooser](/img/templates-meeting-notes.png)
 
 :::caution
-Due to utilization of advanced templating features, Meeting Note templates must be frontmatter style, legacy templates are **not** supported.
+Due to utilization of advanced templating features, Meeting Note templates must be using the frontmatter style, legacy templates are **not** supported.
 :::
 
 *****

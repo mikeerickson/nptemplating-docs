@@ -11,7 +11,7 @@ The following guide provides steps necessary for migrating from `Templates` (aka
 The first step will be to validate your templates have migrated successfully when `np.Templating` was installed.
 
 :::info
-During the `np.Templating` installation process, all your templates which were located in you 📋 Templates folder were migrated and converted to the `np.Templating` syntax. If you wish to run templating migration process manually, use the `np:migrate-templates` command
+During the `np.Templating` installation process, all your templates which were located in your "📋 Templates" folder were migrated and converted to the `np.Templating` syntax. If you wish to run templating migration process manually, use the `np:migrate-templates` command
 :::
 
 If you have templates which were not migrated correctly (we have attempted to cover all the possible templates, but there may be ones that `np.Templating` was not able to convert).
@@ -34,7 +34,7 @@ Replace with
 ```
 
 ## Disable Legacy Templates
-The final step will be disabling Templates
+The final step will be disabling Legacy Templates plugin
 
 ### Step 1: Open NotePlan Preferences
 `NotePlan -> Preferences...`

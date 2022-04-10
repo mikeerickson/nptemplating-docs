@@ -8,60 +8,14 @@ With `np.Templating`, you will be able to create powerful templates to automate 
 
 ## Examples
 
-The following example demonstrates how you create a **template** and use `np.Templating` tags to place dynamic **output**.
+The following examples demonstrates how you create a **template** and use `np.Templating` tags to place dynamic **output**.
 
-`np.Templating` supports a variety of template formats
+### Example 1: Template Definition
+When creating a new template in "Templates" folder, the template header will be in `frontmatter` format, containing two fields for template `title` and `type`, followed by template body.
 
-- [Legacy Templates](template-anatomy#template-configuration---legacy)
-- [Modern Templates (frontmatter format)](template-anatomy#template-configuration---frontmatter)
+`title` - The title should be a unique name with the folder it is located. You can use the same title in multiple templates, provided they are in different folders.
 
-### Example 1: Legacy Templates
-
-The template meta data is everything before the first separator (`---`) and everything after separator will be template content.
-
-**line 1:** Template Name (required)
-
-**line 2:** _blank line_
-
-**line 3:** Separator, ending template meta data
-
-:::note
-This example was executed on 2021-12-24 and previous `date.yesterday()` and next `date.tomorrow()` days are determined by `np.Templating` internal date value which is current date, unless otherwise specified.
-:::
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value="template" label="Template" default>
-
-```markdown
-# Templating Example
----
-created: <%= date.now('dddd MMMM Do, YYYY HH:mm A') %>
-
-And the remainder of the template will be display here ...
-```
-
-  </TabItem>
-  <TabItem value="output" label="Output">
-
-```text
-created: Friday December 24th, 2021 04:23 AM
-
-And the remainder of the template will be display here ...
-```
-
-  </TabItem>
-
-</Tabs>
-
-### Example 2: Modern Templates
-When creating a new template in "@Templates" folder, the template header will be in `frontmatter` format, containing two fields for template `title` and `type`, followed by template body.
-
-title - The title should be a unique name with the folder it is located. You can use the same title in multiple templates, provided they are in different folders.
-
-type - The type field is used to identify what type of template this is.  There are currently 3 different types of templates
+`type` - The type field is used to identify what type of template this is.  There are currently 3 different types of templates
 - `empty-note` will be available when select the "Template" button in an empty Calendar day
 - `quick-note` will be available whenever you invoke the `np:qtn` command
 - `meeting-note` will be available whenever you with to create a meeting note for any NotePlan calendar event
@@ -93,7 +47,7 @@ Hello Michael
 
 </Tabs>
 
-### Example 3: Using np.Templating modules
+### Example 2: Using `np.Templating` modules
 In this example, we will use one of the many `np.Templating` module methods, [WebModule](/docs/templating-modules/web-module).
 
 <Tabs>
@@ -102,6 +56,7 @@ In this example, we will use one of the many `np.Templating` module methods, [We
 ```markdown
 ---
 title: myTemplate
+type: empty-note
 ---
 Today's Weather: <%- web.weather() %>
 ```
@@ -110,7 +65,7 @@ Today's Weather: <%- web.weather() %>
   <TabItem value="output" label="Output">
 
 ```text
-Todays Weather: Fountain Valley, California, United States: ⛅️  +66°F
+Todays Weather: Fountain Valley, California, United States: ⛅️  +86°F
 ```
 
   </TabItem>
@@ -118,7 +73,7 @@ Todays Weather: Fountain Valley, California, United States: ⛅️  +66°F
 </Tabs>
 
 :::info
-The call to `<%- web.weather() %>` will use the format you have defined in [settings](/docs/settings). In this example, the settings value is blank, thus the default weather format will be used.
+The call to `<%- web.weather() %>` will use the format you have defined in `np.Templating` [settings](/docs/settings). In this example, the settings value is blank, thus the default weather format will be used.
 
 For more information about `np.Templating` weather, visit [Templating Modules - WebModule](/docs/templating-modules/web-module).
 :::

@@ -6,12 +6,12 @@ sidebar_position: 2
 Sometimes, you have templates that you apply often, and you would like to specify in advance, for example, the folder you want a new note to be placed in, the title of the note, and the template to use for the content.`np.Templating` **Quick Notes** are more specific templates for creating new notes.
 
 ## Quick Notes Templates
-By default, Quick Notes templates are located in "🗒 Quick Notes" however you can place them where you wish within the "@Templates" folder.
+By default, Quick Notes templates are located in "🗒 Quick Notes" however you can place them where you wish within the "Templates" folder.
 
 ![Template Chooser](/img/templates-quick-notes.png)
 
 :::caution
-Due to utilization of advanced templating features, Quick Note templates must be frontmatter style, legacy templates are **not** supported.
+Due to utilization of advanced templating features, Quick Note templates must be using the frontmatter style, legacy templates are **not** supported.
 :::
 
 *****

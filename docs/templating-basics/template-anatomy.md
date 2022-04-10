@@ -3,64 +3,23 @@ sidebar_position: 2
 ---
 
 # Template Anatomy
-`np.Templating` supports a variety of template formats:
+`np.Templating` template use format called [Frontmatter](https://jekyllrb.com/docs/front-matter/) which is commonly found in blogging platforms which utilizes templates to render dynamic content and is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
 
-- [Template Configuration - Legacy](/docs/templating-basics/template-anatomy#template-configuration---legacy)
-- [Template Configuration - Frontmatter](/docs/templating-basics/template-anatomy#template-configuration---frontmatter)
+### Template Configuration
+There are two parts to a NotePlan template, template attributes, and template body.
 
-## Template Configuration - Legacy
-The first step to using `np.Templating` is to create a template in your NotePlan **Templates** folder
+![NotePlan Event](/img/noteplan-default-template.png)
 
-![Templating Prompt](/img/template-folder-border.png)
+`attributes` - The attribute section is between open `---` and closing `---` tags. The attributes will have at least two properties `title` and `type`. NotePlan will display the frontmatter attributes in an alternate tint color
 
-### Section 1: Template Title
-All templates must have a unique name, with the first line being template name
+`body` - The remainder of template, after the second delimiter line`---` is the template content and will be use when template is rendered.
 
-```markdown
-# Template Name
-```
-
-### Section 2: Template Meta Data
-The next section in a template note can be any meta data you wish, such as description of template usage, etc.
-
-```markdown
-# Template Name
-Template meta data goes here
-```
-
-### Section 3: Template Separator
-The next section will be a `Line Separator` (`NotePlan Menu -> Format -> Line Separator`) or by using `---` or `*****`
-
-```markdown
-# Template Name
-Template meta data goes here
----
-```
-
-### Section 4: Template Content
-The remainder of the template note is your desired template content.  When the template is rendered, it will use everything below the separator line
-
-```markdown
-# Template Name
-Template meta data goes here
----
-Hello World!
-```
-
-:::info
-Typically, a template will have a title, then some metadata, then a horizontal rule and the template content. However, if your template does not have a horizontal rule (`---`) the first line will be template title, the entire remainder of the note (other than the title line) will be assumed to be template content.
-:::
-
-### Template Configuration - Frontmatter
-
-In addition to the standard template configuration, `np.Templating` also supports templates using frontmatter format
-
-### Basic Format
-The standard Frontmatter format defines template attribute definition, with everything after starting `---` and ending with `---`.  The remainder of template is the template content and will be use when template is rendered.
+**Example**
 
 ```markdown
 ---
 title: Template title
+type: empty-note
 ---
 Everything below the second `---` will be template content
 
