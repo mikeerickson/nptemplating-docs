@@ -10,7 +10,7 @@ sidebar_position: 3
 - `<%_` ‘Whitespace Slurping’ Template tag, strips all whitespace before it ([example](#strip-whitespace))
 - `<%=` Outputs the value into the template (HTML escaped)
 - `<%-` Outputs the unescaped value into the template
-- `<%@` Display prompt
+- `<%@` Display Prompt (same as using `<%- prompt(...) %>`)
 - `<%#` Comment tag, no execution, no output
 - `<%%` Outputs a literal '<%'
 - `-%>` ‘Whitespace Slurping’ Template tag, strips all whitespace after it ([example](#strip-whitespace))

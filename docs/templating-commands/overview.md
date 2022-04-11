@@ -45,17 +45,16 @@ _aliases: npi, insert, it_
 
 _aliases: npn, new, nn_
 
-<!--
 ### np:mtn
-`np:mtn` will show a list of Quick Note templates located in the `Quick Notes` folder, and will create new note using selected Quick Note.
+`np:mtn` will show a list of Meeting Note templates for any template which has a type containing `meeting-note`, and will create new note using selected Meeting Note.
+
+Unlike a meeting note which is attached to a specific NotePlan event, `np:mtn` will allow you to create detached meeting notes
 
 _aliases: npm, mnt, mtn, mmm_
-
 
 :::important
 You must assign a `type` of `meeting-note` for it to be available when using `np:mtn` command. Refer to [Meeting Notes](/docs/templating-commands/meeting-notes) for more detailed information.
 :::
--->
 
 ### np:qtn
 `np:qtn` will show a list of available Quick Note templates, and will create new note using selected Quick Note template.

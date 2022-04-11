@@ -5,6 +5,8 @@ sidebar_position: 3
 # Meeting Notes
 Like Quick Notes, you have templates that you apply often, and you would like to specify in advance, for example, the folder you want a new note to be placed in, the title of the note, and the template to use for the content.`np.Templating` **Meeting Notes** are more specific templates for creating new notes.
 
+However, unlike a meeting note which is attached to a specific NotePlan event, `np.Templating` meeting notes will allow you to create detached meeting notes
+
 ## Meeting Notes Templates
 By default, Meeting Notes templates are located in "🗓 Meeting Notes" folder, however you can place them where you wish within the "@Templates" folder.
 
