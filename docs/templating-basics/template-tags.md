@@ -7,6 +7,7 @@ sidebar_position: 3
 
 ## Tags
 - `<%` 'Template' tag, for control-flow, no output
+- `<%~` Output control-flow variables ([example](/docs/templating-examples/looping))
 - `<%_` ‘Whitespace Slurping’ Template tag, strips all whitespace before it ([example](#strip-whitespace))
 - `<%=` Outputs the value into the template (HTML escaped)
 - `<%-` Outputs the unescaped value into the template

@@ -41,6 +41,9 @@ Each Meeting Note must contain each of the following items:
 - `title` - contains the template title (this is what will appear in `np:qtn` template chooser)
 - `type` - specifies that this is a Meeting Note template (should be set to `meeting-note`)
 - `folder` - path to folder where new note will be created
+  - if `folder` has a value of `<select>` new note will be created in the selected folder
+  - if `folder` has a value of `<current>` new note will be created in the folder of the currently displayed note
+  - if `folder` has a value of `<current>` but you are not displaying a NotePlan, new note will be created in selected folder
 
 In addition, you can use an optional field for `newNoteTitle` which will be used when creating new note. If not supplied, you will be prompted to enter `newNoteTitle`
 

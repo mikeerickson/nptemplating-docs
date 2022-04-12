@@ -40,7 +40,9 @@ Each Quick Note must contain each of the following items:
 - `type` - specifies that this is a Quick Note template (should include `quick-note` in this CSV list)
 - `newNoteTitle` - will be name of new note. You can use any `np.Templating` module method, such as `<%- date.now() %>`, or a prompt command such as `<%- prompt('meetingSummary','What would you like to discuss') %>`
 - `folder` - path to folder where new note will be created
+  - if `folder` has a value of `<select>` new note will be created in the selected folder
   - if `folder` has a value of `<current>` new note will be created in the folder of the currently displayed note
+  - if `folder` has a value of `<current>` but you are not displaying a NotePlan, new note will be created in selected folder
 
 :::danger ATTRIBUTE NAMING REQUIREMENTS
 All template attributes values must start with an alpha character (a..z, A..Z) and may not include illegal characters such as `#` otherwise must be surrounded with double quotes. To be safe with any frontmatter attribute, it is always a good idea to wrap in quotes as to not lead to issues down the road.
