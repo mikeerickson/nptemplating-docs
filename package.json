@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "index": "open https://crawler.algolia.com/admin/crawlers/54f0de87-fe6a-4c3a-8ab1-09be5be54ed3/overview"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.13",
