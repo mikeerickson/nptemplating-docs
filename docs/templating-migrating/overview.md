@@ -64,7 +64,3 @@ While it might not be necessary, it is safe to Quit & Relaunch NotePlan
 It is recommended that you read the remainder of the `np.Templating` documentation. Who reads docs, yes I too often skip this step, but there is a lot packed into `np.Templating` so it is good to get an overview of what's available!
 
 At a minimum, have a look at all the [examples](/docs/templating-examples/simple). We have attempted all the various features of `np.Templating`. If you have any questions or issues, feel free to reach out to us!
-
-Twitter: [@codedungone](https://twitter.com/codedungeon)
-
-E-mail: [codedungeon@gmail.com](mailto://codedungeon@gmail.com)
