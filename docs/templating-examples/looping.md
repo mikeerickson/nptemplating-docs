@@ -3,6 +3,11 @@ sidebar_position: 6
 ---
 
 # Looping
+`np.Templating` template processor supports a variety of JavaScript code formats. The following examples demonstrate how you can use looping controls (`for`, `.forEach`, etc) and output internal control-flow variables in your templates
+
+:::danger IMPORTANT CONTROL-FLOW VARIABLE OUTPUT
+When outputting control variables in loops, you must use `<%~` otherwise the templating processor will see it as a missing variable and prompt for value
+:::
 
 #### for loops
 

@@ -17,6 +17,10 @@ sidebar_position: 3
 - `-%>` ‘Whitespace Slurping’ Template tag, strips all whitespace after it ([example](#strip-whitespace))
 - `%>` Plain ending tag
 
+:::danger IMPORTANT CONTROL-FLOW VARIABLE OUTPUT
+When outputting control variables in [loops](/docs/templating-examples/looping), you must use `<%~` otherwise the templating processor will see it as a missing variable and prompt for value
+:::
+
 ## Output Tags
 As defined above, there are two different output tags available
 
