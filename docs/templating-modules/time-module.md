@@ -11,6 +11,12 @@ The Time Module provides methods and variables which work with dates.
 Refer to [Date Module](/docs/templating-modules/date-module) for similar methods which work with with date values
 :::
 
+:::tip
+#### Formatting Times
+
+This Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options to get the exact date or time format you want.
+:::
+
 ## Methods
 > namespace: `time`
 
