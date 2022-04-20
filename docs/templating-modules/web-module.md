@@ -188,6 +188,10 @@ and produce something like
 
 Fountain Valley, California, United States: ⛅️  +55°F
 
+:::note
+This weather module requires no configuration and uses your IP address to estimate your location. If you use a VPN or your ISP is in a different place, that may not work for you. In the case you need to specify location manually, see [Javascript Weather Example](/docs/templating-examples/javascript-weather)
+:::
+
 *****
 
 ### Custom Format String
