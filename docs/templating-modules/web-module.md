@@ -151,10 +151,10 @@ Returns random Bible verse
 
 ### weather
 > #### weather(format? : string = '') : string
-Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string.
+Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string. 
 
 :::note
-You can set the default weather format in `np.Templating` [settings](/docs/settings) which will be used when `<%- web.weather() %>` command is executed
+You can set the default weather format in `np.Templating` [settings](/docs/settings) which will be used when `<%- web.weather() %>` command is executed. If you need to specify location manually, see [Javascript Weather Example](/docs/templating-examples/javascript-weather)
 :::
 
 - `format?` - If you wish to override the settings value, you can supply an optional format string with placeholders for the pieces of weather data you wish to output from `current_condition` key from `wttr.in` response.
