@@ -36,8 +36,7 @@ To demonstrate a JS function inside templates, we will use a weather example. Th
 <% /* ---- DO NOT TOUCH ANYTHING ABOVE THIS LINE --------------------- */ -%>
 <% /* ---- DEFAULT OUTPUT EXAMPLE-- "Scattered Clouds 57°F-65°F; Feels like: 56°F-62°F" */ -%>
 <% /* ---- EDIT THE FOLLOWING LINE ONLY IF YOU WANT TO MODIFY OUTPUT  FORMAT ----- */ -%>
-<% const weatherLine = `${weatherDesc} ${minTemp}${units}-${maxTemp}${units}; Feels like: ${fMin}${units}-${fMax}${units}` 
--%>
+<% const weatherLine = `${weatherDesc} ${minTemp}${units}-${maxTemp}${units}; Feels like: ${fMin}${units}-${fMax}${units}` -%>
 <% /* ---- THE FOLLOWING LINE INSERTS THE CONTENT INTO YOUR DOCUMENT; EDIT AS YOU SEE FIT ------ */ -%>
 Weather: <%~ weatherLine %>
 ```
