@@ -2,24 +2,47 @@
 sidebar_position: 15
 ---
 
-# Javascript Weather Example (with Fetch)
+# Using JavaScript
+`np.Templating` can be configured to execute a wide variety of JavaScript command, directly in the template.
 
-#### Javascript in Templates
+Using the leading tag `<%` at the beginning of line will instruct `np.Templating` to interpret whatever comes next interpret it as a standard JavaScript command, but will not output anything when the template is rendered.
 
-You can include full Javascript programs inside templates as long as you surround each Javascript line with the tags `<% JS_HERE ->`
+**Example**
 
-#### Weather Example
+The following will instruct `np.Templating` to initialize a variable `firstName` with the value of `Mike`
 
-To demonstrate a JS function inside templates, we will use a weather example. The default `web.weather()` template module is great because it requires zero configuration. No API key, no lat/long for your location, etc. It just works. For most people. But if you use a VPN or for some reason, your IP address cannot be mapped to your proper location, you will get the wrong weather. In that case, you can use the Template code below to get weather for any lat/long in any format (imperial/metric). The code has comments that tell you how to configure it. 
-
+```javascript
+<% const firstName = 'Mike' %>
 ```
+
+Then, you can output the value when rendered using one of the `np.Templating` output tags
+
+```javascript
+<%= firstName %> // output Mike
+```
+
+
+## Complex Example
+
+To demonstrate how to use JavaScript commands inside templates, we will use the `openweathermap.org` API.
+
+While the [Web Module](/docs/templating-modules/web-module) `weather()` command provides numerous formatting options, it is based on your current location using the "IP Address", which varies based on your current location (and can be random when using a VPN connection).
+
+### Using Latitude/Longitude (lat/long)
+
+If you would like to have greater control, you can also use a service such as `openweathermap.org` API to retrieve weather, utilizing predefined lat/long value and you own personal API key.
+
+```javascript
+
 <% /* ----------------------------------------  -%>
+
 <%  This template will allow you to get weather by specifying lat/long using openweather.org  -%>
 <%  1) You need to get your own API key from https://openweathermap.org/  and put it in the openWeatherAPIKey config field below -%>
 <%  2) Get your lat/long from Google. Open https://www.google.com/maps, search for your address. Right-click the place or area on the map. This will open a pop-up window. You can find your latitude and longitude in decimal format at the top. -%>
 <% ...Put them in the lat and long config fields below (don't forget the minuses if your lat/long have them) -%>
 <%  3) Choose whether you want "imperial" (F) or "metric" (C) degree output and put in units config below -%>
-<%  ---- EDIT YOUR WEATHER CONFIG HERE ------------------- */  -%>
+<%  /* ---- EDIT YOUR WEATHER CONFIG HERE ------------------- */  -%>
+
 <% const config = { openWeatherAPIKey: "YOUR_KEY_HERE",  lat: "34.0735807",long: "-118.4633328", units: "imperial"} -%>
 <% /* -- DO NOT TOUCH ANYTHING BELOW THIS LINE --------------------- */ -%>
 <% const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${config.lat}&lon=${config.long}&exclude=current,hourly,minutely&units=${config.units}&appid=${config.openWeatherAPIKey}`  -%>
@@ -28,7 +51,7 @@ To demonstrate a JS function inside templates, we will use a weather example. Th
 <% const weatherTodayAll = allWeatherData?.daily['0']; -%>
 <% const fMax = weatherTodayAll.feels_like.day.toFixed(0); -%>
 <% const fMin = weatherTodayAll.feels_like.night.toFixed(0); -%>
-<% const minTemp = weatherTodayAll.temp.min.toFixed(0); -%> 
+<% const minTemp = weatherTodayAll.temp.min.toFixed(0); -%>
 <% const maxTemp = weatherTodayAll.temp.max.toFixed(0); -%>
 <% const weatherDesc = utility.titleCase(weatherTodayAll.weather['0'].description ?? '') -%>
 <% const units = config.units === 'imperial' ? '°F' : '°C'; -%>

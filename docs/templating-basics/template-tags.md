@@ -6,7 +6,7 @@ sidebar_position: 3
 `np.Templating` uses a tagging system to indicate where dynamic content will be generated within template notes.
 
 ## Tags
-- `<%` Use for Javascript code -- no output
+- `<%` Script tag to be used when executing any JavaScript command without producing any output
 - `<%~` Output control-flow variables ([example](/docs/templating-examples/looping))
 - `<%_` ‘Whitespace Slurping’ Template tag, strips all whitespace before it ([example](#strip-whitespace))
 - `<%=` Outputs the value into the template (HTML escaped)

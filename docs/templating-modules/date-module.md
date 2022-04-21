@@ -12,13 +12,19 @@ Refer to [Time Module](/docs/templating-modules/time-module) for similar methods
 :::
 
 :::info
-#### DateModule Helpers
-The DateModule exposes commonly used [helper](/docs/templating-modules/date-module#helpers) methods
+#### Date Module Helpers
+The Date Module exposes commonly used [helper](/docs/templating-modules/date-module#helpers) methods
 :::
 
 :::tip
-#### Formatting Dates
-The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options
+#### Formatting Date Values
+The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options.
+
+![NotePlan Event](/img/moment-date-formats.png)
+
+**Example**
+
+If you wish to display date value with 4 digit year and 2 digit month, separated by a dash `-` character, you would use `<%- date.now('YYYY-MM') %>`
 :::
 
 ## Methods

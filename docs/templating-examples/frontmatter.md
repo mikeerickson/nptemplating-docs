@@ -3,7 +3,7 @@ sidebar_position: 7
 ---
 
 # Frontmatter
-np.Tempalating provides support for using frontmatter formatted templates. The frontmatter content is between `--` separators
+`np.Tempalating` provides support for using frontmatter formatted templates. The frontmatter content is between `--` separators
 
 ```markdown
 # Test (Frontmatter)

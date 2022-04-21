@@ -12,9 +12,15 @@ Refer to [Date Module](/docs/templating-modules/date-module) for similar methods
 :::
 
 :::tip
-#### Formatting Times
+#### Formatting Time Values
+The Time Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options.
+Each time token has a single or double token, with the double token being used to display leading zeros
 
-This Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options to get the exact date or time format you want.
+![NotePlan Event](/img/moment-time-formats.png)
+
+**Example**
+
+If you wish to display time value with hour and minute in 24 hour format, separated by a dash `:` character, you would use `<%- date.now('H:mm') %>`
 :::
 
 ## Methods
@@ -39,10 +45,28 @@ The following example returns the current time, using default values
 <%= time.now() %>
 ```
 
-The following example returns current time using custom format
+The following example returns current time using custom format, using 12hr format.
 
-```markdown
-<%= time.now("h:mm") %>
+```javascript
+<%= time.now("h:mm") %>  // returns 7:22 (no leading zero)
+```
+
+The following example returns current time using custom format, using 24hr format, each displayed with leading zeros
+
+```javascript
+<%= time.now("HH:mm") %>  // returns 07:22
+```
+
+The following example returns curren time in 12hr format, with lowercase am/pm
+
+```javascript
+<%= time.now("hh:mm a") %>  // returns 07:22 am
+```
+
+The following example returns curren time in 12hr format, with uppercase AM/PM
+
+```javascript
+<%= time.now("hh:mm A") %>  // returns 07:22 AM
 ```
 
 *****
