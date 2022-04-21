@@ -13,6 +13,11 @@ Test (DateModule)
 *****
 #### Templates with date and time
 
+:::tip
+#### Formatting Dates
+The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options to get the exact date or time format you want. 
+:::
+
 Date now: *<%= np.date.now() %>*
 Date now with format: *<%= np.date.now("Do MMMM YYYY") %>*
 
