@@ -28,25 +28,25 @@ The following are some examples of how you can use these modules within your tem
 
 ```markdown
 // inserts current date
-<%= date.now() %>
+<%- date.now() %>
 ```
 
 ```markdown
 // inserts current time
-<%= time.now() %>
+<%- time.now() %>
 ```
 
 ```markdown
 // insert contents of clipboard
-<%= system.clipboard() %>
+<%- system.clipboard() %>
 ````
 
 ```markdown
 // format string with titleCase
-<%= utils.titleCase('mike') %>
+<%- utils.titleCase('mike') %>
 ```
 
 ```markdown
 // return random advice
-<%= web.advice('mike') %>
+<%- web.advice('mike') %>
 ```

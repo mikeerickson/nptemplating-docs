@@ -3,7 +3,7 @@ sidebar_position: 7
 ---
 
 # Frontmatter
-`np.Tempalating` provides support for using frontmatter formatted templates. The frontmatter content is between `--` separators
+`np.Templating` provides support for using frontmatter formatted templates. The frontmatter content is between `--` separators
 
 ```markdown
 # Test (Frontmatter)
@@ -28,7 +28,7 @@ modified: {%= date.now('YYYY-MM-DD h:mm A') %}
 You can then access these frontmatter variable within the template content
 
 ```
-modified: *<%= frontmatter.modified %>*
+modified: *<%- frontmatter.modified %>*
 ```
 
 When template is rendered, it will display as
@@ -51,16 +51,16 @@ description: The following content will be ignored when rendering a frontmatter 
 #### Frontmatter Objects
 The following is normal template content
 
-name: *<%= frontmatter.name %>*
-phone: *<%= frontmatter.phone %>*
+name: *<%- frontmatter.name %>*
+phone: *<%- frontmatter.phone %>*
 
 #### Other Templating Variables
 
-<%= user.first %> <%= user.last %>
-<%= date.now() %>
+<%- user.first %> <%- user.last %>
+<%- date.now() %>
 
 *****
-modified: *<%= frontmatter.modified %>*
+modified: *<%- frontmatter.modified %>*
 ```
 
 When template is rendered, it will appear as

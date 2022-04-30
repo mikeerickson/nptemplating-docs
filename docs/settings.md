@@ -24,21 +24,21 @@ The locale which is used when creating date or time formats
   - `System Preferences > Date & Time > Language & Region`
 
 ### First Name
-Your first name, used when referencing user object (e.g. `<%= user.first %>`)
+Your first name, used when referencing user object (e.g. `<%- user.first %>`)
 
 ### Last Name
-Your last name, used when referencing user object (e.g. `<%= user.last %>`)
+Your last name, used when referencing user object (e.g. `<%- user.last %>`)
 
 ### Email
-Your email, used when referencing user object (e.g. `<%= user.email %>`)
+Your email, used when referencing user object (e.g. `<%- user.email %>`)
 
 ### Phone
-Your phone number, used when referencing user object (e.g. `<%= user.phone %>`)
+Your phone number, used when referencing user object (e.g. `<%- user.phone %>`)
 
 ### Date Format
 Default: `<system>`
 
-Desired date format, used when referencing date object (e.g. `<% date.now() %`)
+Desired date format, used when referencing date object (e.g. `<%- date.now() %`)
 
 ### Time Format
 Default: `<system>`

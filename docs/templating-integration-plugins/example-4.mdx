@@ -81,7 +81,7 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 ```markdown title="Templates / 🧰 Dungeon / Weekday Overview"
 # Weekday Overview
 *****
-# <%= date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
+# <%- date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
 *****
 ## 📚 Overview
 
@@ -96,10 +96,10 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 
 #### 🧭 6:00 AM - 9:30 AM
 - Follow-up Email, Slack, etc.
-- Prepare for [[<%= date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
+- Prepare for [[<%- date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
 
 #### 🧭 9:30 AM - 10:00 AM - Standup
-- [[<%= date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
+- [[<%- date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
 > 🗣 “<%- web.affirmation() %>”
 
 #### 🍴 1:00 PM - 2:00 PM - Mental Break / Lunch
@@ -112,7 +112,7 @@ export async function cdWeekday(userDate: any = ''): Promise<void> {
 ## 🔖 Review
 *Daily review, provide a summary of what was accomplished and what open items need to be carried over to tomorrow*
 
-**📕 Tomorrow:** [[<%= np.tomorrow %>]]
+**📕 Tomorrow:** [[<%- np.tomorrow %>]]
 
 ```
 
@@ -158,19 +158,19 @@ The breakdown of this template is as follows (for brevity, I have extracted only
 
 ```markdown
 ...
-3: # <%= date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
+3: # <%- date.format('ddd, MMM DD, YYYY', `${np.pivotDate}`) %>
 ...
 7: > ☀️ <%- weather() %>
 8: > 🙆 “<%- advice() %>”
 ...
 14: <%- await Bible.votd() %>
 ...
-21: * Prepare for [[<%= date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
+21: * Prepare for [[<%- date.format('YYYY-MM-DD', `${np.pivotDate}`) %> Standup]]
 22: > 🗣 “<%- web.affirmation() %>”
 ...
 26: <%- await handleRetrospect() %>
 ...
-34: **📕 Tomorrow:** [[<%= np.tomorrow %>]]
+34: **📕 Tomorrow:** [[<%- np.tomorrow %>]]
 ```
 
 | Line        | Description |

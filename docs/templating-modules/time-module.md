@@ -42,31 +42,31 @@ Returns a string representation current time.
 The following example returns the current time, using default values
 
 ```markdown
-<%= time.now() %>
+<%- time.now() %>
 ```
 
 The following example returns current time using custom format, using 12hr format.
 
 ```javascript
-<%= time.now("h:mm") %>  // returns 7:22 (no leading zero)
+<%- time.now("h:mm") %>  // returns 7:22 (no leading zero)
 ```
 
 The following example returns current time using custom format, using 24hr format, each displayed with leading zeros
 
 ```javascript
-<%= time.now("HH:mm") %>  // returns 07:22
+<%- time.now("HH:mm") %>  // returns 07:22
 ```
 
 The following example returns curren time in 12hr format, with lowercase am/pm
 
 ```javascript
-<%= time.now("hh:mm a") %>  // returns 07:22 am
+<%- time.now("hh:mm a") %>  // returns 07:22 am
 ```
 
 The following example returns curren time in 12hr format, with uppercase AM/PM
 
 ```javascript
-<%= time.now("hh:mm A") %>  // returns 07:22 AM
+<%- time.now("hh:mm A") %>  // returns 07:22 AM
 ```
 
 *****
@@ -83,19 +83,19 @@ Returns a string representation current time.
 The following example returns the current time, using default values
 
 ```markdown
-<%= time.currentTime() %>
+<%- time.currentTime() %>
 ```
 
 The following example returns current time using custom format
 
 ```markdown
-<%= time.currentTime("h:mm") %>
+<%- time.currentTime("h:mm") %>
 ```
 
 The following example uses the `currentTime` helper
 
 ```markdown
-<%= currentTime() %>
+<%- currentTime() %>
 ```
 
 *****

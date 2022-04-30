@@ -2,10 +2,12 @@
 sidebar_position: 15
 ---
 
-# Using JavaScript
-`np.Templating` can be configured to execute a wide variety of JavaScript command, directly in the template.
+# Using JavaScript in Templates
+*Contributed by: @dwertheimer*
 
-Using the leading tag `<%` at the beginning of line will instruct `np.Templating` to interpret whatever comes next interpret it as a standard JavaScript command, but will not output anything when the template is rendered.
+`np.Templating` can be configured to execute a wide variety of JavaScript commands, directly in the template.
+
+Using the leading tag `<%` at the beginning of line will instruct `np.Templating` to interpret whatever comes next as a standard JavaScript command, but will not output anything when the template is rendered, and when combined with the `<%-` tag, you can then output any variable you created previously when the template is rendered.
 
 **Example**
 
@@ -18,15 +20,15 @@ The following will instruct `np.Templating` to initialize a variable `firstName`
 Then, you can output the value when rendered using one of the `np.Templating` output tags
 
 ```javascript
-<%= firstName %> // output Mike
+<%- firstName %> // output Mike
 ```
 
 
 ## Complex Example
 
-To demonstrate how to use JavaScript commands inside templates, we will use the `openweathermap.org` API.
+To demonstrate how to use JavaScript commands inside templates, we will use the `openweathermap.org` API to gather weather information based on a predefined lat/long combination.
 
-While the [Web Module](/docs/templating-modules/web-module) `weather()` command provides numerous formatting options, it is based on your current location using the "IP Address", which varies based on your current location (and can be random when using a VPN connection).
+While the [Web Module](/docs/templating-modules/web-module) `weather()` command provides numerous formatting options, it is based on your current location using the devices "IP Address", which varies based on your current location (and can be random when using a VPN connection).
 
 ### Using Latitude/Longitude (lat/long)
 
@@ -36,7 +38,7 @@ If you would like to have greater control, you can also use a service such as `o
 
 <% /* ----------------------------------------  -%>
 
-<%  This template will allow you to get weather by specifying lat/long using openweather.org  -%>
+<%  This template will allow you to get weather by specifying lat/long using openweathermap.org  -%>
 <%  1) You need to get your own API key from https://openweathermap.org/  and put it in the openWeatherAPIKey config field below -%>
 <%  2) Get your lat/long from Google. Open https://www.google.com/maps, search for your address. Right-click the place or area on the map. This will open a pop-up window. You can find your latitude and longitude in decimal format at the top. -%>
 <% ...Put them in the lat and long config fields below (don't forget the minuses if your lat/long have them) -%>
@@ -61,5 +63,5 @@ If you would like to have greater control, you can also use a service such as `o
 <% /* ---- EDIT THE FOLLOWING LINE ONLY IF YOU WANT TO MODIFY OUTPUT  FORMAT ----- */ -%>
 <% const weatherLine = `${weatherDesc} ${minTemp}${units}-${maxTemp}${units}; Feels like: ${fMin}${units}-${fMax}${units}` -%>
 <% /* ---- THE FOLLOWING LINE INSERTS THE CONTENT INTO YOUR DOCUMENT; EDIT AS YOU SEE FIT ------ */ -%>
-Weather: <%~ weatherLine %>
+Weather: <%- weatherLine %>
 ```

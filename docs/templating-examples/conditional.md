@@ -38,8 +38,8 @@ sidebar_position: 5
 #### ternary logic
 
 ```javascript
-true: <%= true ? 'pass' : 'fail' %>
-false: <%= false ? 'pass' : 'fail' %>
+true: <%- true ? 'pass' : 'fail' %>
+false: <%- false ? 'pass' : 'fail' %>
 
 <%- date.dayNumber(`${np.pivotDate}`) === 0 ? '> 📖 [Refuge CCHB](https://refugehb.online.church/)' : '' %>
 ```

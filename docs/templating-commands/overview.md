@@ -45,17 +45,6 @@ _aliases: npi, insert, it_
 
 _aliases: npn, new, nn_
 
-### np:mtn
-`np:mtn` will show a list of Meeting Note templates for any template which has a type containing `meeting-note`, and will create new note using selected Meeting Note.
-
-Unlike a meeting note which is attached to a specific NotePlan event, `np:mtn` will allow you to create detached meeting notes
-
-_aliases: npm, mnt, mtn, mmm_
-
-:::important
-You must assign a `type` of `meeting-note` for it to be available when using `np:mtn` command. Refer to [Meeting Notes](/docs/templating-commands/meeting-notes) for more detailed information.
-:::
-
 ### np:qtn
 `np:qtn` will show a list of available Quick Note templates, and will create new note using selected Quick Note template.
 
@@ -65,27 +54,78 @@ _aliases: npq, qnt, qtn, quick, qqq_
 You must assign a `type` of `quick-note` for it to be available when using `np:qtn` command. Refer to [Quick Notes](/docs/templating-commands/quick-notes) for more detailed information.
 :::
 
-## Templating Web Service Commands
-The following commands can be used to insert various web service commands
+## Reserved Template Attributes
+When using the `np:new` or `np:qtn` commands, there are two reserved attributes which may be defined in template attributes, that when template rendered, will tell `np.Templating` the name of new note, and folder where new note will be created
 
-### np:advice
-`np:advice` will insert random advice at the cursor location of the current note.
+### newNoteTitle
+The `newNoteTitle` attribute will be used to define name of new note
 
-### np:affirmation
-`np:affirmation` will insert random affirmation at the cursor location of the current note.
-
-### np:quote
-`np:quote` will insert random quote at the cursor location of the current note.
-
-### np:verse
-`np:verse` will insert random bible verse at the cursor location of the current note.
-
-### np:weather
-`np:weather` will insert weather of current location at the cursor location of the current note using format defined in `np.Templating` [settings](/docs/settings).
-
-:::info
-Refer to [Web Module](/docs/templating-modules/web-module) for adding more detailed weather information in your templates
+:::note
+If the `newNoteTitle` is not supplied, you will be prompted to enter new note title
 :::
+
+#### Example 1:
+This example will use the `newNoteTitle` value of "My New Note" to create the new note.
+
+```markdown
+---
+title: Sample
+newNoteTitle: "My New Note"
+---
+```
+
+#### Example 2:
+A more useful example (static notes will just create duplicate notes in the `folder`) we can build up the note using the `np.Templating` [Date Module](/docs/templating-modules/date-module)
+
+```markdown
+---
+title: Sample
+newNoteTitle: "<%- prompt('meetingSummary','What would you like to discuss') %> <%- date.now() %>"
+---
+```
+
+When the template is rendered, a prompt will be displayed requesting `meetingSummary` and then appended with the current date (e.g. "Talk about Templating 2022-04-25")
+
+### folder
+The `folder` attribute will be used to define where new note is created
+
+:::note
+If folder not supplied, the new note will be created at the root level of your project notes)
+:::
+
+#### Example 1:
+The following example will use the "current note folder location" as location where new note will be created
+
+```markdown
+---
+title: Current Folder
+folder: <current>
+---
+```
+
+#### Example 2:
+The following example will display list of all folders to choose location of new note
+
+```markdown
+---
+title: Current Folder
+folder: <select>
+---
+```
+
+#### Example 3:
+The following construct the `folder` location using using fixed values first part of folder location, with last folder using [Date Module](/docs/templating-modules/date-module) `date.now('YYYY-MM')`
+
+```markdown
+---
+title: Custom Folder
+folder:  "- 🛠 Projects/00 - 👨🏽‍💻codedungeon/📆 Meetings/<%- date.now('YYYY-MM') %>"
+---
+```
+
+When rendered, `folder` value will appear something like
+
+"- 🛠 Projects/00 - 👨🏽‍💻codedungeon/📆 Meetings/2022-04 (the last part will change dynamically based on current date using the 'YYYY-MM' format supplied to `date.now()`)"
 
 ## Templating Utility Commands
 

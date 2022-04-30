@@ -15,58 +15,58 @@ Test (DateModule)
 
 :::tip
 #### Formatting Dates
-The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options to get the exact date or time format you want. 
+The Date Module uses JavaScript `moment` library internally, thus you can use any of the [moment formatting](https://momentjs.com/docs/#/parsing/string-format/) options to get the exact date or time format you want.
 :::
 
-Date now: *<%= np.date.now() %>*
-Date now with format: *<%= np.date.now("Do MMMM YYYY") %>*
+Date now: *<%- np.date.now() %>*
+Date now with format: *<%- np.date.now("Do MMMM YYYY") %>*
 
-Today: *<%= date.today() %>*
-Last week: *<%= np.date.now("dddd Do MMMM YYYY", -7) %>*
-Last week of current date: *<%= np.date.now("", -7) %>*
-Today: *<%= np.date.now("dddd Do MMMM YYYY, ddd") %>*
-Next week: *<%= np.date.now("dddd Do MMMM YYYY", 7) %>*
-Today w/ format: *<%= date.now("dddd MMMM Do, YYYY HH:mm A") %>*
+Today: *<%- date.today() %>*
+Last week: *<%- np.date.now("dddd Do MMMM YYYY", -7) %>*
+Last week of current date: *<%- np.date.now("", -7) %>*
+Today: *<%- np.date.now("dddd Do MMMM YYYY, ddd") %>*
+Next week: *<%- np.date.now("dddd Do MMMM YYYY", 7) %>*
+Today w/ format: *<%- date.now("dddd MMMM Do, YYYY HH:mm A") %>*
 
-Day Number: *<%= date.dayNumber() %>*
-Day Number w/ Specific Date: *<%= date.dayNumber('2021-12-25') %>*
+Day Number: *<%- date.dayNumber() %>*
+Day Number w/ Specific Date: *<%- date.dayNumber('2021-12-25') %>*
 
 #### Day Number Constants
-Sunday: *<%= date.DAY_NUMBER_SUNDAY %>*
-Monday: *<%= date.DAY_NUMBER_MONDAY %>*
-Tuesday: *<%= date.DAY_NUMBER_TUESDAY %>*
-Wednesday: *<%= date.DAY_NUMBER_WEDNESDAY %>*
-Thursday: *<%= date.DAY_NUMBER_THURSDAY %>*
-Friday: *<%= date.DAY_NUMBER_FRIDAY %>*
-Saturday: *<%= date.DAY_NUMBER_SATURDAY %>*
+Sunday: *<%- date.DAY_NUMBER_SUNDAY %>*
+Monday: *<%- date.DAY_NUMBER_MONDAY %>*
+Tuesday: *<%- date.DAY_NUMBER_TUESDAY %>*
+Wednesday: *<%- date.DAY_NUMBER_WEDNESDAY %>*
+Thursday: *<%- date.DAY_NUMBER_THURSDAY %>*
+Friday: *<%- date.DAY_NUMBER_FRIDAY %>*
+Saturday: *<%- date.DAY_NUMBER_SATURDAY %>*
 
-Week Number: *<%= date.weekNumber() %>*
-Week Number w/ Specific Date: *<%= date.weekNumber('2021-12-25') %>*
+Week Number: *<%- date.weekNumber() %>*
+Week Number w/ Specific Date: *<%- date.weekNumber('2021-12-25') %>*
 
-Last month: *<%= np.date.now("YYYY-MM-DD", "P-1M") %>*
-Next year: *<%= np.date.now("YYYY-MM-DD", "P1Y") %>*
+Last month: *<%- np.date.now("YYYY-MM-DD", "P-1M") %>*
+Next year: *<%- np.date.now("YYYY-MM-DD", "P1Y") %>*
 
-Date tomorrow: *<%= np.date.tomorrow() %>*
-Date tomorrow with format: *<%= np.date.tomorrow("Do MMMM YYYY") %>*
+Date tomorrow: *<%- np.date.tomorrow() %>*
+Date tomorrow with format: *<%- np.date.tomorrow("Do MMMM YYYY") %>*
 
-Date yesterday: *<%= np.date.yesterday() %>*
-Date yesterday with format: *<%= np.date.yesterday("Do MMMM YYYY") %>*
+Date yesterday: *<%- np.date.yesterday() %>*
+Date yesterday with format: *<%- np.date.yesterday("Do MMMM YYYY") %>*
 
-Add 3 Business Days: *<%= np.date.businessAdd(3) %>*
-Add 3 Business Days w/ PivotDate 2021-11-24: *<%= np.date.businessAdd(3,'2021-11-24') %>*
+Add 3 Business Days: *<%- np.date.businessAdd(3) %>*
+Add 3 Business Days w/ PivotDate 2021-11-24: *<%- np.date.businessAdd(3,'2021-11-24') %>*
 
-Subtract 3 Business Days: *<%= np.date.businessSubtract(3) %>*
-Subtract 3 Business Days w/ PivotDate 2021-11-22: *<%= np.date.businessSubtract(3,'2021-11-22') %>*
+Subtract 3 Business Days: *<%- np.date.businessSubtract(3) %>*
+Subtract 3 Business Days w/ PivotDate 2021-11-22: *<%- np.date.businessSubtract(3,'2021-11-22') %>*
 
-This week's Monday: *<%= np.date.weekday("YYYY-MM-DD", 1) %>*
-Next Monday: *<%= np.date.weekday("YYYY-MM-DD", 8) %>*
+This week's Monday: *<%- np.date.weekday("YYYY-MM-DD", 1) %>*
+Next Monday: *<%- np.date.weekday("YYYY-MM-DD", 8) %>*
 
-Week Of: *<%= np.date.weekOf() %>*
-Week Of (only pivotDate): *<%= np.date.weekOf('2021-11-03') %>*
-Week Of: *<%= np.date.weekOf(null, null, '2021-11-03') %>*
+Week Of: *<%- np.date.weekOf() %>*
+Week Of (only pivotDate): *<%- np.date.weekOf('2021-11-03') %>*
+Week Of: *<%- np.date.weekOf(null, null, '2021-11-03') %>*
 
-Current Time: *<%= np.time.now('h:mm A') %>*
-Current Date: *<%= date.now() %>*
+Current Time: *<%- np.time.now('h:mm A') %>*
+Current Date: *<%- date.now() %>*
 ```
 
 ## Output

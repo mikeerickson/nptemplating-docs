@@ -202,6 +202,27 @@ export async function testFrontmatter(): Promise<void> {
 
 *****
 
+## Using Prompts
+If you wish to display prompts in your frontmatter attributes section, you can just use the standard `np.Templating` prompt command
+
+### Example
+Using something like the following, when the template is rendered `np.Templating` will display prompt requesting `newNoteTitle`
+
+```markdown
+---
+title: Sample Frontmatter Prompt
+newNoteTitle: <%- prompt('newNoteTitle','Enter New Note Title:' %>
+---
+```
+
+When template is rendered, the user will be prompted for `newNoteTitle` with entered value being used for new note
+
+:::tip
+When using any of the following `np.Templating` commands (`np:new`, `np:qtn`), the created note will use the `newNoteTitle` internally
+:::
+
+*****
+
 ## Helpers
 FrontMatterModule exposes commonly used methods as importable helpers
 

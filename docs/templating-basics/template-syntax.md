@@ -12,12 +12,12 @@ For more information on `np.Templating` tags. Visit [`Templating - Definitions -
 :::
 
 ## Command Syntax
-A command **must** have both an opening tag `<%` and closing `%>`, and if you want to show the results when template rendered, the opening tag will be `<%=` or `<%-` (unescaped output)
+A command **must** have both an opening tag `<%` and closing `%>`, and if you want to show the results when template rendered, the opening tag will be `<%-`.
 
 ## Variable/Method Syntax
 
 ### Objects hierarchy
-All of `np.Templating`s variable and methods, whether it's an internal or custom method, will use a namespace. To access the variable or method of an object, you ues a dot `.` (e.g. `<%= date.now() %>`)
+All of `np.Templating`s variable and methods, whether it's an internal or custom method, will use a namespace. To access the variable or method of an object, you ues a dot `.` (e.g. `<%- date.now() %>`)
 
 If you are using [prompt interface](/docs/templating-examples/prompt), if you are not immediately displaying prompt result, you should use the `user` namespace, which tells `np.Templating` this is a user variable.
 
@@ -34,7 +34,7 @@ More information about the different internal variables/methods is supplied in [
 To reference a variable, use the desired module followed by variable name
 
 :::note TEMPLATING VARIABLE
- `<%= date.DAY_NUMBER_SUNDAY %>`
+ `<%- date.DAY_NUMBER_SUNDAY %>`
 :::
 
 #### Method invocation
@@ -85,11 +85,11 @@ date.businessAdd(numDays?: integer = 1, pivotDate?:string = '', format?: string 
 You could then use this method in your template like
 
 ```javascript
-<%= date.businessAdd() %>  // would return next business day using default `numDays` and `pivotDate`
+<%- date.businessAdd() %>  // would return next business day using default `numDays` and `pivotDate`
 
-<%= date.businessAdd(1) %>  // would return next business day using `pivotDate`
+<%- date.businessAdd(1) %>  // would return next business day using `pivotDate`
 
-<%= date.businessAdd(1,'2021-12-22') %> // would return next business day using supplied `pivotDate`
+<%- date.businessAdd(1,'2021-12-22') %> // would return next business day using supplied `pivotDate`
 
-<%= date.businessAdd(1,'','MM/DD/YYYY')> // would return next business day, using a custom format
+<%- date.businessAdd(1,'','MM/DD/YYYY')> // would return next business day, using a custom format
 ```

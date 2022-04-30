@@ -36,7 +36,7 @@ Editor.insertTextAtCursor(result)
 ---
 Display array of books using JavaScript `.forEach`
 <% books.forEach(function(book){ %>
-**<%- book.TITLE %>**: <%= book.AUTHOR %><%
+**<%- book.TITLE %>**: <%- book.AUTHOR %><%
 }) %>
 ```
 

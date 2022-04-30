@@ -39,17 +39,17 @@ export async function templatingTasks(): Promise<void> {
 **Template Name:** Test (Tasks)
 
 ```javascript
-All Tasks [<%= tasks.length %>]:
+All Tasks [<%- tasks.length %>]:
 <% tasks.forEach((task) => {
-%><%= task.completed ? `- [x] ${task.name}\n`  : `- [ ] ${task.name}\n` %><%});%>
+%><%- task.completed ? `- [x] ${task.name}\n`  : `- [ ] ${task.name}\n` %><%});%>
 
-Closed Items [<%= tasks.filter(task => {return task.completed}).length %>]:
+Closed Items [<%- tasks.filter(task => {return task.completed}).length %>]:
 <% tasks.forEach((task) => {
-%><%= task.completed ? `- [x] ${task.name}\n`  : '' %><%});%>
+%><%- task.completed ? `- [x] ${task.name}\n`  : '' %><%});%>
 
-Open Items [<%= tasks.filter(task => {return !task.completed}).length %>]:
+Open Items [<%- tasks.filter(task => {return !task.completed}).length %>]:
 <% tasks.forEach((task) => {
-%><%= task.completed ? ''  : `- [ ] ${task.name}\n` %><%});%>
+%><%- task.completed ? ''  : `- [ ] ${task.name}\n` %><%});%>
 ```
 
 ### Rendered Output

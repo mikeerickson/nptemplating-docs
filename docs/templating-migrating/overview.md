@@ -27,7 +27,7 @@ If you have templates which were not migrated correctly (we have attempted to co
 The following steps should be followed to convert your templates to `np.Templating` format.
 
 ### Step 1: Change Template Tags
-`np.Templating` uses `<%=` and `%>` as opening and closing template tags (see [templating tags](/docs/templating-basics/template-tags) for more information).
+`np.Templating` uses `<%-` and `%>` as opening and closing template tags (see [templating tags](/docs/templating-basics/template-tags) for more information).
 
 For example, if you are using something like the following:
 
@@ -38,7 +38,7 @@ For example, if you are using something like the following:
 Replace with
 
 ```js
-<%= formattedDateTime({format: '%A, %B %d, %Y'}) %>
+<%- formattedDateTime({format: '%A, %B %d, %Y'}) %>
 ```
 
 ## Disable Legacy Templates

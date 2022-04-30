@@ -21,8 +21,8 @@ sidebar_position: 8
 | `quote` | `<%- web.quote() %>` |
 | `weather` | `<%- web.weather() %>` |
 | `prompt` | `<%- system.prompt() %>` |
-| `pickDate` | |
-| `pickDateInterval` | |
+| `pickDate` | `<%- system.promptDate() %>` | Renamed to `promptDate` during migration
+| `pickDateInterval` | `<%- system.promptDateInterval() %>` | Renamed to `promptDateInterval` during migration
 
 ## NotePlan Plugin Helpers
 In addition to the built-in helper methods, if you are using one of the many NotePlan Plugins, additional helpers may be available

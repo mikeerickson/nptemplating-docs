@@ -65,19 +65,19 @@ _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) 
 The following example returns the current date, using default values
 
 ```javascript
-<%= date.now() %>
+<%- date.now() %>
 ```
 
 The following example returns current date using custom format
 
 ```javascript
-<%= date.now("dddd Do MMMM YYY") %>
+<%- date.now("dddd Do MMMM YYY") %>
 ```
 
 The following example uses the `now` helper
 
 ```javascript
-<%= now() %>
+<%- now() %>
 ```
 
 *****
@@ -96,19 +96,19 @@ _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) 
 The following example returns the current date, using default values
 
 ```javascript
-<%= date.timestamp() %>
+<%- date.timestamp() %>
 ```
 
 The following example returns current date using custom format
 
 ```javascript
-<%= date.timestamp("dddd Do MMMM YYY") %>
+<%- date.timestamp("dddd Do MMMM YYY") %>
 ```
 
 The following example uses the `timestamp` helper
 
 ```javascript
-<%= timestamp() %>
+<%- timestamp() %>
 ```
 
 *****
@@ -134,7 +134,7 @@ Returns a string representation current date.
 The following example returns the current date, using default values
 
 ```javascript
-<%= date.today() %>
+<%- date.today() %>
 ```
 
 *****
@@ -151,7 +151,7 @@ Returns a string representation of tomorrow
 The following example returns tomorrow based on current date
 
 ```javascript
-<%= date.tomorrow() %>
+<%- date.tomorrow() %>
 ```
 
 *****
@@ -168,7 +168,7 @@ Returns a string representation of yesterday
 The following example returns yesterday based on current date
 
 ```javascript
-<%= date.yesterday() %>
+<%- date.yesterday() %>
 ```
 
 *****
@@ -203,13 +203,13 @@ Returns the closest weekday, using the `offset` to add or subtract days
 The following returns the closest weekday 2 days in advance using current date
 
 ```javascript
-<%= date.weekday('', 2) %>
+<%- date.weekday('', 2) %>
 ```
 
 The following returns the closest weekday 2 days in advance using fixed date
 
 ```javascript
-<%= date.weekday('', 2, '2021-12-15') %> // returns 2021-12-17
+<%- date.weekday('', 2, '2021-12-15') %> // returns 2021-12-17
 ```
 
 *****
@@ -226,7 +226,7 @@ Returns the week number based on `pivotDate`
 The following returns the closest weekday 2 days in advance using current date
 
 ```javascript
-<%= date.weekNumber('2021-12-15') %> // the following will return 50
+<%- date.weekNumber('2021-12-15') %> // the following will return 50
 ```
 
 *****
@@ -253,7 +253,7 @@ Day number will be one of following
 The following returns the closest weekday 2 days in advance using current date
 
 ```javascript
-<%= date.dayNumber('2021-12-15') %> // the following will return 3
+<%- date.dayNumber('2021-12-15') %> // the following will return 3
 ```
 
 *****
@@ -270,7 +270,7 @@ Returns true if `pivotDate` is on weekday
 The following returns true or false if `pivotDate` is weekday
 
 ```javascript
-<%= date.isWeekday('2021-12-15') %> // the following will return true
+<%- date.isWeekday('2021-12-15') %> // the following will return true
 ```
 
 *****
@@ -286,7 +286,7 @@ Returns true if `pivotDate` is on weekend
 The following returns true or false if `pivotDate` is weekend
 
 ```javascript
-<%= date.isWeekend('2021-12-15') %> // the following will return false
+<%- date.isWeekend('2021-12-15') %> // the following will return false
 ```
 
 *****
@@ -303,7 +303,7 @@ Returns formatted weekOf based on `pivotDate`
 The following returns weekOf value based on `pivotDate`
 
 ```javascript
-<%= date.weekOf('2021-12-01') %> // the following will W48 (2021-11-28..2021-12-03)
+<%- date.weekOf('2021-12-01') %> // the following will W48 (2021-11-28..2021-12-03)
 ```
 
 *****
@@ -347,7 +347,7 @@ Adds `numDays` business days.  You can also supply `pivotDate` and date `format`
 The following adds 3 business days, using current date
 
 ```javascript
-<%= date.businessAdd(3, '2022-01-07') %> // returns 2022-01-12
+<%- date.businessAdd(3, '2022-01-07') %> // returns 2022-01-12
 ```
 
 *****
@@ -366,7 +366,7 @@ Subtracts `numDays` business days.  You can also supply `pivotDate` and date `fo
 The following subtracts 3 business days, using current date
 
 ```javascript
-<%= date.nextBusinessSubtract(3, '2022-01-12') %> // returns 2022-01-07
+<%- date.nextBusinessSubtract(3, '2022-01-12') %> // returns 2022-01-07
 ```
 
 *****
@@ -384,7 +384,7 @@ Returns next business day, based on `pivotDate`.  You can also supply date `form
 The following returns next business day based on `pivotDate`
 
 ```javascript
-<%= date.nextBusinessDay('2022-01-12') %> // returns 2022-01-13
+<%- date.nextBusinessDay('2022-01-12') %> // returns 2022-01-13
 ```
 
 *****
@@ -402,7 +402,7 @@ Returns previous business day, based on `pivotDate`.  You can also supply date `
 The following returns previous business day based on `pivotDate`
 
 ```javascript
-<%= date.previousBusinessDay('2022-01-10') %> // returns 2022-01-07
+<%- date.previousBusinessDay('2022-01-10') %> // returns 2022-01-07
 ```
 
 *****

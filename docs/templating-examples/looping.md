@@ -5,14 +5,10 @@ sidebar_position: 6
 # Looping
 `np.Templating` template processor supports a variety of JavaScript code formats. The following examples demonstrate how you can use looping controls (`for`, `.forEach`, etc) and output internal control-flow variables in your templates
 
-:::danger IMPORTANT CONTROL-FLOW VARIABLE OUTPUT
-When outputting control variables in loops, you must use `<%~` otherwise the templating processor will see it as a missing variable and prompt for value
-:::
-
 #### for loops
 
 ```javascript
-<% for(let i = 0; i <= 10; i++) { %> <%~ i %> <% } %>
+<% for(let i = 0; i <= 10; i++) { %> <%- i %> <% } %>
 ```
 
 ### Produces the following
@@ -29,7 +25,7 @@ The following example will iterate an array of values, outputting each item
 
 <% events = ['event1','event2','event3'] -%>
 <% events.forEach((event, i) => {
-%><%~ event %>
+%><%- event %>
 <%});%>
 ```
 
@@ -48,10 +44,10 @@ event3
 ```javascript
 <% names = ['mike','kira','joelle','brady','bailey','trevor'] %>
 <% names.forEach((name, i) => {
-%><%~ i === names.length - 1 ? utils.titleCase(name) : utils.titleCase(name) + '\n' %><%});%>
+%><%- i === names.length - 1 ? utils.titleCase(name) : utils.titleCase(name) + '\n' %><%});%>
 
-<%= '#### array.forEach (handling whitespace)\n'%><% names = ['mike','kira','joelle','brady','bailey','trevor'] %><% names.forEach((name, i) => {
-%><%~ i === names.length - 1 ? utils.titleCase(name) : utils.titleCase(name) + '\n' %><%});%>
+<%- '#### array.forEach (handling whitespace)\n'%><% names = ['mike','kira','joelle','brady','bailey','trevor'] %><% names.forEach((name, i) => {
+%><%- i === names.length - 1 ? utils.titleCase(name) : utils.titleCase(name) + '\n' %><%});%>
 ```
 
 #### Produces the following

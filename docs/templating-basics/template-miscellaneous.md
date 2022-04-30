@@ -17,7 +17,7 @@ You can create output tags which will not auto escape data, but return the raw v
 In the following example, data is retrieved from a quote service, and depending on the result, may sometimes include quote marks `'` in output.
 
 ```markdown
-"<%= web.quote() %>"
+"<%- web.quote() %>"
 ```
 
 Could produce something like

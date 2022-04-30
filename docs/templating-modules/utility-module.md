@@ -75,7 +75,7 @@ Keywords in replacement fields can be optionally followed by any number of keywo
 The following example will format string using parameter position (parameter access is 1 based)
 
 ```markdown
-<%= utility..format('%2$s %3$s a %1$s', 'cracker', 'Polly', 'wants')
+<%- utility..format('%2$s %3$s a %1$s', 'cracker', 'Polly', 'wants')
 // returns Polly wants a cracker
 ```
 
@@ -90,7 +90,7 @@ Concatenates all parameters into single string (you can supply unlimited paramet
 The following example will concatenate each parameter into a single string
 
 ```javascript
-<%= utility.concat(`${user.first}`, '          ', `${user.last}`) %>
+<%- utility.concat(`${user.first}`, '          ', `${user.last}`) %>
 // concatenates first and last values from np.Templating settings
 ```
 
@@ -105,7 +105,7 @@ Converts `param` to lowercase
 The following example converts string to lowercase
 
 ```javascript
-<%= utility.lowercase('HELLO WORLD') %>
+<%- utility.lowercase('HELLO WORLD') %>
 // returns hello world
 ```
 
@@ -120,7 +120,7 @@ Converts `param` to uppercase
 The following example converts string to uppercase
 
 ```javascript
-<%= utility.uppercase('hello world') %>
+<%- utility.uppercase('hello world') %>
 // returns HELLO WORLD
 ```
 
@@ -135,7 +135,7 @@ Converts `param` to title case
 The following example converts string to title case
 
 ```javascript
-<%= utility.titleCase('hello world') %>
+<%- utility.titleCase('hello world') %>
 // returns Hello World
 ```
 
@@ -150,7 +150,7 @@ Converts `param` to camel case
 The following example converts string to camel case
 
 ```javascript
-<%= utility.camelize('hello world in template') %>
+<%- utility.camelize('hello world in template') %>
 // returns helloWorldInTemplate
 ```
 
@@ -165,9 +165,9 @@ Converts `param` to slug case, spaces are converted to `-` and all lowercase
 The following examples converts string to slug case
 
 ```javascript
-<%= utility.camelize('hello world in template') %>
+<%- utility.camelize('hello world in template') %>
 // returns hello-world-in-template
 
-<%= utility.camelize('Hello World In Template') %>
+<%- utility.camelize('Hello World In Template') %>
 // returns hello-world-in-template
 ```

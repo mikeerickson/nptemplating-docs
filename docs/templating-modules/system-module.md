@@ -23,7 +23,7 @@ Insert contents of system clipboard
 The following example will insert the contents of the clipboard within template
 
 ```markdown
-<%= system.clipboard() %>
+<%- system.clipboard() %>
 ```
 
 *****
@@ -75,6 +75,77 @@ The following example will display a choice list prompt
 
 *****
 
+### promptDate
+> #### promptDate(placeholder? : string, question?: string) : string
+Display date prompt during template rendering, providing interface for supplying dynamic data for notes when invoking template.
+
+:::note
+The date must in `yyyy-mm-dd` format
+:::
+
+- `placeholder?` - A unique placeholder which will receive the contents of prompt request
+
+- `promptMessage?` - An optional prompt message.
+  - If not supplied, default message 'Enter Date:' will be used
+
+- `-> result` - Entered date value, if `Cancel` is clicked, result will be empty
+
+
+**Example:**
+
+The following example will display default date prompt
+
+```markdown
+<%- system.datePrompt() %>
+```
+
+![Date Prompt](/img/date-prompt.png)
+
+The following example will display date prompt using custom prompt message
+
+```markdown
+<%- system.datePrompt('Please enter start date:') %>
+```
+
+![Date Prompt](/img/date-prompt-e2.png)
+
+*****
+
+### promptDateInterval
+> #### promptDateInterval(placeholder? : string, question?: string) : string
+Display date interval prompt during template rendering, providing interface for supplying dynamic data for notes when invoking template.
+
+:::note
+The date must in `nn[bdwnqy]` format (e.g. 5d, 3w, 2y, etc)
+:::
+
+- `placeholder?` - A unique placeholder which will receive the contents of prompt request
+
+- `promptMessage?` - An optional prompt message.
+  - If not supplied, default message 'Enter Date Interval:' will be used
+
+- `-> result` - Entered date value, if `Cancel` is clicked, result will be empty
+
+**Example:**
+
+The following example will display default date interval prompt
+
+```markdown
+<%- system.promptDateInterval() %>
+```
+
+![Date Prompt](/img/date-interval-prompt.png)
+
+The following example will display date interval prompt using custom prompt message
+
+```markdown
+<%- system.promptDateInterval('Date interval to use:') %>
+```
+
+![Date Prompt](/img/date-interval-prompt-e2.png)
+
+*****
+
 ### selection
 > #### selection() : void
 Insert contents of selected text before invoking any of the `np.Templating` render commands
@@ -84,5 +155,5 @@ Insert contents of selected text before invoking any of the `np.Templating` rend
 The following example will insert the contents of selected text when render command was invoked.
 
 ```markdown
-<%= system.selection() %>
+<%- system.selection() %>
 ```

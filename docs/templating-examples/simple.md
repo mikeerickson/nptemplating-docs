@@ -25,7 +25,7 @@ In the simplest form, a template will  have some content (information below the 
 ```markdown
 # Test (HelloWorld)
 *****
-Hello <%= user.first %>
+Hello <%- user.first %>
 ```
 
 ## Output

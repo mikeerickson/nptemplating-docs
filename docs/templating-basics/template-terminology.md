@@ -6,7 +6,7 @@ sidebar_position: 4
 To further understand how `np.Templating` works, let's define a few important items:
 
 - A template is a note which contains text and commands
-- A text snippet that starts with an opening tag `<%=`, ends with a closing tag `%>` and contains a **variable** or **method** (which is referred to as command or placeholder). You can refer to [Templating - Commands](/docs/templating-commands/overview) to find more advanced usage of commands
+- A text snippet that starts with an opening tag `<%-`, ends with a closing tag `%>` and contains a **variable** or **method** (which is referred to as command or placeholder). You can refer to [Templating - Commands](/docs/templating-commands/overview) to find more advanced usage of commands
 - A **variable** or **method** is an object that we can invoke using a [template command](/docs/templating-commands/overview) and that returns a value (the replacement string)
 
 There are two types of **variables**/**methods** you can use in your templates:

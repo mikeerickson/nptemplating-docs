@@ -11,10 +11,10 @@ sidebar_position: 10
 By default, `np.Templating` will present a prompt consecutively as it processes the template for any missing variable contained in your template.
 
 ### Example 1: from display tags
-For example, if you have a display tag `<%=` in your template which is not in your template data, a prompt will be displayed
+For example, if you have a display tag `<%@` in your template which is not in your template data, a prompt will be displayed
 
 ```markdown
-<%= firstName &>
+<%@ firstName &>
 ```
 
 ![Templating Prompt](/img/prompt-default.png)
@@ -31,9 +31,9 @@ When using `prompt` command, you must supply a valid placeholder name (e.g. `nam
 Using the following template
 
 ```markdown
-Task Priority: <%= prompt('priority','What is task priority?',['high','medium','low']) %>
+Task Priority: <%- prompt('priority','What is task priority?',['high','medium','low']) %>
 
-Use the same variable anywhere else in template `<%= priority %>`
+Use the same variable anywhere else in template `<%- priority %>`
 ```
 
 When template is rendered, it will display a choice list prompt
@@ -48,7 +48,7 @@ The following example demonstrates how you can place prompts at the top of templ
 
 The rest of this could be your template code
 And then finally use the `lastName` variable
-<%= lastName %>
+<%- lastName %>
 ```
 
 The template would render as follows, with the `lastName` value result from prompt on first line (assuming entered `lastName` Erickson)
@@ -61,12 +61,12 @@ Erickson
 
 ## Asking for dates or date intervals
 There are two further commands available:
-- **`pickDate('question','message')`**, which accepts dates of form `YYYY-MM-DD`
-- **`pickDateInterval('question','message')`**, which accepts date intervals of form `nnn[bdwmqy]`, as used and documented further in the [**Repeat Extensions** plugin](https://github.com/NotePlan/plugins/tree/main/jgclark.RepeatExtensions).
+- **`promptDate('question','message')`**, which accepts dates of form `YYYY-MM-DD`
+- **`promptDateInterval('question','message')`**, which accepts date intervals of form `nnn[bdwmqy]`, as used and documented further in the [**Repeat Extensions** plugin](https://github.com/NotePlan/plugins/tree/main/jgclark.RepeatExtensions).
 
 Both require the first parameter to be 'question', but accept an optional prompt message. They must be placed where the text is to be used.  For example:
 
 ```markdown
-Project start date: <%= pickDate('question','Enter start date:') %>
-Review frequency: <%= pickDateInterval('question','Enter review interval:') %>
+Project start date: <%- promptDate('question','Enter start date:') %>
+Review frequency: <%- promptDateInterval('question','Enter review interval:') %>
 ```
