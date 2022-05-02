@@ -109,7 +109,7 @@ The following example will subtract 2 weeks
 <%- date.now('', '-2w') %>
 ```
 
-The following example will add 2 years
+The following example will subtract 2 years
 
 ```javascript
 <%- date.now('', '-2y') %>
