@@ -14,7 +14,7 @@ The following are all the `np.Templating` releases
 You can find the full `np.Templating` Changelog [here](https://github.com/NotePlan/plugins/blob/main/np.Templating/CHANGELOG.md) which provides more detailed information about reach release.
 :::
 
-#### [1.1.0] - 2022-04-30 (mikeerickson)
+#### [1.1.0] - 2022-05-02 (mikeerickson)
 
 #### [1.0.3] - 2022-04-21 (mikeerickson)
 

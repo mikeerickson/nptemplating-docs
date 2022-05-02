@@ -56,7 +56,18 @@ Returns a string representation current date.
 _Note: Also available as [helper](/docs/templating-modules/date-module#helpers) method_
 
 - `format?` - Desired date format. If not supplied, it will use the **Date Format** value in `np.Templating` [Plugin Settings](/docs/settings)
-- `offset?` - Offset can be used to add/subtract `d`, `w`, `m` (use negative number to subtract values)
+- `offset?` - Offset can be used to add/subtract days, months, weeks, etc. (default: 'days')
+
+**Shorthand Keys:**
+In addition to add/subtract days, you can `offset` may contain shorthand values
+
+| Shorthand | Description
+| --- | ---
+| y | years
+| Q | quarters
+| M | months
+| w | weeks
+| d | days
 
 - `-> result` - Returns formatted date string
 
@@ -74,11 +85,42 @@ The following example returns current date using custom format
 <%- date.now("dddd Do MMMM YYY") %>
 ```
 
+The following example will subtract 90 days
+
+```javascript
+<%- date.now('', -90) %>
+```
+
+The following example will add 10 days
+
+```javascript
+<%- date.now('', 10) %>
+```
+
+The following example will subtract 2 months
+
+```javascript
+<%- date.now('', '-2M') %>
+```
+
+The following example will subtract 2 weeks
+
+```javascript
+<%- date.now('', '-2w') %>
+```
+
+The following example will add 2 years
+
+```javascript
+<%- date.now('', '-2y') %>
+```
+
 The following example uses the `now` helper
 
 ```javascript
 <%- now() %>
 ```
+
 
 *****
 ### timestamp
