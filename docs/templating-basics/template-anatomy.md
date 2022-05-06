@@ -3,16 +3,16 @@ sidebar_position: 2
 ---
 
 # Template Anatomy
-`np.Templating` template use format called [Frontmatter](https://jekyllrb.com/docs/front-matter/) which is commonly found in blogging platforms which utilizes templates to render dynamic content and is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
+The `np.Templating` template uses a format called [Frontmatter](https://jekyllrb.com/docs/front-matter/) commonly found in blogging platforms that utilize templates to render dynamic content. It is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
 
 ### Template Configuration
-There are two parts to a NotePlan template, template attributes, and template body.
+There are two parts to a NotePlan template: template attributes and template body.
 
 ![NotePlan Event](/img/noteplan-default-template.png)
 
 `attributes` - The attribute section is between open `---` and closing `---` tags. The attributes will have at least two properties `title` and `type`. NotePlan will display the frontmatter attributes in an alternate tint color
 
-`body` - The remainder of template, after the second delimiter line`---` is the template content and will be use when template is rendered.
+`body` - The remainder of template, after the second delimiter line`---`, is the template content and will be used when the template is rendered.
 
 **Example**
 
@@ -33,7 +33,7 @@ And the remainder of the template will be display here ...
 ```
 
 ### Using Dynamic Keys
-If you wish to have dynamic templates which use frontmatter tags, you can use the following syntax
+If you wish to have dynamic templates which use frontmatter tags, you can use the following syntax:
 
 - Use `{%` and `%}` template tags in desired frontmatter attribute (see `modified`)
 - Use `<%- frontmatter.attributeName %>` syntax to access frontmatter attributes within template content (see `modified` reference in template)
