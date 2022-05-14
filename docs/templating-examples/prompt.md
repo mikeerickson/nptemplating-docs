@@ -26,6 +26,7 @@ Alternatively, you can use the **`prompt` command**, which can accept optional p
 When using `prompt` command, you must supply a valid placeholder name (e.g. `name`) and the variable must contain valid characters
 - must start with an alpha character (a..z, A..Z)
 - may only contain alphanumeric characters (a..z, A..Z, 0..9)
+- may **not** contain spaces
 :::
 
 Using the following template

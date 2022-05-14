@@ -9,6 +9,13 @@ sidebar_position: 6
 For more `np.Templating` prompt examples, refer to the [examples](/docs/templating-examples/prompt) section.
 :::
 
+:::danger PROMPT PLACEHOLDER
+When using `prompt` command, you must supply a valid placeholder name (e.g. `name`) and the variable must contain valid characters
+- must start with an alpha character (a..z, A..Z)
+- may only contain alphanumeric characters (a..z, A..Z, 0..9)
+- may **not** contain spaces
+:::
+
 ## Prompt Options
 `np.Templating` supports prompts four types of prompts, with no configuration required
 

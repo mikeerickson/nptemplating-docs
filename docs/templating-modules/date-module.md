@@ -522,3 +522,4 @@ const templateData = {
 	const renderedData = NPTemplating.renderTemplate('My Template', data)
 }
 ```
+ƒ
