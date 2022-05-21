@@ -1,0 +1,114 @@
+---
+sidebar_position: 2
+---
+
+# Template Anatomy
+`np.Templating` template use format called [Frontmatter](https://jekyllrb.com/docs/front-matter/) which is commonly found in blogging platforms which utilizes templates to render dynamic content and is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
+
+### Template Configuration
+There are two parts to a NotePlan template, template attributes, and template body.
+
+`attributes` - The attribute section is between open `---` and closing `---` tags.
+
+The attributes will have at least two properties `title` and `type`.
+
+:::info
+NotePlan will display the frontmatter attributes in an alternate tint color
+![NotePlan Event](/img/noteplan-default-template.png)
+:::
+
+`body` - The remainder of template, after the second delimiter line`---` is the template content and will be use when template is rendered.
+
+**Example**
+
+```markdown
+---
+title: Template title
+type: empty-note
+---
+Everything below the second `---` will be template content
+
+--
+created: <%- date.now('dddd MMMM Do, YYYY HH:mm A') %>
+--
+
+< -- [[<%- date.yesterday('YYYY-MM-DD') %>]] | [[<%- date.tomorrow('YYYY-MM-DD') %>]] -- >
+
+And the remainder of the template will be display here ...
+```
+
+### Frontmatter Attribute Reentrance
+`np.Templating` supports attribute reentrance, which provides the ability to reference previous attribute values within any future attributes.
+
+:::note TEMPLATE ATTRIBUTE PROCESSING
+Template attribute access operates in a top down process, which means you can reference any attribute prior to the current attribute
+:::
+
+**Example**
+
+The following example will perform the following
+
+- `startDate` will be supplied based on prompt for user to enter start date value
+- `endDate` will use the `startDate` value from previous attribute, and subtract 7 days, using `add` method in [Date Module](/docs/templating-modules/date-module)
+- `formattedDate` demonstrates how to create custom formatting, using `startDate` and `endDate` attributes
+- In the template body, you will see how we can use any of these attributes to produce further formatting, etc.
+
+
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="template" label="Template" default>
+
+```markdown
+---
+startDate: <%- prompt('startDate','Enter Date') %>
+endDate: <%- date.add(startDate, 7) %>
+formattedDate: <%- startDate %> to <%- endDate %>
+type: empty-note
+---
+## Frontmatter Processing
+In this example, the following occurs
+- The  `startDate` attribute is supplied from user input (prompt)
+- The `endDate` attribute is derived by the *DateModule* `add` method, adding 7 days to whatever the user entered
+- And finally, the full date is displayed below
+
+#### Date Range
+**Start Date:** `<%- startDate %>` *value entered from prompt*
+**End Date:** `<%- endDate %>` *calculated adding 7 days to `startDate`*
+**Formatted Date:** `<%- formattedDate %>` *calculated	 from `startDate` and `endDate`*
+
+## Template Body Processing
+In this example, the following occurs
+- Create reminder value using `startDate` and `subtract` method
+
+**Reminder:** `<%- date.subtract(startDate, 7) %>`
+```
+
+  </TabItem>
+  <TabItem value="output" label="Output">
+
+## Frontmatter Processing
+In this example, the following occurs
+- The  `startDate` attribute is supplied from user input (prompt)
+- The `endDate` attribute is derived by the *DateModule* `add` method, adding 7 days to whatever the user entered
+- And finally, the full date is displayed below
+
+#### Date Range
+**Start Date:** `2022-05-21` *value entered from prompt*
+
+**End Date:** `2022-05-28` *calculated adding 7 days to `startDate`*
+
+**Formatted Date:** `2022-05-21  to 2022-05-28` *calcuated from `startDate` and `endDate`*
+
+## Template Body Processing
+In this example, the following occurs
+- Create reminder value using `startDate` and `subtract` method
+
+**Reminder:** `2022-05-14`
+
+  </TabItem>
+
+</Tabs>

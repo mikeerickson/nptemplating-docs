@@ -40,6 +40,30 @@ _aliases: npa, append, at_
 
 _aliases: npi, insert, it_
 
+### np:invoke
+`np:invoke` will show a list of all templates in the `Templates` folder, and will render template in current note based on the `location` attribute value in template.
+
+#### The `location` attribute may be one of the following
+
+> `append` appends to the end of current note (same as `np:append`)
+
+> `cursor` inserts at the cursor position of the current note
+
+> `insert` inserts at the beginning of current note (same as `np:insert`)
+
+_aliases: npv, invoke_
+
+:::note EXAMPLE
+```
+---
+title: Location Example
+type: empty-note
+location: cursor
+---
+This content will be placed in current note using the `location` attribute
+```
+:::
+
 ### np:new
 `np:new` will show a list of all templates in the `Templates` folder, then create a new project note using supplied note name.
 

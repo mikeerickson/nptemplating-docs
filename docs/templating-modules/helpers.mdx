@@ -31,13 +31,14 @@ In addition to the built-in helper methods, if you are using one of the many Not
 If you you see an error message when referencing a plugin command in your template, make sure the associated plugin is installed.
 :::
 
-| Helper Method | NotePlan Plugin
-|-------------- | ----------
-| events() | Event Helpers
-| matchingEvents() | Event Helpers
-| progressUpdate() | Summaries
-| sweepTasks | Task Sweeper
-| weekDates | Date Automations
+| Helper Method | NotePlan Plugin | Usage Example
+|-------------- | ---------- | -----
+| events() | <span style={{paddingRight: '5px'}}> 🕓 </span>[Event Helpers](https://github.com/NotePlan/plugins/tree/main/jgclark.EventHelpers) |
+| matchingEvents() | <span style={{paddingRight: '5px'}}> 🕓 </span>[Event Helpers](https://github.com/NotePlan/plugins/tree/main/jgclark.EventHelpers)
+| progressUpdate() | <span style={{paddingRight: '5px'}}> 🗃  </span> [Summaries](https://github.com/NotePlan/plugins/tree/main/jgclark.Summaries)
+| sweepTasks | <span style={{paddingRight: '5px'}}> 🧹  </span>[Task Sweeper](https://github.com/NotePlan/plugins/tree/main/nmn.sweep) | `<%- sweepTasks({limit:{ "unit": "day", "num": 7 }}) %>`
+| weekDates | <span style={{paddingRight: '5px'}}> 📅  </span>[Date Automations](https://github.com/NotePlan/plugins/tree/main/dwertheimer.DateAutomations) | `<%- weekDates({format:'EEE yyyy-MM-dd'}) %>`
+| date8601 | <span style={{paddingRight: '5px'}}> 📅  </span>[Date Automations](https://github.com/NotePlan/plugins/tree/main/dwertheimer.DateAutomations) | `<%- date8601() %>`
 
 ## Using Custom Methods in Templates
 If you have created your own NotePlan plugin and wish to use it's methods in a template, follow this example.
