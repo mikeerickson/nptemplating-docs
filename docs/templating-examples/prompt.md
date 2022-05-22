@@ -6,7 +6,7 @@ sidebar_position: 10
 `np.Templating` provides the ability to ask the user questions through prompts when rendering templates.
 
 ## Asking for general text
-`np.Templating` supports prompts four types of prompts, with no configuration required.
+`np.Templating` supports four types of prompts, with no configuration required.
 
 By default, `np.Templating` will present a prompt consecutively as it processes the template for any missing variable contained in your template.
 

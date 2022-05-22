@@ -17,7 +17,7 @@ When using `prompt` command, you must supply a valid placeholder name (e.g. `nam
 :::
 
 ## Prompt Options
-`np.Templating` supports prompts four types of prompts, with no configuration required
+`np.Templating` supports four different types of prompts, with no configuration required
 
 ### Example 1: Standard Prompt Interface
 The most common prompting interface is to use the following
