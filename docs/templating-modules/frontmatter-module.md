@@ -202,6 +202,56 @@ export async function testFrontmatter(): Promise<void> {
 
 *****
 
+### convertProjectNoteToFrontmatter
+> #### convertProjectNoteToFrontmatter(projectNote : string = '')  : number | string
+Converts the supplied `projectNote` into Frontmatter Format
+
+- `projectNote` - Project Note
+
+- `-> result` - Converted note (string), or error code (number)
+
+  - **-1:** Empty or invalid Project Note
+
+  - **-2:** Project Note does not start with project title (must start with # character)
+
+  - **-3:** Project Note already in frontmatter format
+
+  - **converted note:** If no errors occurred, the result will be converted project note in Frontmatter format
+
+**Examples**
+
+The following example returns the current date, using default values
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import FrontMatterTemplate from '@TemplatingModules/FrontMatterModule'
+
+export async function testConvertProjectNote(): Promise<void> {
+  try {
+    const note = Editor.content || ''
+
+    const result = new FrontmatterModule().convertProjectNoteToFrontmatter(note)
+    // result:
+    // -1 invalid content
+    // -2 note does not start with title (must start with # character)
+    // -3 note is already in frontmatter format
+    // successfully converted project note
+
+    if(typeof result !== 'string') {
+      await CommandBar.prompt('Conversion Failed',`[${result}] An error occurred converting note.`)
+    } else {
+      // replace current note with converted note
+      Editor.selectAll()
+      Editor.insertTextAtCursor(result)
+
+      Editor.highlightByIndex(0, 0)
+    }
+  } catch (error) {
+    console.log('testConvertProjectNote', error)
+  }
+}
+```
+
 ## Using Prompts
 If you wish to display prompts in your frontmatter attributes section, you can just use the standard `np.Templating` prompt command
 

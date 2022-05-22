@@ -137,6 +137,9 @@ folder: <select>
 ---
 ```
 
+![np.TemplatingInstaller](/img/folder-chooser.png)
+
+
 #### Example 3:
 The following construct the `folder` location using using fixed values first part of folder location, with last folder using [Date Module](/docs/templating-modules/date-module) `date.now('YYYY-MM')`
 
