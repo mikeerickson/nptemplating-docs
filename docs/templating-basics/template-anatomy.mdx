@@ -3,21 +3,50 @@ sidebar_position: 2
 ---
 
 # Template Anatomy
-`np.Templating` template use format called [Frontmatter](https://jekyllrb.com/docs/front-matter/) which is commonly found in blogging platforms which utilizes templates to render dynamic content and is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
+`np.Templating` templates use a format called [Frontmatter](https://jekyllrb.com/docs/front-matter/), that is commonly found in blogging platforms which utilizes templates to render dynamic content, and is a great fit for the way NotePlan integrates normal note taking features, but infuses a robust calendaring system.
 
-### Template Configuration
-There are two parts to a NotePlan template, template attributes, and template body.
+## Template Configuration
+There are two parts to a NotePlan template. Depending on the type of template you are creating, there will be at least two attributes, and template body.
 
-`attributes` - The attribute section is between open `---` and closing `---` tags.
+The template must start with three dashes `---` followed by template attributes, then three more dashes `---` and then the template body, which will be the content that will be rendered when invoking any of the `np.Templating` commands.
 
-The attributes will have at least two properties `title` and `type`.
+All templates must be placed in the "Templates" folder, which can be found in NotePlan Sidebar, located in the "Smart Folders" section.
 
-:::info
+![NotePlan Event](/img/template-folder-border.png)
+
+## Template Sections
+There are two sections in a NotePlan template, template `attributes` and template `body`.
+
+### Template attributes
+
+`attributes` - The attribute section is between opening `---` and closing `---` tags, and contains all configuration key/value pairs, separated by colon `:` character.
+
+:::warning REQUIRED ATTRIBUTES
+All templates must have at least two required attributes `title` and `type`.
+:::
+
+| Attribute | Description
+| --- | :---
+| title | The title attribute is the name of template, and will appear in the Templates folder
+| type | The type attribute determine the type of template, and will control where it is accessible from.
+
+The following are the the list of possible `type` values:
+
+| Type | Description
+| --- | :---
+| empty-note | is a generic note and can be used for anything that will be processed by the various `np.Templating` commands such as `np:new`, `np:insert`, `np:append`, `np:invoke`
+| meeting-note | templates will be available when selecting any of the locations associated with meetings (those displayed in NotePlan calendar)
+| quick-note | templates are accessible when invoking the `np.Templating` quick note command `np:qtn`
+| template | Used with the `<%- include(/** **/) %>` tag, used when creating including templates within other templates
+
+:::info IDENTIFY TEMPLATE FRONTMATTER
 NotePlan will display the frontmatter attributes in an alternate tint color
 ![NotePlan Event](/img/noteplan-default-template.png)
 :::
 
-`body` - The remainder of template, after the second delimiter line`---` is the template content and will be use when template is rendered.
+### Template body
+
+`body` - The remainder of template, placed after the second delimiter line`---` is the template content and will be use when template is rendered.
 
 **Example**
 
@@ -37,24 +66,27 @@ created: <%- date.now('dddd MMMM Do, YYYY HH:mm A') %>
 And the remainder of the template will be display here ...
 ```
 
-### Frontmatter Attribute Reentrance
-`np.Templating` supports attribute reentrance, which provides the ability to reference previous attribute values within any future attributes.
+## Template Attribute Processing
+When a template is processed, the first portion will be template attributes, where you can use static text, or other `np.Templating` commands to provide the setup, before moving onto rendering the template body.
 
-:::note TEMPLATE ATTRIBUTE PROCESSING
-Template attribute access operates in a top down process, which means you can reference any attribute prior to the current attribute
+:::info REENTRANCE SUPPORT
+When `np.Templating` is rendering a template, it processes in a top-down fashion and uses a process know as "reentrance", which provides the ability to reference any previous attribute values as the basis for the current attribute.
 :::
+
+## Template Body Processing
+After the attributes have been processed, the next pass will process the template body.  You can use any of the supported `np.Templating` [modules](/docs/templating-modules/overview), or reference any `attribute` from the processed template attributes.
 
 **Example**
 
 The following example will perform the following
 
 - `startDate` will be supplied based on prompt for user to enter start date value
+
 - `endDate` will use the `startDate` value from previous attribute, and subtract 7 days, using `add` method in [Date Module](/docs/templating-modules/date-module)
+
 - `formattedDate` demonstrates how to create custom formatting, using `startDate` and `endDate` attributes
+
 - In the template body, you will see how we can use any of these attributes to produce further formatting, etc.
-
-
-
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,7 +101,8 @@ endDate: <%- date.add(startDate, 7) %>
 formattedDate: <%- startDate %> to <%- endDate %>
 type: empty-note
 ---
-## Frontmatter Processing
+**Frontmatter Processing**
+x
 In this example, the following occurs
 - The  `startDate` attribute is supplied from user input (prompt)
 - The `endDate` attribute is derived by the *DateModule* `add` method, adding 7 days to whatever the user entered
@@ -90,7 +123,8 @@ In this example, the following occurs
   </TabItem>
   <TabItem value="output" label="Output">
 
-## Frontmatter Processing
+**Frontmatter Processing**
+
 In this example, the following occurs
 - The  `startDate` attribute is supplied from user input (prompt)
 - The `endDate` attribute is derived by the *DateModule* `add` method, adding 7 days to whatever the user entered
@@ -101,9 +135,9 @@ In this example, the following occurs
 
 **End Date:** `2022-05-28` *calculated adding 7 days to `startDate`*
 
-**Formatted Date:** `2022-05-21  to 2022-05-28` *calcuated from `startDate` and `endDate`*
+**Formatted Date:** `2022-05-21  to 2022-05-28` *calculated from `startDate` and `endDate`*
 
-## Template Body Processing
+Template Body Processing
 In this example, the following occurs
 - Create reminder value using `startDate` and `subtract` method
 
