@@ -355,10 +355,18 @@ The following returns weekOf value based on `pivotDate`
 Returns start of week date
 
 - `format` - Optional date format, uses `np.Templating` Date Format if not supplied
-- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `pivotDate?` - Desired date to obtain start of week. If not supplied, it will use current date
 - `firstOfWeek` - Day number for first of week if not 0 (Sunday)
 
 - `-> result` Returns start of week
+
+**Example**
+
+The following returns start of week based on `pivotDate`
+
+```javascript
+<%- date.startOfWeek('2021-12-01') %> // the following return 2021-11-29
+```
 
 *****
 
@@ -367,10 +375,62 @@ Returns start of week date
 Returns end of week date
 
 - `format` - Optional date format, uses `np.Templating` Date Format if not supplied
-- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `pivotDate?` - Desired date to obtain end of week. If not supplied, it will use current date
 - `firstOfWeek` - Day number for first of week if not 0 (Sunday)
 
 - `-> result` Returns end of week
+
+*****
+
+### startOfMonth
+> #### startOfMonth(format? string = '', pivotDate? : string = '') : string
+Returns start of month date
+
+- `format` - Optional date format, uses `np.Templating` Date Format if not supplied
+- `pivotDate?` - Desired date to obtain start of month. If not supplied, it will use current date
+
+- `-> result` Returns start of month
+
+*****
+
+### daysInMonth
+> #### daysInMonth(pivotDate? : string = '') : number
+Returns number of days in month
+
+- `pivotDate?` - Desired date to obtain days in month. If not supplied, it will use current date
+
+- `-> result` Returns days in month
+
+*****
+
+### endOfMonth
+> #### endOfMonth(format? string = '', pivotDate? : string = '') : string
+Returns start of month date
+
+- `format` - Optional date format, uses `np.Templating` Date Format if not supplied
+- `pivotDate?` - Desired date to obtain start of month. If not supplied, it will use current date
+
+- `-> result` Returns end of month
+
+*****
+
+### add
+> #### add(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
+Adds `numDays` days.  You can also supply `pivotDate` and date `format`
+
+- `numDays` - Number of days to add (default: 1)
+- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `format?` - Optional format string
+
+- `-> result` Returns formatted date string
+
+**Example**
+
+The following adds 7 days, using current date
+
+```javascript
+<%- date.add(7, '2022-01-07') %> // returns 2022-01-14
+```
 
 *****
 
@@ -393,12 +453,31 @@ The following adds 3 business days, using current date
 ```
 
 *****
+### subtract
+> #### subtract(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
+Subtracts `numDays` days.  You can also supply `pivotDate` and date `format`
+
+- `numDays` - Number of days to add (default: 1)
+- `pivotDate?` - Desired date to subtract from. If not supplied, it will use current date
+- `format?` - Optional format string
+
+- `-> result` Returns formatted date string
+
+**Example**
+
+The following subtracts 7 days, using current date
+
+```javascript
+<%- date.subtract(7, '2022-01-12') %> // returns 2022-01-05
+```
+
+*****
 ### businessSubtract
 > #### businessSubtract(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
 Subtracts `numDays` business days.  You can also supply `pivotDate` and date `format`
 
-- `numDays` - Number of days to add (default: 1)
-- `pivotDate?` - Desired date to obtain week number. If not supplied, it will use current date
+- `numDays` - Number of business days to subtract (default: 1)
+- `pivotDate?` - Desired date to obtain subtract from. If not supplied, it will use current date
 - `format?` - Optional format string
 
 - `-> result` Returns formatted date string
@@ -408,7 +487,7 @@ Subtracts `numDays` business days.  You can also supply `pivotDate` and date `fo
 The following subtracts 3 business days, using current date
 
 ```javascript
-<%- date.nextBusinessSubtract(3, '2022-01-12') %> // returns 2022-01-07
+<%- date.businessSubtract(3, '2022-01-12') %> // returns 2022-01-07
 ```
 
 *****

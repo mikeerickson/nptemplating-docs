@@ -14,6 +14,9 @@ The [Date Module](/docs/templating-modules/date-module) provides methods and var
 ### Time Module
 The [Time Module](/docs/templating-modules/time-module) provides methods and variables which work with dates.
 
+### Note Module
+The [Note Module](/docs/templating-modules/note-module) provides a suite of methods which provide access to current note attributes
+
 ### System Module
 The [System Module](/docs/templating-modules/system-module) provides a suite of methods which provide access to system level commands such as clipboard or current selection
 

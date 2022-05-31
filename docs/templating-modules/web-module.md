@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Web Module
@@ -151,7 +151,7 @@ Returns random Bible verse
 
 ### weather
 > #### weather(format? : string = '') : string
-Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string. 
+Returns weather information from [wttr.in](https://wttr.in) weather service, using the [Weather Format](/docs/settings) from `np.Templating` Settings, or a custom `format` string.
 
 :::note
 You can set the default weather format in `np.Templating` [settings](/docs/settings) which will be used when `<%- web.weather() %>` command is executed. If you need to specify location manually, see [Javascript Weather Example](/docs/templating-examples/javascript-weather)

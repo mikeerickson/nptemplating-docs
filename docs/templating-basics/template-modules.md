@@ -16,6 +16,9 @@ The following is a quick overview of all the included modules, for more details 
 ### Frontmatter Module
 [Frontmatter Module](/docs/templating-modules/frontmatter-module) exposes all the frontmatter variables of a file as internal variables.
 
+### Note Module
+[Note Module](/docs/templating-modules/note-module) exposes all the note variables of a file as internal variables.
+
 ### Time Module
 [Time Module](/docs/templating-modules/time-module) contains every internal variable / method related to time values.
 
