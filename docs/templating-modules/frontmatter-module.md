@@ -99,6 +99,36 @@ export async function testFrontmatter(): Promise<void> {
 ```
 
 *****
+### getFrontmatterText
+> #### getFrontmatterText(templateData : string = '')  : string
+Returns frontmatter text from `templateData`
+
+The frontmatter text of a template is content between start `---` and end `---` tags, including `---` characters.
+
+- `templateData` - Template data
+
+- `-> result` - Returns frontmatter text
+
+**Examples**
+
+The following example returns the frontmatter text for supplied template data
+
+```javascript
+import NPTemplating from 'NPTemplating'
+import FrontmatterModule from '@TemplatingModules/FrontMatterModule'
+
+export async function testFrontmatter(): Promise<void> {
+  try {
+    const result = await NPTemplating.getTemplate('FrontMatter Template Example')
+
+    const frontmatterText = new FrontMatterModule().getFrontmatterText(templateData)
+  } catch (error) {
+    console.log('testFrontmatter', error)
+  }
+}
+```
+
+*****
 ### parse
 > #### parse(templateData : string = '')  : any
 Parses frontmatter template, returning frontmatter attributes and body

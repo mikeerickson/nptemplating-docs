@@ -68,9 +68,11 @@ Assuming the current note has a title of "# Todo List" the value returned will b
 *****
 
 ### content
-> #### content() : string
+> #### content(stripFrontmatter: boolean = false) : string
 Returns content of current note in markdown format
 
+- `stripFrontmatter` (default: `false`) - If `true`, content frontmatter will be stripped.
+-
 -> `content` - Returns content of current note
 
 **Example:**
@@ -262,7 +264,7 @@ Returns array paragraphs contained in this note which contain a link to a daily 
 > #### backlinks() : array
 Returns array of all backlinks pointing to the current note as Paragraph objects.
 
-In this array, the toplevel items are all notes linking to the current note and the 'subItems' attributes (of the paragraph objects) contain the paragraphs with a link to the current note.
+In this array, the top level items are all notes linking to the current note and the 'subItems' attributes (of the paragraph objects) contain the paragraphs with a link to the current note.
 
 The headings of the linked paragraphs are also listed here, although they don't have to contain a link.
 
