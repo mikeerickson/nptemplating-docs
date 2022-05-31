@@ -67,6 +67,22 @@ Assuming the current note has a title of "# Todo List" the value returned will b
 
 *****
 
+### content
+> #### content() : string
+Returns content of current note in markdown format
+
+-> `content` - Returns content of current note
+
+**Example:**
+
+The following will return the content of current note
+
+```javascript
+<%- note.content() %> // Markdown formatted content of current note
+```
+
+*****
+
 ### date
 > #### date(format: ?string = '') : date
 Returns the date value of a calendar note.  If the current note is a project note, an empty string will be returned
@@ -167,8 +183,87 @@ Returns comma separated list of mentions located in current note
 
 **Example:**
 
-The following will comma separated list of mentions
+The following will return comma separated list of mentions
 
 ```javascript
 <%- note.mentions() %> // #tag1, #tag2, ...
 ```
+
+*****
+
+### paragraphs
+> #### paragraphs() : string
+Returns an array of paragraph objects for the current note
+
+-> `paragraphs` - Returns an array of paragraph objects for the current note
+
+Each object in paragraph array will contain the following keys
+
+`type` - type of paragraph
+`content` - content
+`rawContent` - content including any markdown
+`prefix` - The first character of the `rawContent`
+`heading` - Paragraph heading
+`isRecurring` - If this paragraph is a todo item, is it recurring
+`filename` - Same as `filename` command above
+`noteType` - Type of note which paragraphs are associated.
+> Calendar if note is a calendar note
+> Notes if the note is a regular project note
+`linkedNoteTitles` - An array of titles for any linked notes
+`subItems` - An array of subitems
+`referenceBlocks` - An array of all reference items (those references listed at the top of note)
+
+**Example:**
+
+The following will iterate through all paragraph objects for the current note.
+
+```javascript
+<% const paragraphs = await note.paragraphs() -%>
+<% paragraphs.map(item => { -%>
+<%- item.key + ' : ' + item.value %>
+<%}) -%>
+```
+
+```markdown
+type : title
+content : Tue, May 31, 2022
+rawContent : # Tue, May 31, 2022
+prefix : #
+heading :
+isRecurring : false
+filename : 20220531.md
+noteType : Calendar
+linkedNoteTitles :
+subItems :
+referencedBlocks :
+type : text
+content : *Created: 2022-05-31 2:21 pm*
+rawContent : *Created: 2022-05-31 2:21 pm*
+prefix :
+heading : Tue, May 31, 2022
+isRecurring : false
+filename : 20220531.md
+noteType : Calendar
+linkedNoteTitles :
+subItems :
+referencedBlocks :
+
+*****
+
+### datedTodos
+> #### datedTodos() : array
+Returns array paragraphs contained in this note which contain a link to a daily note.
+
+-> `datedTodos` - Returns an array of datedTodos objects for the current note
+
+*****
+
+### backlinks
+> #### backlinks() : array
+Returns array of all backlinks pointing to the current note as Paragraph objects.
+
+In this array, the toplevel items are all notes linking to the current note and the 'subItems' attributes (of the paragraph objects) contain the paragraphs with a link to the current note.
+
+The headings of the linked paragraphs are also listed here, although they don't have to contain a link.
+
+-> `datedTodos` - Returns an array of datedTodos objects for the current note
