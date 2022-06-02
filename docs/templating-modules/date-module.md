@@ -414,6 +414,29 @@ Returns start of month date
 
 *****
 
+### daysBetween
+> #### daysBetween(startDate : string = '', endDate: string = '') : number | string
+Returns days between two dates.
+
+- `startDate` - Desired start date
+- `endDate` - Desired end date
+
+- `-> result` Returns number of days between `startDate` and `endDate`
+
+:::note
+If `startDate` or `endDate` are not supplied, an error string ("Invalid Start Date" or "Invalid End Date") will be returned
+:::
+
+**Example**
+
+The following returns number of days between `2022-05-01` and `2022-06-31` (returns `31`)
+
+```javascript
+<%- date.daysBewteeen('2022-05-01', '2022-06-01') %> // returns 31
+```
+
+*****
+
 ### add
 > #### add(numDays : number = 1, pivotDate? : string = '', format? : string = '') : string
 Adds `numDays` days.  You can also supply `pivotDate` and date `format`
