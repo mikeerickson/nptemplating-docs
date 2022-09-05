@@ -47,7 +47,7 @@ If you would like to have greater control, you can also use a service such as `o
 
 <% const config = { openWeatherAPIKey: "YOUR_KEY_HERE",  lat: "34.0735807",long: "-118.4633328", units: "imperial"} -%>
 <% /* -- DO NOT TOUCH ANYTHING BELOW THIS LINE --------------------- */ -%>
-<% const weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${config.lat}&lon=${config.long}&exclude=current,hourly,minutely&units=${config.units}&appid=${config.openWeatherAPIKey}`  -%>
+<% const weatherURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${config.lat}&lon=${config.long}&exclude=current,hourly,minutely&units=${config.units}&appid=${config.openWeatherAPIKey}`  -%>
 <% const jsonIn = await fetch(weatherURL);  -%>
 <% const allWeatherData = JSON.parse(jsonIn);  -%>
 <% const weatherTodayAll = allWeatherData?.daily['0']; -%>
