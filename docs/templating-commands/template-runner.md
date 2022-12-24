@@ -39,7 +39,7 @@ If `writeUnderHeading` is set to either `<CHOOSE>` or `<SELECT>`, you will be pr
 
 ## Examples
 
-### Simple Example
+### Simple Example - Daily Template
 
 In this example, we will update a daily notes template to allow it to be applied by opening a URL. Once this is set up, you can use another application to launch the URL which will open NotePlan and apply the template automatically. This is useful to launch NotePlan first thing in the morning and ensure you start off with your daily template applied.
 
@@ -84,3 +84,7 @@ At this point, you can opt to have a raw link or a pretty link inserted into you
 ```
 noteplan://x-callback-url/runPlugin?pluginID=np.Templating&command=templateRunner&arg0=Daily%20Note%20%28Simple%29&arg1=true&arg2=
 ```
+
+### Advanced Example - Inline Meeting Notes
+
+This example is a bit more involved, and required two separate templates. The first template is configured as a meeting note template (`type: meeting-note`) and is used to run a bit of JavaScript which then calls the `templateRunner` plugin with the second template. 
