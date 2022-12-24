@@ -85,6 +85,64 @@ At this point, you can opt to have a raw link or a pretty link inserted into you
 noteplan://x-callback-url/runPlugin?pluginID=np.Templating&command=templateRunner&arg0=Daily%20Note%20%28Simple%29&arg1=true&arg2=
 ```
 
+
 ### Advanced Example - Inline Meeting Notes
 
-This example is a bit more involved, and required two separate templates. The first template is configured as a meeting note template (`type: meeting-note`) and is used to run a bit of JavaScript which then calls the `templateRunner` plugin with the second template. 
+This example is a bit more involved, and requires two separate templates. The first template is configured as a meeting note template (`type: meeting-note`) and is used to run a bit of JavaScript which then calls the `templateRunner` plugin with the second template. 
+
+#### First Template
+
+The template below can be copied as-is and placed in your template folder. Feel free to change the name, but leave the JavaScript code unmodified. I called this template **Inline Meeting Notes** because when used, it will insert the meeting notes into my daily note, rather than creating a standalone note file.
+
+When this template is invoked, it will run the JavaScript code. The first line of the code creates a parameter string to pass to templateRunner, and includes all the variables you would typically use in a meeting notes template. Because our second template is not being triggered by any traditional meeting note workflow, it doesn't have a link to an event. Without an event, it doesn't have access to these variables, so we must pass them in.
+
+The second line of code calls the templateRunner command, and passes in both a target template, and the list of parameters just constructed. In this example, the target template is called **Meeting Notes**. If you want to change the name of the target template, make sure to update this code as well.
+
+````
+---
+title: Inline Meeting Notes
+type: meeting-note
+---
+```javascript
+const eventInfoString = `eventTitle=${eventTitle};eventNotes=${eventNotes};eventLink=${eventLink};calendarItemLink=${calendarItemLink};eventAttendees=${eventAttendees};eventAttendeeNames=${eventAttendeeNames};eventLocation=${eventLocation};eventCalendar=${eventCalendar};eventDate=${eventDate('YYYY-MM-DD')};eventStart=${eventDate("YYYY-MM-DD HH:MM")};eventEnd=${eventEndDate("YYYY-MM-DD HH:MM")}`
+await DataStore.invokePluginCommandByName("templateRunner","np.Templating",["Meeting Notes",true,eventInfoString])
+```
+````
+
+#### Second Template
+
+The second template will look more like a traditional meeting note template,
+but will include additional frontmatter attributes needed by templateRunner.
+In this case, we're telling templateRunner to do the following:
+
+1. Open today's daily note
+2. Put the content of the template under the heading **Today's Notes** 
+3. Append the content of the template within this heading (newer notes at
+   the bottom)
+
+```
+---
+title: Meeting Notes
+openNoteTitle:  <TODAY>
+writeUnderHeading: "Today's Notes"
+location: append
+---
+### <%- eventTitle %> - <%- eventDate %>
+**Event:**  <%- calendarItemLink %>
+**Link:** <%- eventLink %>
+**Attendees:** <%- eventAttendees %>
+---
+
+#### Agenda
+-
+
+#### Meeting Minutes
+-
+```
+
+#### Running the Template
+
+Once these two templates are in place, you can create meetings notes just as
+you did before. When you select **Inline Meeting Notes** as your template
+for an event, your meeting notes will now show up in your daily note rather
+than as a standalone note file. 
