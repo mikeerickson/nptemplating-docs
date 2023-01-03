@@ -7,16 +7,16 @@ sidebar_position: 3
 
 ## Required Attributes
 
-one of either `opennotetitle` or `writenotetitle` is required to be present in the frontmatter of the template. this attribute specifies the target note the template content should be placed. 
+### getNoteTitle
 
-If `openNoteTitle` is used, the target note will be opened in the editor with the content of the template inserted. If `writeNoteTitle` is use, the content of the template will be inserted into the target note in the background.
+The value of this attribute can be one of the following:
 
-The following special values can be used for `openNoteTitle` or `writeNoteTitle`:
-
-- `<TODAY>`: use today's daily note as the target note
-- `<THISWEEK>`: use the current weekly note as the target note
-- `<NEXTWEEK>`: use next week's weekly note as the target note
-- `<CURRENT>`: use the note in the editor as the target note
+- a note title - should be a unique title (you will get the first note if there are more than one)
+- `<current>`
+- `<choose>` - user will be asked to select one
+- `<today>`
+- `<thisweek>`
+- `<nextweek>`
 
 ## Other Attributes
 
@@ -26,16 +26,22 @@ The following attributes control how template content is inserted into the targe
 
 The `location` attribute may be one of the following values:
 
-- `append`: template content will be appended to the target note
-- `replace`: template content will replace the content in the target note
-
-If the `location` attribute is not present, the template content will be inserted at the beginning of the target note.
+- `prepend` - the default if not specified
+- `append`
+- `replace` - will replace the contents under the heading
 
 ### writeUnderHeading
 
-If `writeUnderHeading` has a value, the content of the template will be inserted under the specified heading. The value of the `location` attribute will control how the content is inserted within the heading.
+The `writeUnderHeading` attribute may be one of the following values:
 
-If `writeUnderHeading` is set to either `<CHOOSE>` or `<SELECT>`, you will be prompted to select a heading at the time the content is inserted
+- a heading name - a heading will be created if it doesn't exist
+- `<choose>`
+
+### replaceNoteContents
+
+The value of `replaceNoteContents` can be 'true' or 'yes' -- omitted for false
+
+**Note:** if `replaceNoteContents` is true, then `location` and `writeUnderHeading` are ignored
 
 ## Examples
 
@@ -63,7 +69,7 @@ documentation: https://help.noteplan.co/article/136-templates
 In the frontmatter section, add the following properties:
 
 ```
-openNoteTitle: <TODAY>
+getNoteTitle: <TODAY>
 location: append
 ```
 
@@ -123,7 +129,7 @@ In this case, we're telling templateRunner to do the following:
 ```
 ---
 title: Meeting Notes
-openNoteTitle:  <TODAY>
+getNoteTitle:  <TODAY>
 writeUnderHeading: "Today's Notes"
 location: append
 ---
